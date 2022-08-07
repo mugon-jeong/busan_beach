@@ -8,12 +8,6 @@ def repository="busan-beach"
 
 def deployHost="172.31.35.43"
 
-#이미지 빌드시 이름을 ECR 쪽으로 변경
-app = docker.build("${ecrUrl}/${repository}")
-
-# ECR에서 생성한 Repository URI로 변경 및 Jenkins AWS Credential으로 변경
-docker.withRegistry('https://{ecrUrl}', 'ecr:ap-northeast-2:aws-key')
-
 pipeline {
 
 	agent { docker { image 'node:alpine' } }
