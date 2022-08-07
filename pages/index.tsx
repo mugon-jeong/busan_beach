@@ -10,8 +10,8 @@ const Home: NextPage = () => {
         <Image
           src='/../public/asset/img/building.png'
           alt="preparing the site"
-          width={553}
-          height={550}
+          width={422}
+          height={420}
         />
       </div>
     </div>
