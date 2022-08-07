@@ -9,7 +9,7 @@ def repository="busan-beach"
 def deployHost="172.31.35.43"
 
 pipeline {
-    agent { docker { image 'node:alpine' } }
+    agent any
     stages {
         stage('Pull Codes from Github'){
             steps{
