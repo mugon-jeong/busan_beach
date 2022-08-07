@@ -9,17 +9,11 @@ def repository="busan-beach"
 def deployHost="172.31.35.43"
 
 pipeline {
-    agent { docker { image 'node:alpine' } }
+    agent any
     stages {
         stage('Pull Codes from Github'){
             steps{
                 checkout scm
-            }
-        }
-        stage('Build Codes') {
-            steps {
-                sh "npm install"
-                sh "npm run build"
             }
         }
         stage('Build Docker Image by Jib & Push to AWS ECR Repository') {
