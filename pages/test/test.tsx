@@ -6,7 +6,7 @@ const StyledButton = styled.button`
   border: 2px solid ${props => props.theme.fg};
   background: ${props => props.theme.bg};
 
-  font-size:${props => props.theme.fontTheme.rgl_s};
+  font-size: 1rem;
   margin: 1rem;
   padding: 0.25rem 1rem;
   border-radius: 3px;
@@ -15,22 +15,7 @@ const StyledButton = styled.button`
 const theme = {
   fg: "palevioletred",
   bg: "white",
-
-  fontTheme: {
-    bold_s: "1.125rem",
-    bold_m: "3rem",
-    bold_l: "3.5rem",
-    mdm_xs: "1.375rem",
-    mdm_s: "1.625rem",
-    mdm_m: "1.875rem",
-    mdm_l: "2.25rem",
-    rgl_s: "0.75rem",
-    rgl_m: "0.875rem",
-    rgl_l: "1.125rem"
-  }
 };
-
-
 
 
 
