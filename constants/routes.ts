@@ -1,6 +1,6 @@
 import { API_URL_BASE, BEACH_WEATHER_KEY } from '$config';
 
-export const API_ROUTES = Object.freeze({
+export const API_ROUTES = {
   BEACH: {
     WEATHER: {
       WATER: `${API_URL_BASE}/1360000/BeachInfoservice/getTwBuoyBeach?serviceKey=${BEACH_WEATHER_KEY}`,
@@ -11,4 +11,4 @@ export const API_ROUTES = Object.freeze({
       },
     },
   },
-});
+};
