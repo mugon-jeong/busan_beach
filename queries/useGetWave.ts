@@ -6,6 +6,15 @@ import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query
 import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
 
+/**
+ *  const waveprop: WaveProp = {
+ *     numOfRows: 1,
+ *     pageNo: 10,
+ *     dataType: 'JSON',
+ *     beach_num: 304,
+ *     searchTime: moment().format('YYYYMMDDHHMM'),
+ *   };
+ */
 export interface WaveProp {
   pageNo: number;
   numOfRows: number;
@@ -31,4 +40,4 @@ export const useGetWave = (
   props: WaveProp,
   options?: UseQueryOptions<BaseResponse<Wave>, AxiosError, BaseResponse<Wave>, string[]>,
 ): UseQueryResult<BaseResponse<Wave>, AxiosError> =>
-  useQuery(Querykeys.BEACH.WEATHER.WAVE, () => getWaveFetch(props), { ...options });
+  useQuery([`${props.beach_num}`, ...Querykeys.BEACH.WEATHER.WAVE], () => getWaveFetch(props), { ...options });

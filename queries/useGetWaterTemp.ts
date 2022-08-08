@@ -6,6 +6,15 @@ import { WaterTemperature } from '$types/WaterTemperature';
 import { Querykeys } from '$constants/querykeys';
 import { API_ROUTES } from '$constants/routes';
 
+/**
+ *  const waveprop: WaveProp = {
+ *     numOfRows: 1,
+ *     pageNo: 10,
+ *     dataType: 'JSON',
+ *     beach_num: 304,
+ *     searchTime: moment().format('YYYYMMDDHHMM'),
+ *   };
+ */
 export interface WaterProp {
   pageNo: number;
   numOfRows: number;
@@ -30,4 +39,6 @@ export const useGetWaterTemperature = (
   props: WaterProp,
   options?: UseQueryOptions<BaseResponse<WaterTemperature>, AxiosError, BaseResponse<WaterTemperature>, string[]>,
 ): UseQueryResult<BaseResponse<WaterTemperature>, AxiosError> =>
-  useQuery(Querykeys.BEACH.WEATHER.WATER, () => getWaterTemperatureFetch(props), { ...options });
+  useQuery([`${props.beach_num}`, ...Querykeys.BEACH.WEATHER.WATER], () => getWaterTemperatureFetch(props), {
+    ...options,
+  });

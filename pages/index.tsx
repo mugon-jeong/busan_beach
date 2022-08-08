@@ -1,8 +1,6 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import Image from 'next/image';
-import moment from 'moment';
-import { useGetWave, WaveProp } from '$queries/useGetWave';
 
 const Main = styled.div`
   padding: 0 2rem;
