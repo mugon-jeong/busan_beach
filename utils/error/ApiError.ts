@@ -3,7 +3,7 @@
  * TODO axios interceptor 적용
  * TODO Error boundary 적용
  */
-import { Errorcode, ErrorResponse } from '$constants/ErrorCode';
+import { Errorcode, ErrorResponse } from '$constants/errorcode';
 
 export class ApiError extends Error {
   constructor(message: string) {

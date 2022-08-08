@@ -1,14 +1,17 @@
 export interface HeaderResponse {
   resultCode: string;
   resultMsg: string;
-  type: string;
 }
 
 export interface BodyResponse<T> {
+  dataType: string;
   numOfRows: number;
   pageNo: number;
-  totalCount: number;
-  items: T[];
+  items: BaseItem<T>;
+}
+
+export interface BaseItem<T> {
+  item: T[];
 }
 
 export interface BaseData<T> {

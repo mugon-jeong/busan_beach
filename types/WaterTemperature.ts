@@ -1,1 +1,5 @@
-export interface WaterTemperature {}
+export interface WaterTemperature {
+  beachNum: number;
+  tm: string;
+  tw: string;
+}

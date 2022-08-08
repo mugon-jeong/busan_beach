@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import Image from 'next/image';
+import moment from 'moment';
+import { useGetWaterTemperature, WaterProp } from '$queries/useGetWaterTemp';
 
 const Main = styled.div`
   padding: 0 2rem;
@@ -12,6 +14,19 @@ const Main = styled.div`
 `;
 
 const Home: NextPage = () => {
+  const waterprop: WaterProp = {
+    numOfRows: 1,
+    pageNo: 10,
+    dataType: 'JSON',
+    beach_num: 304,
+    searchTime: moment().format('YYYYMMDDHHMM'),
+  };
+  const { data: water } = useGetWaterTemperature(waterprop, {
+    onSuccess: data => {
+      console.log(data.response.body.items.item);
+    },
+  });
+
   return (
     <Main>
       <div className="img">
