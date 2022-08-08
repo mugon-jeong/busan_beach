@@ -4,6 +4,7 @@ import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query
 import { NEXT_PUBLIC_ENV } from '$config';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import GlobalStyle from '$styles/GlobalStyle';
+import Seo from '$components/seo/SEO';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = useRef(
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient.current}>
       <Hydrate state={pageProps.dehydratedState}>
         <GlobalStyle />
+        <Seo />
         <Component {...pageProps} />
       </Hydrate>
       {NEXT_PUBLIC_ENV === 'local' ? <ReactQueryDevtools initialIsOpen={false} /> : null}
