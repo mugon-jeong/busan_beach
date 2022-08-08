@@ -1,8 +1,6 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import Image from 'next/image';
-import moment from 'moment';
-import { useGetWave, WaveProp } from '$queries/useGetWave';
 
 const Main = styled.div`
   padding: 0 2rem;
@@ -14,18 +12,18 @@ const Main = styled.div`
 `;
 
 const Home: NextPage = () => {
-  const waveprop: WaveProp = {
-    numOfRows: 1,
-    pageNo: 10,
-    dataType: 'JSON',
-    beach_num: 304,
-    searchTime: moment().format('YYYYMMDDHHMM'),
-  };
-  const { data: water } = useGetWave(waveprop, {
-    onSuccess: data => {
-      console.log(data.response.body.items.item);
-    },
-  });
+  // const waveprop: WaveProp = {
+  //   numOfRows: 1,
+  //   pageNo: 10,
+  //   dataType: 'JSON',
+  //   beach_num: 304,
+  //   searchTime: moment().format('YYYYMMDDHHMM'),
+  // };
+  // const { data: water } = useGetWave(waveprop, {
+  //   onSuccess: data => {
+  //     console.log(data.response.body.items.item);
+  //   },
+  // });
 
   return (
     <Main>
