@@ -19,6 +19,7 @@ function createPm2Config() {
         args: 'start',
         cwd: './',
         interpreter: 'node',
+        instances: 1,
         exec_mode: 'cluster',
         max_restarts: 5,
         min_uptime: 5000,

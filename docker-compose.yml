@@ -10,7 +10,8 @@ services:
       - ./deployment/configs/nginx.conf:/etc/nginx/nginx.conf
       - ./deployment/configs/variable.conf:/etc/nginx/variable.conf
   app:
-    container_name: busan-beach
+    container_name: busan-beach-app
+    image: busan-beach:0.0.2
     build:
       context: .
       args:
