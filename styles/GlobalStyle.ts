@@ -6,7 +6,6 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 16px;
   }
   a {
     color: inherit;

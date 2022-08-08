@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 import { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
+import Weather from '../../components/Molecules/Weather';
+import InfoOther from '../../components/Molecules/InfoOther';
 
 const Wrap = styled.div`
   width: 1280px;
@@ -12,6 +14,7 @@ const Wrap = styled.div`
   border: 1px solid #000;
   padding: 80px 0;
   color: ${({ theme }) => theme.color.coral};
+  font-size: 16px;
 
   @media ${({ theme }) => theme.device.pc} {
     width: 100%;
@@ -22,18 +25,21 @@ const Wrap = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.color.deepCoral};
     flex-direction: column;
+    font-size: 15px;
   }
 
   @media ${({ theme }) => theme.device.mobile13P} {
     width: 100%;
     background-color: ${({ theme }) => theme.color.blue};
     flex-direction: column;
+    font-size: 14px;
   }
 
   @media ${({ theme }) => theme.device.mobileSE} {
     width: 100%;
     background-color: ${({ theme }) => theme.color.black};
     flex-direction: column;
+    font-size: 13px;
   }
 `;
 
@@ -50,36 +56,38 @@ const Layout = styled.div`
 
   @media ${({ theme }) => theme.device.tablet} {
     width: 100%;
+    padding: 24px 16px;
     background-color: rgba(0, 0, 0, 0.6);
   }
 
   @media ${({ theme }) => theme.device.mobile13P} {
     width: 100%;
-    padding: 24px 16px;
     background-color: rgba(0, 0, 0, 0.4);
   }
 
   @media ${({ theme }) => theme.device.mobileSE} {
     width: 100%;
-    padding: 24px 16px;
     background-color: rgba(0, 0, 0, 0.2);
   }
 `;
 
 const TemplateLeft = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
 `;
 
 const TemplateRight = styled.div`
   width: 100%;
-`;
-
-const Template = styled.div`
-  width: 100%;
+  height: 270px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
 `;
 
 const ComponentBox = styled.div`
-  width: 14.5rem;
+  width: 14.5em;
   padding: 24px;
   box-sizing: border-box;
   display: flex;
@@ -90,30 +98,14 @@ const ComponentBox = styled.div`
 `;
 
 const AtomDate = styled.div`
-  font-size: 1.125rem;
+  font-size: 1.125em;
   line-height: 2;
 `;
 
 const AtomBeach = styled.div`
-  font-size: 3.5rem;
+  font-size: 3.5em;
   font-weight: 700;
   line-height: 2;
-`;
-
-const AtomFcst = styled.div`
-  font-size: 2.25rem;
-  font-weight: 500;
-  text-align: right;
-`;
-
-const AtomFcstTitle = styled.div`
-  font-size: 0.875rem;
-  text-align: right;
-`;
-
-const AtomDayWeekFcst = styled.div`
-  font-size: 1.125rem;
-  font-weight: 500;
 `;
 
 const Test: NextPage = () => {
@@ -122,19 +114,21 @@ const Test: NextPage = () => {
       <Wrap>
         <Layout>
           <TemplateLeft>
-            <AtomDate>8월 6일 토요일</AtomDate>
-            <AtomBeach>해운대</AtomBeach>
-            <ComponentBox>
-              <div style={{ width: '60px', height: '80px' }}>맑음</div>
-              <div>
-                <AtomFcstTitle>기온</AtomFcstTitle>
-                <AtomFcst>32℃</AtomFcst>
-              </div>
-            </ComponentBox>
+            <div>
+              <AtomDate>8월 6일 토요일</AtomDate>
+              <AtomBeach>해운대</AtomBeach>
+              <ComponentBox>
+                <Weather />
+              </ComponentBox>
+            </div>
           </TemplateLeft>
           <TemplateRight>
-            <div>Contnt 04</div>
-            <div>Contnt 05</div>
+            <ComponentBox>
+              <InfoOther />
+            </ComponentBox>
+            <ComponentBox>
+              <InfoOther />
+            </ComponentBox>
           </TemplateRight>
         </Layout>
         <Layout>
