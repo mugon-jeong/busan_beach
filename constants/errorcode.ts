@@ -1,4 +1,4 @@
-export type ErrorCode =
+export type Errorcode =
   | '01'
   | '02'
   | '03'
@@ -16,7 +16,7 @@ export type ErrorCode =
   | '33'
   | '99';
 
-export const ErrorResponse: { [key in ErrorCode]: string } = {
+export const ErrorResponse: { [key in Errorcode]: string } = {
   '01': '어플리케이션 에러',
   '02': '데이터베이스 에러',
   '03': '데이터없음 에러',
