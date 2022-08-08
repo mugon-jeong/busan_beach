@@ -1,20 +1,30 @@
 import type { NextPage } from 'next'
-import styles from '../styles/Home.module.css'
+import styled from 'styled-components'
 import Image from 'next/image'
+
+const Main = styled.div`
+  padding: 0 2rem;
+  width : 100%;
+  height : 100vh;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+`
 
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <Main>
       <div className="img">
         <Image
-          src='/../public/asset/img/building.png'
+          src='/asset/img/building.png'
           alt="preparing the site"
           width={422}
           height={420}
         />
       </div>
-    </div>
+
+    </Main>
   )
 }
 
