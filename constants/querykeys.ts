@@ -8,4 +8,7 @@ export const Querykeys = {
       },
     },
   },
+  LIVING: {
+    UV: ['GetUV'],
+  },
 };
