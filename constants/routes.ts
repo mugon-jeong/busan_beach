@@ -9,7 +9,9 @@ export const API_ROUTES = {
       ULTRA: {
         FORECAST: `${API_URL_BASE}/1360000/BeachInfoservice/getUltraSrtFcstBeach?serviceKey=${BEACH_WEATHER_KEY}`,
       },
+      
     },
+    
   },
   LIVING: {
     UV: `${API_URL_BASE}/1360000/LivingWthrIdxServiceV2/getUVIdxV2?serviceKey=${LIVING_WEATHER_KEY}`,

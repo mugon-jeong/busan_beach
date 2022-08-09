@@ -20,17 +20,17 @@ export interface TempMiddleProp {
   pageNo: number;
   numOfRows: number;
   dataType: string;
-  administrative_code: string;
-  searchTime: string;
+  regId: string;
+  tmFc: string;
 }
 
-export const getWaveFetch = async (administrative_code: string) => {
+export const getWaveFetch = async (regId: string) => {
   const props: TempMiddleProp = {
     numOfRows: 1,
     pageNo: 1,
     dataType: 'JSON',
-    administrative_code: administrative_code,
-    searchTime: moment().format('YYYYMMDDHHMM'),
+    regId: regId,
+    tmFc: moment().format('YYYYMMDDHHMM'),
   };
   return await withAxios<BaseResponse<WaveType>>({
     url: `${API_ROUTES.BEACH.WEATHER.WAVE}`,
@@ -38,14 +38,14 @@ export const getWaveFetch = async (administrative_code: string) => {
       numOfRows: props.numOfRows,
       pageNo: props.pageNo,
       dataType: props.dataType,
-      administrative_code: props.administrative_code,
-      searchTime: props.searchTime,
+      regId: props.regId,
+      tmFc: props.tmFc,
     },
   });
 };
 
 export const useGetWave = (
-  beach_num: number,
+  regId: string,
   options?: UseQueryOptions<BaseResponse<WaveType>, AxiosError, BaseResponse<WaveType>, string[]>,
 ): UseQueryResult<BaseResponse<WaveType>, AxiosError> =>
-  useQuery([`${beach_num}`, ...Querykeys.BEACH.WEATHER.WAVE], () => getWaveFetch(beach_num), { ...options });
+  useQuery([`${regId}`, ...Querykeys.BEACH.WEATHER.WAVE], () => getWaveFetch(regId), { ...options });
