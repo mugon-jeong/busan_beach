@@ -2,9 +2,10 @@ import { withAxios } from '$utils/withAxios';
 import { BaseResponse } from '$types/BaseResponse';
 import { AxiosError } from 'axios';
 import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
-import { WaterTemperature } from '$types/WaterTemperature';
+import { WaterTemperatureType } from '$types/BeachWeather/WaterTemperatureType';
 import { Querykeys } from '$constants/querykeys';
 import { API_ROUTES } from '$constants/routes';
+import moment from 'moment';
 
 /**
  *  const waveprop: WaveProp = {
@@ -23,8 +24,15 @@ export interface WaterProp {
   searchTime: string;
 }
 
-export const getWaterTemperatureFetch = async (props: WaterProp) => {
-  return await withAxios<BaseResponse<WaterTemperature>>({
+export const getWaterTemperatureFetch = async (beach_num: number) => {
+  const props: WaterProp = {
+    numOfRows: 1,
+    pageNo: 1,
+    dataType: 'JSON',
+    beach_num: 304,
+    searchTime: moment().format('YYYYMMDDHHMM'),
+  };
+  return await withAxios<BaseResponse<WaterTemperatureType>>({
     url: `${API_ROUTES.BEACH.WEATHER.WATER}`,
     params: {
       numOfRows: props.numOfRows,
@@ -36,9 +44,14 @@ export const getWaterTemperatureFetch = async (props: WaterProp) => {
   });
 };
 export const useGetWaterTemperature = (
-  props: WaterProp,
-  options?: UseQueryOptions<BaseResponse<WaterTemperature>, AxiosError, BaseResponse<WaterTemperature>, string[]>,
-): UseQueryResult<BaseResponse<WaterTemperature>, AxiosError> =>
-  useQuery([`${props.beach_num}`, ...Querykeys.BEACH.WEATHER.WATER], () => getWaterTemperatureFetch(props), {
+  beach_num: number,
+  options?: UseQueryOptions<
+    BaseResponse<WaterTemperatureType>,
+    AxiosError,
+    BaseResponse<WaterTemperatureType>,
+    string[]
+  >,
+): UseQueryResult<BaseResponse<WaterTemperatureType>, AxiosError> =>
+  useQuery([`${beach_num}`, ...Querykeys.BEACH.WEATHER.WATER], () => getWaterTemperatureFetch(beach_num), {
     ...options,
   });

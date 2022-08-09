@@ -12,19 +12,6 @@ const Main = styled.div`
 `;
 
 const Home: NextPage = () => {
-  // const waveprop: WaveProp = {
-  //   numOfRows: 1,
-  //   pageNo: 10,
-  //   dataType: 'JSON',
-  //   beach_num: 304,
-  //   searchTime: moment().format('YYYYMMDDHHMM'),
-  // };
-  // const { data: water } = useGetWave(waveprop, {
-  //   onSuccess: data => {
-  //     console.log(data.response.body.items.item);
-  //   },
-  // });
-
   return (
     <Main>
       <div className="img">

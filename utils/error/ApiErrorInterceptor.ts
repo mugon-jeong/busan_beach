@@ -10,7 +10,6 @@ export function ClientApiErrorInterceptor<T>(res: AxiosResponse<BaseResponse<T>>
   const code = res.data.response.header.resultCode;
   if (Object.prototype.hasOwnProperty.call(ErrorResponse, code)) {
     throw new CommonApiError(code as Errorcode);
-  } else {
-    return res.data;
   }
+  return res.data;
 }

@@ -3,6 +3,9 @@ export const Querykeys = {
     WEATHER: {
       WATER: ['GetWaterTemperature'],
       WAVE: ['GetWave'],
+      ULTRA: {
+        FORECAST: ['GetUltraForecast'],
+      },
     },
   },
 };

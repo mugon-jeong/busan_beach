@@ -1,15 +1,16 @@
 import { withAxios } from '$utils/withAxios';
 import { BaseResponse } from '$types/BaseResponse';
 import { API_ROUTES } from '$constants/routes';
-import { Wave } from '$types/Wave';
+import { WaveType } from '$types/BeachWeather/WaveType';
 import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
+import moment from 'moment';
 
 /**
  *  const waveprop: WaveProp = {
  *     numOfRows: 1,
- *     pageNo: 10,
+ *     pageNo: 1,
  *     dataType: 'JSON',
  *     beach_num: 304,
  *     searchTime: moment().format('YYYYMMDDHHMM'),
@@ -23,8 +24,15 @@ export interface WaveProp {
   searchTime: string;
 }
 
-export const getWaveFetch = async (props: WaveProp) => {
-  return await withAxios<BaseResponse<Wave>>({
+export const getWaveFetch = async (beach_num: number) => {
+  const props: WaveProp = {
+    numOfRows: 1,
+    pageNo: 1,
+    dataType: 'JSON',
+    beach_num: beach_num,
+    searchTime: moment().format('YYYYMMDDHHMM'),
+  };
+  return await withAxios<BaseResponse<WaveType>>({
     url: `${API_ROUTES.BEACH.WEATHER.WAVE}`,
     params: {
       numOfRows: props.numOfRows,
@@ -37,7 +45,7 @@ export const getWaveFetch = async (props: WaveProp) => {
 };
 
 export const useGetWave = (
-  props: WaveProp,
-  options?: UseQueryOptions<BaseResponse<Wave>, AxiosError, BaseResponse<Wave>, string[]>,
-): UseQueryResult<BaseResponse<Wave>, AxiosError> =>
-  useQuery([`${props.beach_num}`, ...Querykeys.BEACH.WEATHER.WAVE], () => getWaveFetch(props), { ...options });
+  beach_num: number,
+  options?: UseQueryOptions<BaseResponse<WaveType>, AxiosError, BaseResponse<WaveType>, string[]>,
+): UseQueryResult<BaseResponse<WaveType>, AxiosError> =>
+  useQuery([`${beach_num}`, ...Querykeys.BEACH.WEATHER.WAVE], () => getWaveFetch(beach_num), { ...options });
