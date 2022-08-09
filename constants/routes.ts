@@ -1,4 +1,4 @@
-import { API_URL_BASE, BEACH_WEATHER_KEY } from '$config';
+import { API_URL_BASE, BEACH_WEATHER_KEY, LIVING_WEATHER_KEY } from '$config';
 
 export const API_ROUTES = {
   BEACH: {
@@ -12,5 +12,8 @@ export const API_ROUTES = {
       
     },
     
+  },
+  LIVING: {
+    UV: `${API_URL_BASE}/1360000/LivingWthrIdxServiceV2/getUVIdxV2?serviceKey=${LIVING_WEATHER_KEY}`,
   },
 };
