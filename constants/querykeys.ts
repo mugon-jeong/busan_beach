@@ -14,4 +14,7 @@ export const Querykeys = {
   AIR: {
     QUALITY: ['GetAirQuality'],
   },
+  MEDIUM: {
+    FORECAST: ['GetMediumForecast'],
+  },
 };
