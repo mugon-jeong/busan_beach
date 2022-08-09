@@ -1,8 +1,6 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import Image from 'next/image';
-import { useGetWave } from '../queries/useGetWave';
-import { useGetMediumForecast, getMediumForecastFetch } from '../queries/useGetMediumForecast';
 
 const Main = styled.div`
   padding: 0 2rem;
