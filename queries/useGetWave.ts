@@ -49,3 +49,9 @@ export const useGetWave = (
   options?: UseQueryOptions<BaseResponse<WaveType>, AxiosError, BaseResponse<WaveType>, string[]>,
 ): UseQueryResult<BaseResponse<WaveType>, AxiosError> =>
   useQuery([`${beach_num}`, ...Querykeys.BEACH.WEATHER.WAVE], () => getWaveFetch(beach_num), { ...options });
+
+/**
+ * beachNum: number;
+ *   tm: string;
+ *   wh: string;
+ */

@@ -2,6 +2,7 @@ import {
   AIR_QUALITY_KEY,
   API_URL_BASE,
   BEACH_WEATHER_KEY,
+  HOST_URL,
   LIVING_WEATHER_KEY,
   MEDIUM_FORECAST_KEY,
   OCEAN_DATA_KEY,
@@ -31,5 +32,8 @@ export const API_ROUTES = {
 
   AIR: {
     QUALITY: `${API_URL_BASE}/6260000/AirQualityInfoService/getAirQualityInfoClassifiedByStation?serviceKey=${AIR_QUALITY_KEY}`,
+  },
+  API: {
+    OCEAN: `${HOST_URL}/api/ocean`,
   },
 };

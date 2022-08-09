@@ -55,3 +55,9 @@ export const useGetWaterTemperature = (
   useQuery([`${beach_num}`, ...Querykeys.BEACH.WEATHER.WATER], () => getWaterTemperatureFetch(beach_num), {
     ...options,
   });
+
+/**
+ * beachNum: number;
+ *   tm: string;
+ *   tw: string;
+ */

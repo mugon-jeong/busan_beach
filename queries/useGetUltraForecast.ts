@@ -44,3 +44,14 @@ export const useGetUltraForecast = (
   useQuery([`${beach_num}`, ...Querykeys.BEACH.WEATHER.WATER], () => getUltraForecastFetch(beach_num), {
     ...options,
   });
+/**
+ *  beachNum: string;
+ *   baseDate: string;
+ *   baseTime: string;
+ *   category: string;
+ *   fcstDate: string;
+ *   fcstTime: string;
+ *   fcstValue: string;
+ *   nx: string;
+ *   ny: string;
+ */

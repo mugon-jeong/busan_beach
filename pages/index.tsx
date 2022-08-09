@@ -2,7 +2,6 @@ import type { NextPage } from 'next';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { useGetOceanData } from '$queries/useGetOceanData';
-import axios from 'axios';
 
 const Main = styled.div`
   padding: 0 2rem;
@@ -14,18 +13,15 @@ const Main = styled.div`
 `;
 
 const Home: NextPage = () => {
-  axios
-    .post('/api/hello', {
-      params: {
-        BeachCode: 'BCH002',
-      },
-    })
-    .then(res => {
-      console.log(res.data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  const { data: ocean } = useGetOceanData('BCH002', {
+    onSuccess: data => {
+      console.log(data.result);
+    },
+  });
+
+  // axios.get(`${API_ROUTES.API.OCEAN}`, { params: { BeachCode: 'BCH001' } }).then(res => {
+  //   console.log(res);
+  // });
 
   return (
     <Main>

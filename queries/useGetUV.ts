@@ -41,3 +41,13 @@ export const useGetUV = (
   options?: UseQueryOptions<BaseResponse<UvType>, AxiosError, BaseResponse<UvType>, string[]>,
 ): UseQueryResult<BaseResponse<UvType>, AxiosError> =>
   useQuery([`${areaNo}`, ...Querykeys.LIVING.UV], () => getUVFetch(areaNo), { ...options });
+
+/**
+ *   code: string;
+ *   areaNo: number;
+ *   date: string;
+ *   today: number;
+ *   tomorrow: number;
+ *   dayaftertomorrow: number;
+ *   twodaysaftertomorrow: number;
+ */

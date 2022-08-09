@@ -7,14 +7,16 @@ type Data = {
   data: any;
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
+  const { BeachCode } = req.query;
   const data = await axios
     .get(
-      `http://www.khoa.go.kr/api/oceangrid/beach/search.do?ServiceKey=${OCEAN_DATA_KEY}&BeachCode=${req.body.params.BeachCode}&ResultType=json`,
+      `http://www.khoa.go.kr/api/oceangrid/beach/search.do?ServiceKey=${OCEAN_DATA_KEY}&BeachCode=${BeachCode}&ResultType=json`,
     )
     .then(res => {
+      console.log(res.data);
       return res.data;
     });
 
-  res.status(200).json({ data: data });
+  res.status(200).json(data);
 }
