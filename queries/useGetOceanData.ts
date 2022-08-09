@@ -21,15 +21,15 @@ export const useGetOceanData = (
 ): UseQueryResult<OceanResponse<OceanDataType>, AxiosError> =>
   useQuery([`${beach_code}`, ...Querykeys.OCEAN.DATA], () => getOceanDataFetch(beach_code), { ...options });
 /**
- *   obs_time: string;
- *   water_temp: number;
- *   wind_direct: string;
- *   wind_speed: number;
- *   tide: number;
- *   day1_am_status: string;
- *   day1_pm_status: string;
- *   day2_am_status: string;
- *   day2_pm_status: string;
- *   day3_am_status: string;
- *   day3_pm_status: string;
+ *   obs_time: string; 사용 O :
+ *   water_temp: number;  사용 O : 수온
+ *   wind_direct: string;  사용 O : 풍향
+ *   wind_speed: number;  사용 O : 풍속
+ *   tide: number;  사용 X : 조위
+ *   day1_am_status: string;  사용 X
+ *   day1_pm_status: string;  사용 X
+ *   day2_am_status: string;  사용 X
+ *   day2_pm_status: string;  사용 X
+ *   day3_am_status: string;  사용 X
+ *   day3_pm_status: string;  사용 X
  */

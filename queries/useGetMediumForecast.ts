@@ -42,37 +42,37 @@ export const useGetMediumForecast = (
 ): UseQueryResult<BaseResponse<MediumForecastType>, AxiosError> =>
   useQuery([`${regId}`, ...Querykeys.MEDIUM.FORECAST], () => getMediumForecastFetch(regId), { ...options });
 /**
- *   regId: string;
- *   taMin3: number;
- *   taMin3Low: number;
- *   taMin3High: number;
- *   taMax3: number;
- *   taMin4: number;
- *   taMin4Low: number;
- *   taMin4High: number;
- *   taMax4: number;
- *   taMin5: number;
- *   taMin5Low: number;
- *   taMin5High: number;
- *   taMax5: number;
- *   taMin6: number;
- *   taMin6Low: number;
- *   taMin6High: number;
- *   taMax6: number;
- *   taMin7: number;
- *   taMin7Low: number;
- *   taMin7High: number;
- *   taMax7: number;
- *   taMin8: number;
- *   taMin8Low: number;
- *   taMin8High: number;
- *   taMax8: number;
- *   taMin9: number;
- *   taMin9Low: number;
- *   taMin9High: number;
- *   taMax9: number;
- *   taMin10: number;
- *   taMin10Low: number;
- *   taMin10High: number;
- *   taMax10: number;
+ *   regId: string;  사용 X : 지역 코드
+ *   taMin3: number;  사용 O : 3일 뒤 최저 기온
+ *   taMin3Low: number;  사용 X
+ *   taMin3High: number;  사용 X
+ *   taMax3: number;  사용 O : 3일 뒤 최고 기온
+ *   taMin4: number;  사용 O : 4일 뒤 최저 기온
+ *   taMin4Low: number;  사용 X
+ *   taMin4High: number;  사용 X
+ *   taMax4: number;  사용 O : 4일 뒤 최고 기온
+ *   taMin5: number;  사용 O : 5일 뒤 최저 기온
+ *   taMin5Low: number;  사용 X
+ *   taMin5High: number;  사용 X
+ *   taMax5: number;  사용 O : 5일 뒤 최고 기온
+ *   taMin6: number;  사용 O : 6일 뒤 최저 기온
+ *   taMin6Low: number;  사용 X
+ *   taMin6High: number;  사용 X
+ *   taMax6: number;  사용 O : 6일 뒤 최고 기온
+ *   taMin7: number;  사용 O : 7일 뒤 최저 기온
+ *   taMin7Low: number;  사용 X
+ *   taMin7High: number;  사용 X
+ *   taMax7: number;  사용 O : 7일 뒤 최고 기온
+ *   taMin8: number;  사용 X
+ *   taMin8Low: number;  사용 X
+ *   taMin8High: number;  사용 X
+ *   taMax8: number;  사용 X
+ *   taMin9: number;  사용 X
+ *   taMin9Low: number;  사용 X
+ *   taMin9High: number;  사용 X
+ *   taMax9: number;  사용 X
+ *   taMin10: number;  사용 X
+ *   taMin10Low: number;  사용 X
+ *   taMin10High: number;  사용 X
+ *   taMax10: number;  사용 X
  */

@@ -43,11 +43,11 @@ export const useGetUV = (
   useQuery([`${areaNo}`, ...Querykeys.LIVING.UV], () => getUVFetch(areaNo), { ...options });
 
 /**
- *   code: string;
- *   areaNo: number;
- *   date: string;
- *   today: number;
- *   tomorrow: number;
- *   dayaftertomorrow: number;
- *   twodaysaftertomorrow: number;
+ *   code: string;  사용 X
+ *   areaNo: number; 사용 O : 측정한 지점 사용
+ *   date: string; 사용 O : 발표 시간 사용
+ *   today: number;  사용 O : 오늘 예측값 사용
+ *   tomorrow: number;  사용 ? : 내일 예측값 필요 시 사용
+ *   dayaftertomorrow: number;  사용 ? : 모레 예측값 필요 시 사용
+ *   twodaysaftertomorrow: number;  사용 ? : 글피 예측값 필요 시 사용
  */

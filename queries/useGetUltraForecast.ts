@@ -45,6 +45,7 @@ export const useGetUltraForecast = (
     ...options,
   });
 /**
+ *  폐기로 알고 있습니다.
  *  beachNum: string;
  *   baseDate: string;
  *   baseTime: string;

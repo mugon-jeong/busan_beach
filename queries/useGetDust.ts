@@ -42,22 +42,22 @@ export const useGetDust = (
 ): UseQueryResult<AirBaseResponse<AirQuality>, AxiosError> =>
   useQuery([`${areaIndex}`, ...Querykeys.AIR.QUALITY], () => getDustFetch(areaIndex), { ...options });
 /**
- *   site: string;
- *   areaIndex: number;
- *   controlnumber: string;
- *   repItem: string;
- *   repVal: number;
- *   repCai: number;
- *   so2: number;
- *   so2Cai: string;
- *   no2: number;
- *   no2Cai: string;
- *   o3: number;
- *   o3Cai: string;
- *   co: number;
- *   coCai: string;
- *   pm25: number;
- *   pm25Cai: number;
- *   pm10: number;
- *   pm10Cai: number;
+ *   site: string;  사용 X
+ *   areaIndex: number;  사용 X :
+ *   controlnumber: string;  사용 O :
+ *   repItem: string;  사용 X :
+ *   repVal: number;  사용 X :
+ *   repCai: number;  사용 X :
+ *   so2: number;  사용 X :
+ *   so2Cai: string;  사용 X :
+ *   no2: number;  사용 X :
+ *   no2Cai: string;  사용 X :
+ *   o3: number;  사용 X :
+ *   o3Cai: string;  사용 X :
+ *   co: number;  사용 X :
+ *   coCai: string;  사용 X :
+ *   pm25: number;  사용 O : 초미세먼지 양
+ *   pm25Cai: number;  사용 O : 초미세먼지 지수
+ *   pm10: number;  사용 O : 미세먼지 양
+ *   pm10Cai: number;  사용 O : 미세먼지 지수
  */
