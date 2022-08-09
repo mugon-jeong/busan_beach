@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { useGetWave } from '../queries/useGetWave';
 
 const Main = styled.div`
   padding: 0 2rem;
@@ -12,6 +13,12 @@ const Main = styled.div`
 `;
 
 const Home: NextPage = () => {
+  const { data } = useGetWave(304, {
+    onSuccess: data => {
+      console.log(data);
+    },
+  });
+
   return (
     <Main>
       <div className="img">
