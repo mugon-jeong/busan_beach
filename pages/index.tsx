@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
 import Image from 'next/image';
-import { useGetDust } from '$queries/useGetDust';
+import { useGetOceanData } from '$queries/useGetOceanData';
 
 const Main = styled.div`
   padding: 0 2rem;
@@ -13,7 +13,7 @@ const Main = styled.div`
 `;
 
 const Home: NextPage = () => {
-  const { data: dust } = useGetDust(221112, {
+  const { data: ocean } = useGetOceanData('BCH002', {
     onSuccess: data => {
       console.log(data);
     },

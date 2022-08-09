@@ -1,11 +1,10 @@
 import { withAxios } from '$utils/withAxios';
-import { BaseResponse } from '$types/BaseResponse';
 import { API_ROUTES } from '$constants/routes';
 import { OceanDataType } from '$types/OceanData/OceanDataType';
 import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
-import moment from 'moment';
+import { OceanResponse } from '$types/OceanResponse';
 
 export interface OceanDataProp {
   DataType: string;
@@ -13,14 +12,14 @@ export interface OceanDataProp {
   ResultType: string;
 }
 
-export const getWaveFetch = async (beach_code: string) => {
+export const getOceanDataFetch = async (beach_code: string) => {
   const props: OceanDataProp = {
     DataType: 'JSON',
     BeachCode: beach_code,
     ResultType: 'Json',
   };
 
-  return await withAxios<BaseResponse<OceanDataType>>({
+  return await withAxios<OceanResponse<OceanDataType>>({
     url: `${API_ROUTES.OCEAN.DATA}`,
     params: {
       DataType: props.DataType,
@@ -30,8 +29,8 @@ export const getWaveFetch = async (beach_code: string) => {
   });
 };
 
-export const useGetWave = (
+export const useGetOceanData = (
   beach_code: string,
-  options?: UseQueryOptions<BaseResponse<OceanDataType>, AxiosError, BaseResponse<OceanDataType>, string[]>,
-): UseQueryResult<BaseResponse<OceanDataType>, AxiosError> =>
-  useQuery([`${beach_code}`, ...Querykeys.OCEAN.DATA], () => getWaveFetch(beach_code), { ...options });
+  options?: UseQueryOptions<OceanResponse<OceanDataType>, AxiosError, OceanResponse<OceanDataType>, string[]>,
+): UseQueryResult<OceanResponse<OceanDataType>, AxiosError> =>
+  useQuery([`${beach_code}`, ...Querykeys.OCEAN.DATA], () => getOceanDataFetch(beach_code), { ...options });

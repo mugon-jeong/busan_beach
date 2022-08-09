@@ -2,7 +2,7 @@
 const { NEXT_PUBLIC_ENV } = process.env;
 const isLocal = NEXT_PUBLIC_ENV === 'local';
 const CONFIG = require(`./config/${NEXT_PUBLIC_ENV}`);
-const LOCAL_ORIGIN = 'http://localhost:3000';
+const LOCAL_ORIGIN = 'http://127.0.0.1:3000';
 const publicRuntimeConfig = {
   NEXT_PUBLIC_ENV,
   ...CONFIG,
