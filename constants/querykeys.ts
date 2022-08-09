@@ -11,4 +11,7 @@ export const Querykeys = {
   LIVING: {
     UV: ['GetUV'],
   },
+  AIR: {
+    QUALITY: ['GetAirQuality'],
+  },
 };
