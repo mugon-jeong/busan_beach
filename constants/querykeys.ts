@@ -14,4 +14,7 @@ export const Querykeys = {
   MEDIUM: {
     FORECAST: ['GetMediumForecast'],
   },
+  OCEAN: {
+    DATA: ['OceanData'],
+  },
 };

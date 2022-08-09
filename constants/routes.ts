@@ -1,4 +1,4 @@
-import { API_URL_BASE, BEACH_WEATHER_KEY, LIVING_WEATHER_KEY, MEDIUM_FORECAST_KEY } from '$config';
+import { API_URL_BASE, BEACH_WEATHER_KEY, LIVING_WEATHER_KEY, MEDIUM_FORECAST_KEY,OCEAN_DATA_KEY } from '$config';
 
 export const API_ROUTES = {
   BEACH: {
@@ -17,4 +17,7 @@ export const API_ROUTES = {
   MEDIUM: {
     FORECAST: `${API_URL_BASE}/1360000/MidFcstInfoService/getMidTa?serviceKey=${MEDIUM_FORECAST_KEY}`,
   },
+  OCEAN: {
+    DATA:`http://www.khoa.go.kr/api/oceangrid/beach/search.do?ServiceKey=${OCEAN_DATA_KEY}`
+  }
 };
