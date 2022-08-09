@@ -14,7 +14,7 @@ export interface OceanDataProp {
 
 export const getOceanDataFetch = async (beach_code: string) => {
   const props: OceanDataProp = {
-    DataType: 'JSON',
+    DataType: 'beach',
     BeachCode: beach_code,
     ResultType: 'Json',
   };

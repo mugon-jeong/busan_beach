@@ -1,13 +1,20 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { OCEAN_DATA_KEY } from '$config';
+import axios from 'axios';
 
 type Data = {
-  name: string
-}
+  data: any;
+};
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  const data = await axios
+    .get(
+      `http://www.khoa.go.kr/api/oceangrid/beach/search.do?ServiceKey=${OCEAN_DATA_KEY}&BeachCode=${req.body.params.BeachCode}&ResultType=json`,
+    )
+    .then(res => {
+      return res.data;
+    });
+
+  res.status(200).json({ data: data });
 }
