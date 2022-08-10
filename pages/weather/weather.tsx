@@ -1,7 +1,7 @@
 import moment from 'moment';
 import type { NextPage } from 'next';
 import styled from '@emotion/styled';
-import { ThemeProvider, useTheme } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
 import theme from '$styles/theme';
 import InfoOther, { otherInfo } from '$components/Organisms/InfoOther';
 import CompNow from '$components/Components/CompNow';
@@ -10,8 +10,6 @@ import CompFcstWeekly from '$components/Components/CompFcstDaily';
 import LayoutWrap from '$components/Layouts/LayoutWrap';
 import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
-
-import async from '../api/ocean';
 import { UseGetUltraForecast } from '$queries/useGetUltraForecast';
 
 const TemplateLeft = styled.div`
@@ -43,7 +41,7 @@ function Template(beach: string) {
   return UseGetUltraForecast(304);
 }
 
-const Test: NextPage = () => {
+const Weather: NextPage = () => {
   let month = moment().format('MM');
   month = month.replace(/(^0+)/, '');
 
@@ -131,4 +129,4 @@ const Test: NextPage = () => {
   );
 };
 
-export default Test;
+export default Weather;
