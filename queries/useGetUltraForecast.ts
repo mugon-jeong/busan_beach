@@ -37,7 +37,7 @@ export const getUltraForecastFetch = async (beach_num: number) => {
     },
   });
 };
-export const useGetUltraForecast = (
+export const UseGetUltraForecast = (
   beach_num: number,
   options?: UseQueryOptions<BaseResponse<UltraForecastType>, AxiosError, BaseResponse<UltraForecastType>, string[]>,
 ): UseQueryResult<BaseResponse<UltraForecastType>, AxiosError> =>

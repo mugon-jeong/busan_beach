@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import theme from '../../styles/theme';
+import { useState } from 'react';
 
 const WrapComp = styled.div`
   width: 13.5em;
@@ -42,7 +44,7 @@ const FcstIcon = styled.div`
 export interface nowInfo {
   icon: 'icon';
   state: string;
-  temp: number;
+  temp: string | undefined;
 }
 
 const Weather = ({ info }: { info: nowInfo }) => {
