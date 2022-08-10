@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import TextDayWeek from '../Atoms/TextDayWeek';
+import AtomDayWeek from '../Atoms/AtomDayWeek';
 
 const WrapFcstTimely = styled.div`
   display: flex;
@@ -37,14 +37,14 @@ const FcstTimely = ({ info }: { info: timelyInfo }) => {
   return (
     <WrapFcstTimely>
       <TemptCurrent>
-        <TextDayWeek title={`${info.tempTimely}℃`} />
+        <AtomDayWeek title={`${info.tempTimely}℃`} />
       </TemptCurrent>
       <FcstIcon />
       <TimeCurrent>
-        <TextDayWeek title={`${info.rainRate}%`} />
+        <AtomDayWeek title={`${info.rainRate}%`} />
       </TimeCurrent>
       <TimeCurrent>
-        <TextDayWeek title={`${info.time}시`} />
+        <AtomDayWeek title={`${info.time}시`} />
       </TimeCurrent>
     </WrapFcstTimely>
   );

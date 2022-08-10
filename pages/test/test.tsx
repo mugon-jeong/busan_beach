@@ -2,49 +2,13 @@ import type { NextPage } from 'next';
 import { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
-import Weather from '../../components/Organisms/Weather';
 import InfoOther, { otherInfo } from '../../components/Organisms/InfoOther';
 import CompFcstTimely from '../../components/Components/CompFcstTimely';
 import CompFcstWeekly from '../../components/Components/CompFcstDaily';
+import LayoutWrap from '../../components/Layouts/LayoutWrap';
 import LayoutLeft from '../../components/Layouts/LayoutLeft';
 import LayoutRight from '../../components/Layouts/LayoutRight';
-
-const Wrap = styled.div`
-  width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  color: ${({ theme }) => theme.color.coral};
-  font-size: 16px;
-
-  @media ${({ theme }) => theme.device.pc} {
-    width: 100%;
-    background-color: coral;
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    width: 100%;
-    height: inherit;
-    background-color: ${({ theme }) => theme.color.deepCoral};
-    flex-direction: column;
-    font-size: 15px;
-  }
-
-  @media ${({ theme }) => theme.device.mobile13P} {
-    width: 100%;
-    height: auto;
-    background-color: ${({ theme }) => theme.color.blue};
-    flex-direction: column;
-    font-size: 14px;
-  }
-
-  @media ${({ theme }) => theme.device.mobileSE} {
-    width: 100%;
-    background-color: ${({ theme }) => theme.color.black};
-    flex-direction: column;
-    font-size: 13px;
-  }
-`;
+import CompNow from '../../components/Components/CompNow';
 
 const TemplateLeft = styled.div`
   width: 100%;
@@ -63,22 +27,12 @@ const TemplateRight = styled.div`
     justify-content: space-between;
   }
 `;
+
 const TemplateCenter = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-`;
-
-const AtomDate = styled.div`
-  font-size: 1.125em;
-  line-height: 2;
-`;
-
-const AtomBeach = styled.div`
-  font-size: 3.5em;
-  font-weight: 700;
-  line-height: 2;
 `;
 
 const Test: NextPage = () => {
@@ -97,16 +51,23 @@ const Test: NextPage = () => {
     title: '자외선지수',
     content: '위험 11',
   };
+  const dataWind: otherInfo = {
+    icon: 'icon',
+    title: '남동풍',
+    content: '2m/s',
+  };
+  const dataAir: otherInfo = {
+    icon: 'icon',
+    title: '미세먼지',
+    content: '좋음 2',
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Wrap>
+      <LayoutWrap>
         <LayoutLeft>
           <TemplateLeft>
-            <div>
-              <AtomDate>8월 6일 토요일</AtomDate>
-              <AtomBeach>해운대</AtomBeach>
-              <Weather />
-            </div>
+            <CompNow />
           </TemplateLeft>
           <TemplateRight>
             <InfoOther info={dataWater} />
@@ -118,16 +79,18 @@ const Test: NextPage = () => {
             <CompFcstTimely fcstTitle="하루날씨" />
             <CompFcstWeekly fcstTitle="주간날씨" />
           </TemplateLeft>
-          <TemplateCenter>
-            <InfoOther info={dataUv} />
-            <InfoOther info={dataUv} />
-          </TemplateCenter>
-          <TemplateCenter>
-            <InfoOther info={dataUv} />
-            <InfoOther info={dataUv} />
-          </TemplateCenter>
+          <div>
+            <TemplateCenter>
+              <InfoOther info={dataUv} />
+              <InfoOther info={dataWater} />
+            </TemplateCenter>
+            <TemplateCenter>
+              <InfoOther info={dataAir} />
+              <InfoOther info={dataWind} />
+            </TemplateCenter>
+          </div>
         </LayoutRight>
-      </Wrap>
+      </LayoutWrap>
     </ThemeProvider>
   );
 };

@@ -39,16 +39,22 @@ const FcstIcon = styled.div`
   line-height: 3.75em;
 `;
 
-const Weather = () => {
+export interface nowInfo {
+  icon: 'icon';
+  state: string;
+  temp: number;
+}
+
+const Weather = ({ info }: { info: nowInfo }) => {
   return (
     <WrapComp>
       <div>
-        <FcstIcon>icon</FcstIcon>
-        <TitleCenter>맑음</TitleCenter>
+        <FcstIcon>{info.icon}</FcstIcon>
+        <TitleCenter>{info.state}</TitleCenter>
       </div>
       <div>
         <TitleRight>기온</TitleRight>
-        <FcstTemp>32℃</FcstTemp>
+        <FcstTemp>{`${info.temp}℃`}</FcstTemp>
       </div>
     </WrapComp>
   );

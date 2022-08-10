@@ -6,8 +6,8 @@ const TextInfo = styled.div`
   text-align: center;
 `;
 
-const TextDayWeek = ({ title }: any) => {
+const AtomDayWeek = ({ title }: any) => {
   return <TextInfo>{title}</TextInfo>;
 };
 
-export default TextDayWeek;
+export default AtomDayWeek;
