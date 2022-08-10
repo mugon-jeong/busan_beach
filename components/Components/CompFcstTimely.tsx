@@ -16,8 +16,15 @@ const WrapComp = styled.div`
 const ComponentFcst = styled.div`
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  overflow-x: scroll;
+  ::-webkit-scrollbar {
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 `;
 
 const CompFcstTimely = ({ fcstTitle }: any) => {
@@ -46,6 +53,9 @@ const CompFcstTimely = ({ fcstTitle }: any) => {
         <FcstTimely info={data3} />
         <FcstTimely info={data1} />
         <FcstTimely info={data2} />
+        <FcstTimely info={data3} />
+        <FcstTimely info={data3} />
+        <FcstTimely info={data3} />
         <FcstTimely info={data3} />
       </ComponentFcst>
     </WrapComp>

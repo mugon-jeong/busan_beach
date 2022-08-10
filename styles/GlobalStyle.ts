@@ -23,5 +23,18 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
     font-weight: 400;
   }
+  ::-webkit-scrollbar {
+  width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #FF8067;
+  border-radius: 12px;;
+}
+
 `;
 export default GlobalStyle;

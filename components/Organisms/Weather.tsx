@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import theme from '../../styles/theme';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
 const WrapComp = styled.div`
   width: 13.5em;
@@ -31,12 +31,12 @@ const FcstTemp = styled.div`
 `;
 
 const FcstIcon = styled.div`
-  width: 3.75em;
-  height: 3.75em;
-  background-color: #fff;
+  width: 2.75em;
+  height: 2.75em;
+  background-color: transparent;
   border-radius: 50%;
   text-align: center;
-  line-height: 3.75em;
+  line-height: 2.75em;
 `;
 
 export interface nowInfo {
@@ -49,7 +49,9 @@ const Weather = ({ info }: { info: nowInfo }) => {
   return (
     <WrapComp>
       <div>
-        <FcstIcon>{info.icon}</FcstIcon>
+        <FcstIcon>
+          <WbSunnyIcon fontSize="large" />
+        </FcstIcon>
         <TitleCenter>{info.state}</TitleCenter>
       </div>
       <div>

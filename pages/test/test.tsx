@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
 import InfoOther, { otherInfo } from '../../components/Organisms/InfoOther';

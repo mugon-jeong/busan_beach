@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import AtomDayWeek from '../Atoms/AtomDayWeek';
+import CloudIcon from '@mui/icons-material/Cloud';
 
 const WrapFcstTimely = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 0.25em;
   line-height: 2;
+  margin-bottom: 0.24em;
+  margin-right: 1em;
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 const TemptCurrent = styled.div`
@@ -22,7 +28,7 @@ const TimeCurrent = styled.div`
 const FcstIcon = styled.div`
   width: 2em;
   height: 2em;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 50%;
   text-align: center;
 `;
@@ -39,7 +45,9 @@ const FcstTimely = ({ info }: { info: timelyInfo }) => {
       <TemptCurrent>
         <AtomDayWeek title={`${info.tempTimely}℃`} />
       </TemptCurrent>
-      <FcstIcon />
+      <FcstIcon>
+        <CloudIcon />
+      </FcstIcon>
       <TimeCurrent>
         <AtomDayWeek title={`${info.rainRate}%`} />
       </TimeCurrent>

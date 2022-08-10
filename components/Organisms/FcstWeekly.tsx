@@ -5,10 +5,15 @@ import TextDayWeek from '../Atoms/AtomDayWeek';
 const WrapFcstTimely = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   padding: 0 0.25em;
   line-height: 2;
+  margin-bottom: 0.24em;
+  margin-right: 1em;
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 const TemptHigh = styled.div`
