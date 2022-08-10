@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Image from 'next/image';
 // import { useGetOceanData } from '$queries/useGetOceanData';
 
