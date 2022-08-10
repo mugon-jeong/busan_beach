@@ -5,6 +5,7 @@ import { NEXT_PUBLIC_ENV } from '$config';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import GlobalStyle from '$styles/GlobalStyle';
 import Seo from '$components/Seo/Seo';
+import { Global } from '@emotion/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = useRef(
@@ -24,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient.current}>
       <Hydrate state={pageProps.dehydratedState}>
-        <GlobalStyle />
+        <Global styles={GlobalStyle} />
         <Seo />
         <Component {...pageProps} />
       </Hydrate>

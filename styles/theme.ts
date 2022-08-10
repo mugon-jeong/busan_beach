@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 const deviceSizes = {
   mobileSE: '320px',
   mobile13P: '428px',

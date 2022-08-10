@@ -14,8 +14,8 @@ const nextConfig = {
   publicRuntimeConfig,
   swcMinify: true,
   compiler: {
-    styledComponents: {
-      ssr: true,
+    emotion: {
+      sourceMap: isLocal,
     },
   },
   ...(isLocal && {
