@@ -2,17 +2,18 @@ import type { NextPage } from 'next';
 import { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
-import Weather from '../../components/Molecules/Weather';
-import InfoOther from '../../components/Molecules/InfoOther';
+import Weather from '../../components/Organisms/Weather';
+import InfoOther, { otherInfo } from '../../components/Organisms/InfoOther';
+import CompFcstTimely from '../../components/Components/CompFcstTimely';
+import CompFcstWeekly from '../../components/Components/CompFcstDaily';
+import LayoutLeft from '../../components/Layouts/LayoutLeft';
+import LayoutRight from '../../components/Layouts/LayoutRight';
 
 const Wrap = styled.div`
   width: 1280px;
-  height: 100vh;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  border: 1px solid #000;
-  padding: 80px 0;
   color: ${({ theme }) => theme.color.coral};
   font-size: 16px;
 
@@ -23,6 +24,7 @@ const Wrap = styled.div`
 
   @media ${({ theme }) => theme.device.tablet} {
     width: 100%;
+    height: inherit;
     background-color: ${({ theme }) => theme.color.deepCoral};
     flex-direction: column;
     font-size: 15px;
@@ -30,6 +32,7 @@ const Wrap = styled.div`
 
   @media ${({ theme }) => theme.device.mobile13P} {
     width: 100%;
+    height: auto;
     background-color: ${({ theme }) => theme.color.blue};
     flex-direction: column;
     font-size: 14px;
@@ -43,58 +46,28 @@ const Wrap = styled.div`
   }
 `;
 
-const Layout = styled.div`
-  width: 30rem;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
-  @media ${({ theme }) => theme.device.pc} {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    width: 100%;
-    padding: 24px 16px;
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-
-  @media ${({ theme }) => theme.device.mobile13P} {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  @media ${({ theme }) => theme.device.mobileSE} {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-`;
-
 const TemplateLeft = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
 `;
 
 const TemplateRight = styled.div`
   width: 100%;
-  height: 270px;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   flex-wrap: wrap-reverse;
+  @media ${({ theme }) => theme.device.mobileSE} {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
-
-const ComponentBox = styled.div`
-  width: 14.5em;
-  padding: 24px;
-  box-sizing: border-box;
+const TemplateCenter = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.15);
-  border-radius: 1rem;
+  flex-direction: row;
 `;
 
 const AtomDate = styled.div`
@@ -109,33 +82,51 @@ const AtomBeach = styled.div`
 `;
 
 const Test: NextPage = () => {
+  const dataWater: otherInfo = {
+    icon: 'icon',
+    title: '수온',
+    content: '24℃',
+  };
+  const dataWave: otherInfo = {
+    icon: 'icon',
+    title: '파도높이',
+    content: '0.5m/s',
+  };
+  const dataUv: otherInfo = {
+    icon: 'icon',
+    title: '자외선지수',
+    content: '위험 11',
+  };
   return (
     <ThemeProvider theme={theme}>
       <Wrap>
-        <Layout>
+        <LayoutLeft>
           <TemplateLeft>
             <div>
               <AtomDate>8월 6일 토요일</AtomDate>
               <AtomBeach>해운대</AtomBeach>
-              <ComponentBox>
-                <Weather />
-              </ComponentBox>
+              <Weather />
             </div>
           </TemplateLeft>
           <TemplateRight>
-            <ComponentBox>
-              <InfoOther />
-            </ComponentBox>
-            <ComponentBox>
-              <InfoOther />
-            </ComponentBox>
+            <InfoOther info={dataWater} />
+            <InfoOther info={dataWave} />
           </TemplateRight>
-        </Layout>
-        <Layout>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas asperiores ducimus veniam repellat ad
-          ratione deleniti ex architecto a quo, mollitia sequi, alias iure quibusdam accusantium dolores maxime animi
-          pariatur.
-        </Layout>
+        </LayoutLeft>
+        <LayoutRight>
+          <TemplateLeft>
+            <CompFcstTimely fcstTitle="하루날씨" />
+            <CompFcstWeekly fcstTitle="주간날씨" />
+          </TemplateLeft>
+          <TemplateCenter>
+            <InfoOther info={dataUv} />
+            <InfoOther info={dataUv} />
+          </TemplateCenter>
+          <TemplateCenter>
+            <InfoOther info={dataUv} />
+            <InfoOther info={dataUv} />
+          </TemplateCenter>
+        </LayoutRight>
       </Wrap>
     </ThemeProvider>
   );

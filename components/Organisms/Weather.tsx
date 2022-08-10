@@ -1,13 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import theme from '../../styles/theme';
 
-// const WrapComponent = styled.div`
-//   padding: 1.5em;
-//   box-sizing: border-box;
-//   background-color: rgba(0, 0, 0, 0.185);
-//   border-radius: 1rem;
-//   display: flex;
-// `;
+const WrapComp = styled.div`
+  width: 13.5em;
+  padding: 1em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+`;
 
 const TitleRight = styled.div`
   font-size: 0.875rem;
@@ -36,7 +41,7 @@ const FcstIcon = styled.div`
 
 const Weather = () => {
   return (
-    <>
+    <WrapComp>
       <div>
         <FcstIcon>icon</FcstIcon>
         <TitleCenter>맑음</TitleCenter>
@@ -45,7 +50,7 @@ const Weather = () => {
         <TitleRight>기온</TitleRight>
         <FcstTemp>32℃</FcstTemp>
       </div>
-    </>
+    </WrapComp>
   );
 };
 
