@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from '../../styles/theme';
+import { useState } from 'react';
+import { useGetUltraForecast } from '$queries/useGetUltraForecast';
 
 const WrapComp = styled.div`
   width: 13.5em;
@@ -39,7 +41,8 @@ const FcstIcon = styled.div`
   line-height: 3.75em;
 `;
 
-const Weather = () => {
+const Weather = (props: any) => {
+  
   return (
     <WrapComp>
       <div>
@@ -48,7 +51,7 @@ const Weather = () => {
       </div>
       <div>
         <TitleRight>기온</TitleRight>
-        <FcstTemp>32℃</FcstTemp>
+        <FcstTemp>℃</FcstTemp>
       </div>
     </WrapComp>
   );

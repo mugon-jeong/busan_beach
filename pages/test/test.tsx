@@ -1,5 +1,5 @@
+import moment from 'moment';
 import type { NextPage } from 'next';
-import { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
 import Weather from '../../components/Organisms/Weather';
@@ -8,6 +8,8 @@ import CompFcstTimely from '../../components/Components/CompFcstTimely';
 import CompFcstWeekly from '../../components/Components/CompFcstDaily';
 import LayoutLeft from '../../components/Layouts/LayoutLeft';
 import LayoutRight from '../../components/Layouts/LayoutRight';
+import async from '../api/ocean';
+import { useGetUltraForecast } from '$queries/useGetUltraForecast';
 
 const Wrap = styled.div`
   width: 1280px;
@@ -81,7 +83,21 @@ const AtomBeach = styled.div`
   line-height: 2;
 `;
 
+async function data(beach: string) {
+  const { data: Temperatures } = await useGetUltraForecast(304, {
+    onSuccess: data => {
+      console.log(data);
+    },
+  });
+}
+
 const Test: NextPage = () => {
+  let month = moment().format('MM');
+  month = month.replace(/(^0+)/, '');
+
+  let day = moment().format('DD');
+  day = day.replace(/(^0+)/, '');
+
   const dataWater: otherInfo = {
     icon: 'icon',
     title: '수온',
@@ -103,7 +119,9 @@ const Test: NextPage = () => {
         <LayoutLeft>
           <TemplateLeft>
             <div>
-              <AtomDate>8월 6일 토요일</AtomDate>
+              <AtomDate>
+                {month}월 {day}일 토요일
+              </AtomDate>
               <AtomBeach>해운대</AtomBeach>
               <Weather />
             </div>
