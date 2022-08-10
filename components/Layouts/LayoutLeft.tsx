@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const Layout = styled.div`
   width: 30rem;
@@ -11,22 +11,22 @@ const Layout = styled.div`
   justify-content: space-between;
   flex-direction: column;
 
-  @media ${({ theme }) => theme.device.pc} {
+  @media (max-width: ${props => props.theme.deviceSizes.pc}) {
     background-color: rgba(0, 0, 0, 0.6);
   }
 
-  @media ${({ theme }) => theme.device.tablet} {
+  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 100%;
     padding: 1.2rem 1rem;
     background-color: rgba(0, 0, 0, 0.6);
   }
 
-  @media ${({ theme }) => theme.device.mobile13P} {
+  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.4);
   }
 
-  @media ${({ theme }) => theme.device.mobileSE} {
+  @media (max-width: ${props => props.theme.deviceSizes.mobileSE}) {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
   }

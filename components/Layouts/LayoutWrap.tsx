@@ -1,20 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const Wrap = styled.div`
   width: 1280px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  color: ${({ theme }) => theme.color.coral};
+  color: ${props => props.theme.color.coral};
   font-size: 16px;
 
-  @media ${({ theme }) => theme.device.pc} {
-    width: 100%;
-    background-color: coral;
+  @media (max-width: ${props => props.theme.deviceSizes.pc}) {
+    width: 85%;
+    background-color: ${props => props.theme.color.coral};
   }
 
-  @media ${({ theme }) => theme.device.tablet} {
+  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 100%;
     height: inherit;
     background-color: ${({ theme }) => theme.color.deepCoral};
@@ -22,7 +22,7 @@ const Wrap = styled.div`
     font-size: 15px;
   }
 
-  @media ${({ theme }) => theme.device.mobile13P} {
+  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     width: 100%;
     height: auto;
     background-color: ${({ theme }) => theme.color.blue};
@@ -30,7 +30,7 @@ const Wrap = styled.div`
     font-size: 14px;
   }
 
-  @media ${({ theme }) => theme.device.mobileSE} {
+  @media (max-width: ${props => props.theme.deviceSizes.mobileSE}) {
     width: 100%;
     background-color: ${({ theme }) => theme.color.black};
     flex-direction: column;

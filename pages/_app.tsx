@@ -3,9 +3,9 @@ import { useRef } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { NEXT_PUBLIC_ENV } from '$config';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import GlobalStyle from '$styles/GlobalStyle';
 import Seo from '$components/Seo/Seo';
 import { Global } from '@emotion/react';
+import { GlobalStyle } from '$styles/GlobalStyle';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = useRef(

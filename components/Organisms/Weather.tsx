@@ -1,7 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import theme from '../../styles/theme';
 import { useState } from 'react';
 
 const WrapComp = styled.div`

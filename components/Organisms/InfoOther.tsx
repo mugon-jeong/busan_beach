@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const WrapComp = styled.div`
   width: 13.5em;
@@ -11,7 +11,7 @@ const WrapComp = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 1rem;
-  @media ${({ theme }) => theme.device.mobile13P} {
+  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     width: 48%;
     flex-direction: column;
   }
@@ -20,7 +20,7 @@ const WrapComp = styled.div`
 const TitleRight = styled.div`
   font-size: 0.875rem;
   text-align: right;
-  @media ${({ theme }) => theme.device.mobile13P} {
+  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     text-align: center;
   }
 `;

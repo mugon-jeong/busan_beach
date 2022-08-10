@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import AtomDayWeek from '../Atoms/AtomDayWeek';
 import CloudIcon from '@mui/icons-material/Cloud';
 
