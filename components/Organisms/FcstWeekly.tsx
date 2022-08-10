@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import TextDayWeek from '../Atoms/TextDayWeek';
+import TextDayWeek from '../Atoms/AtomDayWeek';
 
 const WrapFcstTimely = styled.div`
   display: flex;

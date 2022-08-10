@@ -2,14 +2,14 @@ import moment from 'moment';
 import type { NextPage } from 'next';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
-import Weather from '../../components/Organisms/Weather';
 import InfoOther, { otherInfo } from '../../components/Organisms/InfoOther';
 import CompFcstTimely from '../../components/Components/CompFcstTimely';
 import CompFcstWeekly from '../../components/Components/CompFcstDaily';
+import LayoutWrap from '../../components/Layouts/LayoutWrap';
 import LayoutLeft from '../../components/Layouts/LayoutLeft';
 import LayoutRight from '../../components/Layouts/LayoutRight';
 import async from '../api/ocean';
-import { useGetUltraForecast } from '$queries/useGetUltraForecast';
+import { UseGetUltraForecast } from '$queries/useGetUltraForecast';
 
 const Wrap = styled.div`
   width: 1280px;
@@ -47,6 +47,7 @@ const Wrap = styled.div`
     font-size: 13px;
   }
 `;
+import CompNow from '../../components/Components/CompNow';
 
 const TemplateLeft = styled.div`
   width: 100%;
@@ -65,6 +66,7 @@ const TemplateRight = styled.div`
     justify-content: space-between;
   }
 `;
+
 const TemplateCenter = styled.div`
   width: 100%;
   display: flex;
@@ -83,12 +85,8 @@ const AtomBeach = styled.div`
   line-height: 2;
 `;
 
-async function data(beach: string) {
-  const { data: Temperatures } = await useGetUltraForecast(304, {
-    onSuccess: data => {
-      console.log(data);
-    },
-  });
+function Template(beach: string) {
+  return UseGetUltraForecast(304);
 }
 
 const Test: NextPage = () => {
@@ -97,6 +95,23 @@ const Test: NextPage = () => {
 
   let day = moment().format('DD');
   day = day.replace(/(^0+)/, '');
+
+  let Day = moment().day().toString();
+  if (Day == "0") {
+    Day = "일"
+  } else if (Day == "1") {
+    Day = "월"
+  } else if (Day == "2") {
+    Day = "화"
+  } else if (Day == "3") {
+    Day = "수"
+  } else if (Day == "4") {
+    Day = "목"
+  } else if (Day == "5") {
+    Day = "금"
+  } else if (Day == "6") {
+    Day = "토"
+  }
 
   const dataWater: otherInfo = {
     icon: 'icon',
@@ -113,18 +128,23 @@ const Test: NextPage = () => {
     title: '자외선지수',
     content: '위험 11',
   };
+  const dataWind: otherInfo = {
+    icon: 'icon',
+    title: '남동풍',
+    content: '2m/s',
+  };
+  const dataAir: otherInfo = {
+    icon: 'icon',
+    title: '미세먼지',
+    content: '좋음 2',
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Wrap>
+      <LayoutWrap>
         <LayoutLeft>
           <TemplateLeft>
-            <div>
-              <AtomDate>
-                {month}월 {day}일 토요일
-              </AtomDate>
-              <AtomBeach>해운대</AtomBeach>
-              <Weather />
-            </div>
+            <CompNow Template={Template('A').data?.response.body.items.item[24].fcstValue} month={month} day={day} Day={Day} />
           </TemplateLeft>
           <TemplateRight>
             <InfoOther info={dataWater} />
@@ -136,16 +156,18 @@ const Test: NextPage = () => {
             <CompFcstTimely fcstTitle="하루날씨" />
             <CompFcstWeekly fcstTitle="주간날씨" />
           </TemplateLeft>
-          <TemplateCenter>
-            <InfoOther info={dataUv} />
-            <InfoOther info={dataUv} />
-          </TemplateCenter>
-          <TemplateCenter>
-            <InfoOther info={dataUv} />
-            <InfoOther info={dataUv} />
-          </TemplateCenter>
+          <div>
+            <TemplateCenter>
+              <InfoOther info={dataUv} />
+              <InfoOther info={dataWater} />
+            </TemplateCenter>
+            <TemplateCenter>
+              <InfoOther info={dataAir} />
+              <InfoOther info={dataWind} />
+            </TemplateCenter>
+          </div>
         </LayoutRight>
-      </Wrap>
+      </LayoutWrap>
     </ThemeProvider>
   );
 };
