@@ -4,13 +4,11 @@ import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import theme from '$styles/theme';
 import InfoOther, { otherInfo } from '$components/Organisms/InfoOther';
-import CompNow from '$components/Components/CompNow';
 import CompFcstTimely from '$components/Components/CompFcstTimely';
 import CompFcstWeekly from '$components/Components/CompFcstDaily';
 import LayoutWrap from '$components/Layouts/LayoutWrap';
 import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
-import { UseGetUltraForecast } from '$queries/useGetUltraForecast';
 
 const TemplateLeft = styled.div`
   width: 100%;
@@ -37,11 +35,11 @@ const TemplateCenter = styled.div`
   flex-direction: row;
 `;
 
-function Template(beach: string) {
-  return UseGetUltraForecast(304);
-}
+// function Template(beach: string) {
+//   return UseGetUltraForecast(304);
+// }
 
-const Weather: NextPage = () => {
+const Detail: NextPage = () => {
   let month = moment().format('MM');
   month = month.replace(/(^0+)/, '');
 
@@ -96,12 +94,12 @@ const Weather: NextPage = () => {
       <LayoutWrap>
         <LayoutLeft>
           <TemplateLeft>
-            <CompNow
-              Template={Template('A').data?.response.body.items.item[24].fcstValue}
-              month={month}
-              day={day}
-              Day={Day}
-            />
+            {/*<CompNow*/}
+            {/*  Template={Template('A').data?.response.body.items.item[24].fcstValue}*/}
+            {/*  month={month}*/}
+            {/*  day={day}*/}
+            {/*  Day={Day}*/}
+            {/*/>*/}
           </TemplateLeft>
           <TemplateRight>
             <InfoOther info={dataWater} />
@@ -129,4 +127,4 @@ const Weather: NextPage = () => {
   );
 };
 
-export default Weather;
+export default Detail;
