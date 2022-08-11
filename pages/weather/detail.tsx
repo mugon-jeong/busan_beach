@@ -13,7 +13,6 @@ import TmplFcstTimely from '$components/Templates/TmplFcstTimely';
 import LayoutWrap from '$components/Layouts/LayoutWrap';
 import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
-import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 
 const TemplateLeft = styled.div`
   width: 100%;
@@ -59,17 +58,11 @@ const Detail: NextPage = () => {
           </TemplateLeft>
           <div>
             <TemplateCenter>
-              <AsyncBoundaryWithQuery>
-                <OFcstUv />
-              </AsyncBoundaryWithQuery>
-              <AsyncBoundaryWithQuery>
-                <OFcstFineAir />
-              </AsyncBoundaryWithQuery>
+              <OFcstUv />
+              <OFcstFineAir />
             </TemplateCenter>
             <TemplateCenter>
-              <AsyncBoundaryWithQuery>
-                <OFcstAir />
-              </AsyncBoundaryWithQuery>
+              <OFcstAir />
               <OFcstWind />
             </TemplateCenter>
           </div>

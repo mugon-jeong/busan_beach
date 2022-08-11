@@ -21,10 +21,7 @@ const WrapMolecules = styled.div`
 `;
 
 const OFcstAir = () => {
-  const { data: dust } = useGetDust(221202, {
-    suspense: true,
-    useErrorBoundary: true,
-  });
+  const { data: dust } = useGetDust(221202);
 
   return (
     <WrapMolecules>
@@ -32,7 +29,9 @@ const OFcstAir = () => {
         info={{
           icon: 'icon',
           title: '미세먼지',
-          content: dustRole(dust?.response.body.item[0].pm10 ?? 0) + `${dust?.response.body.item[0].pm10 ?? 0}`,
+          content:
+            dustRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0) +
+            ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0}`,
         }}
       />
     </WrapMolecules>

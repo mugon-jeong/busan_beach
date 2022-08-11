@@ -7,6 +7,10 @@ export interface AirBodyResponse<T> {
   dataType: string;
   numOfRows: number;
   pageNo: number;
+  items: AirData<T>;
+}
+
+export interface AirData<T> {
   item: T[];
 }
 
@@ -16,5 +20,5 @@ export interface AirBaseData<T> {
 }
 
 export interface AirBaseResponse<T> {
-  response: AirBaseData<T>;
+  getAirQualityInfoClassifiedByStation: AirBaseData<T>;
 }

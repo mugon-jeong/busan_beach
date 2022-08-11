@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import InfoOther from '../Molecules/InfoOther';
 import { useGetDust } from '$queries/useGetDust';
-import { dustRole } from '$utils/dustRole';
+import { dustFineRole } from '$utils/dustRole';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -22,8 +22,7 @@ const WrapMolecules = styled.div`
 
 const OFcstFineAir = () => {
   const { data: dust } = useGetDust(221202, {
-    suspense: true,
-    useErrorBoundary: true,
+    onSuccess: data => console.log(data),
   });
 
   return (
@@ -31,8 +30,10 @@ const OFcstFineAir = () => {
       <InfoOther
         info={{
           icon: 'icon',
-          title: '수온',
-          content: dustRole(dust?.response.body.item[0].pm25 ?? 0) + `${dust?.response.body.item[0].pm25 ?? 0}`,
+          title: '초미세먼지',
+          content:
+            dustFineRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0) +
+            ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0}`,
         }}
       />
     </WrapMolecules>

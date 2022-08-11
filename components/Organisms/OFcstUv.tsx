@@ -21,17 +21,15 @@ const WrapMolecules = styled.div`
 `;
 
 const OFcstUv = () => {
-  const { data: uv } = useGetUV(2635051000, {
-    suspense: true,
-    useErrorBoundary: true,
-  });
+  const { data: uv } = useGetUV(2635051000);
   return (
     <WrapMolecules>
       <InfoOther
         info={{
           icon: 'icon',
           title: '자외선지수',
-          content: uvRole(uv?.response.body.items.item[0].today ?? 0) + `${uv?.response.body.items.item[0].today ?? 0}`,
+          content:
+            uvRole(uv?.response.body.items.item[0].today ?? 0) + ` ${uv?.response.body.items.item[0].today ?? 0}`,
         }}
       />
     </WrapMolecules>
