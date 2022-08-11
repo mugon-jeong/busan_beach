@@ -54,7 +54,17 @@ const OFcstTimely = ({ fcstTitle }: any, { loading }: PostProps) => {
       <h1>{fcstTitle}</h1>
       <WrapMolecules>
         {loading ? (
-          <SkeletonTimely />
+          <>
+            <SkeletonTimely />
+            <SkeletonTimely />
+            <SkeletonTimely />
+            <SkeletonTimely />
+            <SkeletonTimely />
+            <SkeletonTimely />
+            <SkeletonTimely />
+            <SkeletonTimely />
+            <SkeletonTimely />
+          </>
         ) : (
           <>
             <FcstTimely info={data1} />
@@ -66,6 +76,9 @@ const OFcstTimely = ({ fcstTitle }: any, { loading }: PostProps) => {
             <FcstTimely info={data3} />
             <FcstTimely info={data3} />
             <FcstTimely info={data3} />
+            <SkeletonTimely />
+            <SkeletonTimely />
+            <SkeletonTimely />
           </>
         )}
       </WrapMolecules>

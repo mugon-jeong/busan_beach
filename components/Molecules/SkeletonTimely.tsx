@@ -28,11 +28,13 @@ const TimeCurrent = styled.div`
 `;
 
 const FcstIcon = styled.div`
-  width: 2em;
-  height: 2em;
+  width: 1.4em;
+  height: 1.4em;
   background-color: transparent;
   border-radius: 50%;
   text-align: center;
+  line-height: 1;
+  margin-bottom: 0.2em;
 `;
 
 export interface timelyInfo {
@@ -45,7 +47,9 @@ const SkeletonTimely = () => {
   return (
     <WrapFcstTimely>
       <TemptCurrent>
-        <Skeleton width={20} />
+        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+          <Skeleton width={24} />
+        </SkeletonTheme>
       </TemptCurrent>
       <FcstIcon>
         <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
@@ -53,10 +57,14 @@ const SkeletonTimely = () => {
         </SkeletonTheme>
       </FcstIcon>
       <TimeCurrent>
-        <Skeleton width={20} />
+        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+          <Skeleton width={24} />
+        </SkeletonTheme>
       </TimeCurrent>
       <TimeCurrent>
-        <Skeleton width={20} />
+        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+          <Skeleton width={24} />
+        </SkeletonTheme>
       </TimeCurrent>
     </WrapFcstTimely>
   );
