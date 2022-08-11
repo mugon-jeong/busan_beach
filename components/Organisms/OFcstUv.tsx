@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import InfoOther from '../Molecules/InfoOther';
 import { useGetUV } from '$queries/useGetUV';
 import { uvRole } from '$utils/uvRole';
+import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -20,18 +21,26 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstUv = () => {
+interface PostProps {
+  loading: boolean;
+}
+
+const OFcstUv = ({ loading }: PostProps) => {
   const { data: uv } = useGetUV(2635051000);
   return (
     <WrapMolecules>
-      <InfoOther
-        info={{
-          icon: 'icon',
-          title: '자외선지수',
-          content:
-            uvRole(uv?.response.body.items.item[0].today ?? 0) + ` ${uv?.response.body.items.item[0].today ?? 0}`,
-        }}
-      />
+      {loading ? (
+        <SkeletonOthers />
+      ) : (
+        <InfoOther
+          info={{
+            icon: 'icon',
+            title: '자외선지수',
+            content:
+              uvRole(uv?.response.body.items.item[0].today ?? 0) + ` ${uv?.response.body.items.item[0].today ?? 0}`,
+          }}
+        />
+      )}
     </WrapMolecules>
   );
 };

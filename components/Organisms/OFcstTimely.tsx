@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import FcstTimely, { timelyInfo } from '../Molecules/FcstTimely';
+import SkeletonTimely from '$components/Molecules/SkeletonTimely';
 
 const WrapComp = styled.div`
   width: 100%;
@@ -27,7 +28,11 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstTimely = ({ fcstTitle }: any) => {
+interface PostProps {
+  loading: boolean;
+}
+
+const OFcstTimely = ({ fcstTitle }: any, { loading }: PostProps) => {
   const data1: timelyInfo = {
     tempTimely: 28,
     rainRate: 30,
@@ -48,15 +53,21 @@ const OFcstTimely = ({ fcstTitle }: any) => {
     <WrapComp>
       <h1>{fcstTitle}</h1>
       <WrapMolecules>
-        <FcstTimely info={data1} />
-        <FcstTimely info={data2} />
-        <FcstTimely info={data3} />
-        <FcstTimely info={data1} />
-        <FcstTimely info={data2} />
-        <FcstTimely info={data3} />
-        <FcstTimely info={data3} />
-        <FcstTimely info={data3} />
-        <FcstTimely info={data3} />
+        {loading ? (
+          <SkeletonTimely />
+        ) : (
+          <>
+            <FcstTimely info={data1} />
+            <FcstTimely info={data2} />
+            <FcstTimely info={data3} />
+            <FcstTimely info={data1} />
+            <FcstTimely info={data2} />
+            <FcstTimely info={data3} />
+            <FcstTimely info={data3} />
+            <FcstTimely info={data3} />
+            <FcstTimely info={data3} />
+          </>
+        )}
       </WrapMolecules>
     </WrapComp>
   );

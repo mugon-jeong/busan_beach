@@ -12,7 +12,7 @@ const TemplateLeft = styled.div`
 const TmplLeftTop = () => {
   return (
     <TemplateLeft>
-      <OFcstNow />
+      <OFcstNow loading={true} />
     </TemplateLeft>
   );
 };

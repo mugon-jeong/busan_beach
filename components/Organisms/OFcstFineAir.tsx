@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther from '../Molecules/InfoOther';
+import InfoOther from '$components/Molecules/InfoOther';
 import { useGetDust } from '$queries/useGetDust';
 import { dustFineRole } from '$utils/dustRole';
+import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -20,22 +21,30 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstFineAir = () => {
+interface PostProps {
+  loading: boolean;
+}
+
+const OFcstFineAir = ({ loading }: PostProps) => {
   const { data: dust } = useGetDust(221202, {
     onSuccess: data => console.log(data),
   });
 
   return (
     <WrapMolecules>
-      <InfoOther
-        info={{
-          icon: 'icon',
-          title: '초미세먼지',
-          content:
-            dustFineRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0) +
-            ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0}`,
-        }}
-      />
+      {loading ? (
+        <SkeletonOthers />
+      ) : (
+        <InfoOther
+          info={{
+            icon: 'icon',
+            title: '초미세먼지',
+            content:
+              dustFineRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0) +
+              ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0}`,
+          }}
+        />
+      )}
     </WrapMolecules>
   );
 };

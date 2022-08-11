@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther, { otherInfo } from '../Molecules/InfoOther';
+import InfoOther, { otherInfo } from '$components/Molecules/InfoOther';
+import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -18,17 +19,17 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstWind = () => {
+interface PostProps {
+  loading: boolean;
+}
+
+const OFcstWind = ({ loading }: PostProps) => {
   const dataWind: otherInfo = {
     icon: 'icon',
     title: '남동풍',
     content: '2m/s',
   };
-  return (
-    <WrapMolecules>
-      <InfoOther info={dataWind} />
-    </WrapMolecules>
-  );
+  return <WrapMolecules>{loading ? <SkeletonOthers /> : <InfoOther info={dataWind} />}</WrapMolecules>;
 };
 
 export default OFcstWind;

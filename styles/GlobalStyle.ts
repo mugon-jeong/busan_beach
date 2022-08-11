@@ -23,6 +23,9 @@ export const GlobalStyle = css`
     box-sizing: border-box;
     line-height: 1.6;
     font-weight: 400;
+    h1 {
+      line-height: 1;
+    }
   }
 
   ::-webkit-scrollbar {

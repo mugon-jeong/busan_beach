@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import OFcstWater from '../Organisms/OFcstWater';
+import OFcstWave from '../Organisms/OFcstWave';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
-import OFcstWater from '$components/Organisms/OFcstWater';
-import OFcstWave from '$components/Organisms/OFcstWave';
+import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const TemplateRight = styled.div`
   width: 100%;
@@ -18,11 +19,11 @@ const TemplateRight = styled.div`
 const TmplWater = () => {
   return (
     <TemplateRight>
-      <AsyncBoundaryWithQuery>
-        <OFcstWater />
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <OFcstWater loading={true} />
       </AsyncBoundaryWithQuery>
-      <AsyncBoundaryWithQuery>
-        <OFcstWave />
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <OFcstWave loading={true} />
       </AsyncBoundaryWithQuery>
     </TemplateRight>
   );

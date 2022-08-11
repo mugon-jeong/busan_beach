@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther from '../Molecules/InfoOther';
+import InfoOther from '$components/Molecules/InfoOther';
 import { useGetDust } from '$queries/useGetDust';
 import { dustRole } from '$utils/dustRole';
+import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -20,20 +21,28 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstAir = () => {
+interface PostProps {
+  loading: boolean;
+}
+
+const OFcstAir = ({ loading }: PostProps) => {
   const { data: dust } = useGetDust(221202);
 
   return (
     <WrapMolecules>
-      <InfoOther
-        info={{
-          icon: 'icon',
-          title: '미세먼지',
-          content:
-            dustRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0) +
-            ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0}`,
-        }}
-      />
+      {loading ? (
+        <SkeletonOthers />
+      ) : (
+        <InfoOther
+          info={{
+            icon: 'icon',
+            title: '미세먼지',
+            content:
+              dustRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0) +
+              ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0}`,
+          }}
+        />
+      )}
     </WrapMolecules>
   );
 };

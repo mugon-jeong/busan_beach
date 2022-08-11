@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const TitleRight = styled.div`
   font-size: 0.875rem;

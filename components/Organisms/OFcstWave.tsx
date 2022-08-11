@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import InfoOther from '../Molecules/InfoOther';
 import { useGetWave } from '$queries/useGetWave';
+import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -19,17 +20,25 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstWave = () => {
+interface PostProps {
+  loading: boolean;
+}
+
+const OFcstWave = ({ loading }: PostProps) => {
   const { data: wave } = useGetWave(304);
   return (
     <WrapMolecules>
-      <InfoOther
-        info={{
-          icon: 'icon',
-          title: '파도높이',
-          content: wave?.response.body.items.item[0].wh + 'm/s',
-        }}
-      />
+      {loading ? (
+        <SkeletonOthers />
+      ) : (
+        <InfoOther
+          info={{
+            icon: 'icon',
+            title: '파도높이',
+            content: wave?.response.body.items.item[0].wh + 'm/s',
+          }}
+        />
+      )}
     </WrapMolecules>
   );
 };
