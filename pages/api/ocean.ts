@@ -8,10 +8,10 @@ type Data = {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
-  const { BeachCode } = req.query;
+  const { OceanCode } = req.query;
   const data = await axios
     .get(
-      `http://www.khoa.go.kr/api/oceangrid/beach/search.do?ServiceKey=${OCEAN_DATA_KEY}&BeachCode=${BeachCode}&ResultType=json`,
+      `http://www.khoa.go.kr/api/oceangrid/beach/search.do?ServiceKey=${OCEAN_DATA_KEY}&BeachCode=${OceanCode}&ResultType=json`,
     )
     .then(res => {
       console.log(res.data);
