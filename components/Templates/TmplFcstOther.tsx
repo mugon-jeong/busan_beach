@@ -15,20 +15,20 @@ const TemplateCenter = styled.div`
   flex-wrap: wrap;
 `;
 
-const TmplFcstOther = () => {
+const TmplFcstOther = ({ areaNo, oceanCode, areaIndex }: { areaNo: number; oceanCode: string; areaIndex: number }) => {
   return (
     <TemplateCenter>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstUv />
+        <OFcstUv areaNo={areaNo} />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstWind />
+        <OFcstWind oceanCode={oceanCode} />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstAir />
+        <OFcstAir areaIndex={areaIndex} />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstFineAir />
+        <OFcstFineAir areaIndex={areaIndex} />
       </AsyncBoundaryWithQuery>
     </TemplateCenter>
   );

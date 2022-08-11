@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import InfoOther from '$components/Molecules/InfoOther';
 import { useGetDust } from '$queries/useGetDust';
 import { dustRole } from '$utils/dustRole';
-import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -21,8 +20,8 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstAir = () => {
-  const { data: dust } = useGetDust(221202);
+const OFcstAir = ({ areaIndex }: { areaIndex: number }) => {
+  const { data: dust } = useGetDust(areaIndex);
 
   return (
     <WrapMolecules>
