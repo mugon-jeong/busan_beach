@@ -27,23 +27,23 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstTimely = ({ fcstTitle }: any) => {
+const OFcstDaily = ({ fcstTitle }: any) => {
   const data1: dailyInfo = {
     tempHigh: 32,
     tempLow: 24,
-    date: '12.01',
+    rate: '20%',
     days: '목',
   };
   const data2: dailyInfo = {
     tempHigh: 30,
     tempLow: 28,
-    date: '12.02',
+    rate: '30%',
     days: '금',
   };
   const data3: dailyInfo = {
     tempHigh: 30,
     tempLow: 15,
-    date: '12.03',
+    rate: '80%',
     days: '토',
   };
 
@@ -65,4 +65,4 @@ const OFcstTimely = ({ fcstTitle }: any) => {
   );
 };
 
-export default OFcstTimely;
+export default OFcstDaily;

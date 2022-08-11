@@ -73,7 +73,7 @@ const TempBar = styled.div`
 export interface dailyInfo {
   tempHigh: number;
   tempLow: number;
-  date: string;
+  rate: string;
   days: string;
 }
 
@@ -91,7 +91,7 @@ const FcstWeekly = ({ info }: { info: dailyInfo }) => {
       </TemptLow>
       <FcstIcon />
       <Date>
-        <TextDayWeek title={info.date} />
+        <TextDayWeek title={info.rate} />
       </Date>
       <Days>
         <TextDayWeek title={info.days} />

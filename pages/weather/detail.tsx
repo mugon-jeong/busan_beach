@@ -2,7 +2,6 @@ import type { NextPage } from 'next';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import theme from '$styles/theme';
-import OFcstDaily from '$components/Organisms/OFcstDaily';
 import OFcstFineAir from '$components/Organisms/OFcstFineAir';
 import OFcstUv from '$components/Organisms/OFcstUv';
 import OFcstAir from '$components/Organisms/OFcstAir';
@@ -10,6 +9,7 @@ import OFcstWind from '$components/Organisms/OFcstWind';
 import TmplFcst from '$components/Templates/TmplFcst';
 import TmplWater from '$components/Templates/TmplWater';
 import TmplFcstTimely from '$components/Templates/TmplFcstTimely';
+import TmplFcstDaily from '$components/Templates/TmplFcstDaily';
 import LayoutWrap from '$components/Layouts/LayoutWrap';
 import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
@@ -53,9 +53,7 @@ const Detail: NextPage = () => {
         </LayoutLeft>
         <LayoutRight>
           <TmplFcstTimely />
-          <TemplateLeft>
-            <OFcstDaily fcstTitle="주간날씨" />
-          </TemplateLeft>
+          <TmplFcstDaily />
           <div>
             <TemplateCenter>
               <OFcstUv />

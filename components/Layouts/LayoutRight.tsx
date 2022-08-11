@@ -18,8 +18,10 @@ const Layout = styled.div`
 
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 100%;
+    height: 100%;
     padding: 1.2rem 1rem;
     background-color: rgba(0, 0, 0, 0.6);
+    overflow-y: inherit;
   }
 
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
