@@ -10,7 +10,7 @@ WORKDIR /app/admin
 COPY ./package*.json ./
 RUN  npm install pm2 -g
 
-RUN  npm ci
+RUN  npm install
 
 COPY ./ ./
 
