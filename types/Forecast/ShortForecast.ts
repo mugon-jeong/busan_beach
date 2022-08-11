@@ -4,5 +4,7 @@ export interface ShortForecast {
   category: string;
   nx: number;
   ny: number;
-  obsrValue: string;
+  fcstDate: string;
+  fcstTime: string;
+  fcstValue: number;
 }

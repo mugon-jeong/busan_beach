@@ -43,3 +43,25 @@ export const convertCurrentDay = () => {
     return '토';
   }
 };
+export const convertHHtoInt = (): number => {
+  return parseInt(moment().format('HH') + '00');
+};
+
+export const requestShortForecastHH = () => {
+  const hh = convertHHtoInt();
+  if (200 <= hh && hh < 500) {
+    return '0200';
+  } else if (500 <= hh && hh < 800) {
+    return '0500';
+  } else if (800 <= hh && hh < 1100) {
+    return '800';
+  } else if (1100 <= hh && hh < 1400) {
+    return '1100';
+  } else if (1400 <= hh && hh < 1700) {
+    return '1400';
+  } else if (1700 <= hh && hh < 2000) {
+    return '1700';
+  } else if (2000 <= hh && hh < 2300) {
+    return '2000';
+  }
+};

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import styled from '@emotion/styled';
 import Image from 'next/image';
+import { convertHHtoInt } from '$utils/date';
 // import { useGetOceanData } from '$queries/useGetOceanData';
 
 const Main = styled.div`
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
   // axios.get(`${API_ROUTES.API.OCEAN}`, { params: { BeachCode: 'BCH001' } }).then(res => {
   //   console.log(res);
   // });
+  console.log(convertHHtoInt());
 
   return (
     <Main>

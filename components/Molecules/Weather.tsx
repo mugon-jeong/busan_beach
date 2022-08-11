@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import { useState } from 'react';
+import { useGetShortForecast } from '$queries/useGetShortForecast';
+import { getCurrentYYYYMMDD } from '$utils/date';
+import { rainRole, skyRole } from '$utils/skyRole';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -40,24 +42,45 @@ const FcstIcon = styled.div`
   line-height: 2.75em;
 `;
 
-export interface nowInfo {
-  icon: 'icon';
-  state: string;
-  temp: string | undefined;
-}
-
-const Weather = ({ info }: { info: nowInfo }) => {
+const Weather = () => {
+  const [sky, setSky] = useState('');
+  const [tempt, setTempt] = useState(0);
+  const { data: dayForecast } = useGetShortForecast(99, 75, {
+    suspense: true,
+    useErrorBoundary: true,
+  });
+  useEffect(() => {
+    const sky = dayForecast?.response.body.items.item
+      .filter(value => value.category == 'SKY')
+      .filter(value => value.fcstDate == getCurrentYYYYMMDD())[0];
+    if (sky) {
+      let skyStatus = skyRole(sky!.fcstValue);
+      if (!skyStatus) {
+        const rain = dayForecast?.response.body.items.item
+          .filter(value => value.category == 'PTY')
+          .filter(value => value.fcstDate == getCurrentYYYYMMDD())[0];
+        skyStatus = rainRole(rain!.fcstValue);
+      }
+      setSky(skyStatus!);
+    }
+    const tmp = dayForecast?.response.body.items.item
+      .filter(value => value.category == 'TMP')
+      .filter(value => value.fcstDate == getCurrentYYYYMMDD())[0];
+    if (tmp) {
+      setTempt(tmp!.fcstValue);
+    }
+  }, [dayForecast?.response.body.items.item]);
   return (
     <WrapMolecules>
       <div>
         <FcstIcon>
           <WbSunnyIcon fontSize="large" />
         </FcstIcon>
-        <TitleCenter>{info.state}</TitleCenter>
+        <TitleCenter>{sky}</TitleCenter>
       </div>
       <div>
         <TitleRight>기온</TitleRight>
-        <FcstTemp>{`${info.temp}℃`}</FcstTemp>
+        <FcstTemp>{`${tempt}℃`}</FcstTemp>
       </div>
     </WrapMolecules>
   );
