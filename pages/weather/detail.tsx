@@ -1,4 +1,3 @@
-import moment from 'moment';
 import type { NextPage } from 'next';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
@@ -45,29 +44,6 @@ const TemplateCenter = styled.div`
 // }
 
 const Detail: NextPage = () => {
-  let month = moment().format('MM');
-  month = month.replace(/(^0+)/, '');
-
-  let day = moment().format('DD');
-  day = day.replace(/(^0+)/, '');
-
-  let Day = moment().day().toString();
-  if (Day == '0') {
-    Day = '일';
-  } else if (Day == '1') {
-    Day = '월';
-  } else if (Day == '2') {
-    Day = '화';
-  } else if (Day == '3') {
-    Day = '수';
-  } else if (Day == '4') {
-    Day = '목';
-  } else if (Day == '5') {
-    Day = '금';
-  } else if (Day == '6') {
-    Day = '토';
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <LayoutWrap>

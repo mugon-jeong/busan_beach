@@ -7,6 +7,7 @@ export interface BodyResponse<T> {
   dataType: string;
   numOfRows: number;
   pageNo: number;
+  totalCount: number;
   items: BaseItem<T>;
 }
 
