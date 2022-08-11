@@ -9,10 +9,10 @@ const TemplateLeft = styled.div`
   flex-direction: column;
 `;
 
-const TmplLeftTop = () => {
+const TmplLeftTop = ({ nx, ny }: { nx: number; ny: number }) => {
   return (
     <TemplateLeft>
-      <OFcstNow loading={true} />
+      <OFcstNow nx={nx} ny={ny} />
     </TemplateLeft>
   );
 };

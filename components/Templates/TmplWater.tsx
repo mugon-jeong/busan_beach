@@ -16,14 +16,14 @@ const TemplateRight = styled.div`
   }
 `;
 
-const TmplWater = () => {
+const TmplWater = ({ beachCode }: { beachCode: number }) => {
   return (
     <TemplateRight>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstWater loading={true} />
+      <AsyncBoundaryWithQuerypendingFallback={<SkeletonOthers />}>
+        <OFcstWater beachCode={beachCode} />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstWave loading={true} />
+        <OFcstWave beachCode={beachCode} />
       </AsyncBoundaryWithQuery>
     </TemplateRight>
   );

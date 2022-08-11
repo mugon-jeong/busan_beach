@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import { convertHHtoInt } from '$utils/date';
+import { useRouter } from 'next/router';
+import { ROUTES } from '$constants/routes';
 // import { useGetOceanData } from '$queries/useGetOceanData';
 
 const Main = styled.div`
@@ -14,6 +15,7 @@ const Main = styled.div`
 `;
 
 const Home: NextPage = () => {
+  const router = useRouter();
   // const { data: ocean } = useGetOceanData('BCH002', {
   //   onSuccess: data => {
   //     console.log(data.result);
@@ -23,12 +25,12 @@ const Home: NextPage = () => {
   // axios.get(`${API_ROUTES.API.OCEAN}`, { params: { BeachCode: 'BCH001' } }).then(res => {
   //   console.log(res);
   // });
-  console.log(convertHHtoInt());
 
   return (
     <Main>
       <div className="img">
         <Image src="/asset/img/building.png" alt="preparing the site" width={422} height={420} />
+        <button onClick={() => router.push(ROUTES.HEAWOONDAE)}>heawoondea</button>
       </div>
     </Main>
   );

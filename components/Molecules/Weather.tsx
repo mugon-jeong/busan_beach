@@ -42,13 +42,10 @@ const FcstIcon = styled.div`
   line-height: 2.75em;
 `;
 
-const Weather = () => {
+const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
   const [sky, setSky] = useState('');
   const [tempt, setTempt] = useState(0);
-  const { data: dayForecast } = useGetShortForecast(99, 75, {
-    suspense: true,
-    useErrorBoundary: true,
-  });
+  const { data: dayForecast } = useGetShortForecast(nx, ny);
   useEffect(() => {
     const sky = dayForecast?.response.body.items.item
       .filter(value => value.category == 'SKY')

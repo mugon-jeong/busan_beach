@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import FcstTimely, { timelyInfo } from '../Molecules/FcstTimely';
+import { useGetShortForecast } from '$queries/useGetShortForecast';
 import SkeletonTimely from '$components/Molecules/SkeletonTimely';
 
 const WrapComp = styled.div`
@@ -20,13 +21,24 @@ const WrapMolecules = styled.div`
   justify-content: flex-start;
   align-items: center;
   overflow-x: scroll;
+
   ::-webkit-scrollbar {
     height: 4px;
   }
+
   ::-webkit-scrollbar-track {
     background: transparent;
   }
 `;
+const OFcstTimely = ({ fcstTitle }: any) => {
+  const { data: info } = useGetShortForecast(99, 75);
+  useEffect(() => {
+    if (info) {
+      const sliceList = info.response.body.items.item.splice(0, 229);
+
+      sliceList.map((data, index) => {});
+    }
+  }, [info]);
 
 interface PostProps {
   loading: boolean;

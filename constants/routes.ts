@@ -39,3 +39,13 @@ export const API_ROUTES = {
     OCEAN: `${HOST_URL}/api/ocean`,
   },
 };
+
+export const ROUTES = {
+  HEAWOONDAE: '/weather/HEAWOONDAE',
+  SONGDO: '/weather/SONGDO',
+  SONGJUNG: '/weather/SONGJUNG',
+  GUANGANLEE: '/weather/GUANGANLEE',
+  DADAEPO: '/weather/DADAEPO',
+  IMLANG: '/weather/IMLANG',
+  ILGUANG: '/weather/ILGUANG',
+};

@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther, { otherInfo } from '../Molecules/InfoOther';
+import InfoOther from '../Molecules/InfoOther';
 import { useGetWaterTemperature } from '$queries/useGetWaterTemp';
-import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -19,32 +18,19 @@ const WrapMolecules = styled.div`
     flex-direction: column;
   }
 `;
-
-interface PostProps {
-  loading: boolean;
-}
-
-const OFcstWater = ({ loading }: PostProps) => {
-  const { data: water } = useGetWaterTemperature(304, {
-    suspense: true,
-    useErrorBoundary: true,
-  });
+const OFcstWater = ({ beachCode }: { beachCode: number }) => {
+  const { data: water } = useGetWaterTemperature(beachCode);
 
   return (
     <WrapMolecules>
-      {loading ? (
-        <SkeletonOthers />
-      ) : (
-        <InfoOther
-          info={{
-            icon: 'icon',
-            title: '수온',
-            content: water?.response.body.items.item[0].tw + '℃',
-          }}
-        />
-      )}
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: '수온',
+          content: water?.response.body.items.item[0].tw + '℃',
+        }}
+      />
     </WrapMolecules>
   );
 };
-
 export default OFcstWater;
