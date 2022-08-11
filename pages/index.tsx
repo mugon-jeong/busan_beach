@@ -12,6 +12,13 @@ const Main = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: radial-gradient(#79f3e7, #0b90ad);
+  background-repeat: no-repeat;
+`;
+
+const WrapImg = styled.div`
+  width: auto;
+  height: auto;
 `;
 
 const Home: NextPage = () => {
@@ -29,8 +36,15 @@ const Home: NextPage = () => {
   return (
     <Main>
       <div className="img">
-        <Image src="/asset/img/building.png" alt="preparing the site" width={422} height={420} />
-        <button onClick={() => router.push(ROUTES.HEAWOONDAE)}>heawoondea</button>
+        <WrapImg>
+          <Image
+            src="/asset/img/bgimg_tube_clear.png"
+            alt="go to heawoondae"
+            width={422}
+            height={420}
+            onClick={() => router.push(ROUTES.HEAWOONDAE)}
+          />
+        </WrapImg>
       </div>
     </Main>
   );
