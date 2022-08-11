@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther, { otherInfo } from '../Molecules/InfoOther';
+import InfoOther from '../Molecules/InfoOther';
+import { useGetWave } from '$queries/useGetWave';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -19,14 +20,19 @@ const WrapMolecules = styled.div`
 `;
 
 const OFcstWave = () => {
-  const dataWave: otherInfo = {
-    icon: 'icon',
-    title: '파도높이',
-    content: '0.5m/s',
-  };
+  const { data: wave } = useGetWave(304, {
+    suspense: true,
+    useErrorBoundary: true,
+  });
   return (
     <WrapMolecules>
-      <InfoOther info={dataWave} />
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: '파도높이',
+          content: wave?.response.body.items.item[0].wh + 'm/s',
+        }}
+      />
     </WrapMolecules>
   );
 };

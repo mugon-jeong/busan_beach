@@ -20,7 +20,7 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstAir = () => {
+const OFcstFineAir = () => {
   const { data: dust } = useGetDust(221202, {
     suspense: true,
     useErrorBoundary: true,
@@ -31,12 +31,12 @@ const OFcstAir = () => {
       <InfoOther
         info={{
           icon: 'icon',
-          title: '미세먼지',
-          content: dustRole(dust?.response.body.item[0].pm10 ?? 0) + `${dust?.response.body.item[0].pm10 ?? 0}`,
+          title: '수온',
+          content: dustRole(dust?.response.body.item[0].pm25 ?? 0) + `${dust?.response.body.item[0].pm25 ?? 0}`,
         }}
       />
     </WrapMolecules>
   );
 };
 
-export default OFcstAir;
+export default OFcstFineAir;
