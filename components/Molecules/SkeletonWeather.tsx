@@ -43,12 +43,6 @@ const FcstIcon = styled.div`
 const SkeletonOthers = () => {
   return (
     <>
-      <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
-        <Skeleton width={100} />
-      </SkeletonTheme>
-      <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
-        <Skeleton width={100} />
-      </SkeletonTheme>
       <WrapMolecules>
         <div>
           <FcstIcon>
