@@ -19,6 +19,10 @@ const Main = styled.div`
 const WrapImg = styled.div`
   width: auto;
   height: auto;
+  cursor: pointer;
+  :hover {
+    transform: translateY(-5%);
+  }
 `;
 
 const Home: NextPage = () => {
