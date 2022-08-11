@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther, { otherInfo } from '$components/Molecules/InfoOther';
-import SkeletonOthers from '$components/Molecules/SkeletonOthers';
+import InfoOther from '$components/Molecules/InfoOther';
+import { useGetOceanData } from '$queries/useGetOceanData';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -19,15 +19,17 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstWind = () => {
-  const dataWind: otherInfo = {
-    icon: 'icon',
-    title: '남동풍',
-    content: '2m/s',
-  };
+const OFcstWind = ({ oceanCode }: { oceanCode: string }) => {
+  const { data: wind } = useGetOceanData(oceanCode);
   return (
     <WrapMolecules>
-      <InfoOther info={dataWind} />
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: wind?.result.data[0].wind_direct ?? '',
+          content: wind?.result.data[0].wind_speed + 'm/s',
+        }}
+      />
     </WrapMolecules>
   );
 };

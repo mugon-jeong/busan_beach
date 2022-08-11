@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import InfoOther from '../Molecules/InfoOther';
 import { useGetUV } from '$queries/useGetUV';
 import { uvRole } from '$utils/uvRole';
-import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -21,8 +20,8 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstUv = () => {
-  const { data: uv } = useGetUV(2635051000);
+const OFcstUv = ({ areaNo }: { areaNo: number }) => {
+  const { data: uv } = useGetUV(areaNo);
   return (
     <WrapMolecules>
       <InfoOther

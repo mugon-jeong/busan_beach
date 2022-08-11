@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import theme from '$styles/theme';
 import TmplFcst from '$components/Templates/TmplFcst';
@@ -31,7 +30,7 @@ const Beach: NextPage = () => {
         <LayoutRight>
           <TmplFcstTimely />
           <TmplFcstDaily />
-          <TmplFcstOther />
+          <TmplFcstOther areaNo={pram.AREANO} oceanCode={pram.OCEANCODE} areaIndex={pram.AREAINDEX} />
         </LayoutRight>
       </LayoutWrap>
     </ThemeProvider>
