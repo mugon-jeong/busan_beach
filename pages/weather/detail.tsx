@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import theme from '$styles/theme';
 import OFcstDaily from '$components/Organisms/OFcstDaily';
-import OFcstWater from '$components/Organisms/OFcstWater';
+import OFcstFineAir from '$components/Organisms/OFcstFineAir';
 import OFcstUv from '$components/Organisms/OFcstUv';
 import OFcstAir from '$components/Organisms/OFcstAir';
 import OFcstWind from '$components/Organisms/OFcstWind';
@@ -13,6 +13,7 @@ import TmplFcstTimely from '$components/Templates/TmplFcstTimely';
 import LayoutWrap from '$components/Layouts/LayoutWrap';
 import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
+import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 
 const TemplateLeft = styled.div`
   width: 100%;
@@ -58,11 +59,17 @@ const Detail: NextPage = () => {
           </TemplateLeft>
           <div>
             <TemplateCenter>
-              <OFcstUv />
-              <OFcstWater />
+              <AsyncBoundaryWithQuery>
+                <OFcstUv />
+              </AsyncBoundaryWithQuery>
+              <AsyncBoundaryWithQuery>
+                <OFcstFineAir />
+              </AsyncBoundaryWithQuery>
             </TemplateCenter>
             <TemplateCenter>
-              <OFcstAir />
+              <AsyncBoundaryWithQuery>
+                <OFcstAir />
+              </AsyncBoundaryWithQuery>
               <OFcstWind />
             </TemplateCenter>
           </div>

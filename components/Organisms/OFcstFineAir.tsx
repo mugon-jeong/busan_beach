@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import InfoOther from '../Molecules/InfoOther';
-import { useGetWaterTemperature } from '$queries/useGetWaterTemp';
+import { useGetDust } from '$queries/useGetDust';
+import { dustRole } from '$utils/dustRole';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -19,8 +20,8 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstWater = () => {
-  const { data: water } = useGetWaterTemperature(304, {
+const OFcstFineAir = () => {
+  const { data: dust } = useGetDust(221202, {
     suspense: true,
     useErrorBoundary: true,
   });
@@ -31,11 +32,11 @@ const OFcstWater = () => {
         info={{
           icon: 'icon',
           title: '수온',
-          content: water?.response.body.items.item[0].tw + '℃',
+          content: dustRole(dust?.response.body.item[0].pm25 ?? 0) + `${dust?.response.body.item[0].pm25 ?? 0}`,
         }}
       />
     </WrapMolecules>
   );
 };
 
-export default OFcstWater;
+export default OFcstFineAir;

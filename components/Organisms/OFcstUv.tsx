@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther, { otherInfo } from '../Molecules/InfoOther';
+import InfoOther from '../Molecules/InfoOther';
+import { useGetUV } from '$queries/useGetUV';
+import { uvRole } from '$utils/uvRole';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -19,14 +21,19 @@ const WrapMolecules = styled.div`
 `;
 
 const OFcstUv = () => {
-  const dataUv: otherInfo = {
-    icon: 'icon',
-    title: '자외선지수',
-    content: '위험 11',
-  };
+  const { data: uv } = useGetUV(2635051000, {
+    suspense: true,
+    useErrorBoundary: true,
+  });
   return (
     <WrapMolecules>
-      <InfoOther info={dataUv} />
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: '자외선지수',
+          content: uvRole(uv?.response.body.items.item[0].today ?? 0) + `${uv?.response.body.items.item[0].today ?? 0}`,
+        }}
+      />
     </WrapMolecules>
   );
 };

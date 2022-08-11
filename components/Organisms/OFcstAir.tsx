@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther, { otherInfo } from '../Molecules/InfoOther';
+import InfoOther from '../Molecules/InfoOther';
+import { useGetDust } from '$queries/useGetDust';
+import { dustRole } from '$utils/dustRole';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -19,15 +21,20 @@ const WrapMolecules = styled.div`
 `;
 
 const OFcstAir = () => {
-  const dataAir: otherInfo = {
-    icon: 'icon',
-    title: '미세먼지',
-    content: '좋음 2',
-  };
+  const { data: dust } = useGetDust(221202, {
+    suspense: true,
+    useErrorBoundary: true,
+  });
 
   return (
     <WrapMolecules>
-      <InfoOther info={dataAir} />
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: '미세먼지',
+          content: dustRole(dust?.response.body.item[0].pm10 ?? 0) + `${dust?.response.body.item[0].pm10 ?? 0}`,
+        }}
+      />
     </WrapMolecules>
   );
 };
