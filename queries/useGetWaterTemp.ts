@@ -5,7 +5,7 @@ import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query
 import { WaterTemperatureType } from '$types/BeachWeather/WaterTemperatureType';
 import { Querykeys } from '$constants/querykeys';
 import { API_ROUTES } from '$constants/routes';
-import moment from 'moment';
+import { getCurrentYYYYMMDDHH } from '$utils/date';
 
 /**
  *  const waveprop: WaveProp = {
@@ -30,7 +30,7 @@ export const getWaterTemperatureFetch = async (beach_num: number) => {
     pageNo: 1,
     dataType: 'JSON',
     beach_num: 304,
-    searchTime: moment().format('YYYYMMDDHHMM'),
+    searchTime: getCurrentYYYYMMDDHH(),
   };
   return await withAxios<BaseResponse<WaterTemperatureType>>({
     url: `${API_ROUTES.BEACH.WEATHER.WATER}`,

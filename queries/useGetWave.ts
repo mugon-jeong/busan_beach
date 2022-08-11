@@ -5,7 +5,7 @@ import { WaveType } from '$types/BeachWeather/WaveType';
 import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
-import moment from 'moment';
+import { getCurrentYYYYMMDDHH } from '$utils/date';
 
 /**
  *  const waveprop: WaveProp = {
@@ -30,7 +30,7 @@ export const getWaveFetch = async (beach_num: number) => {
     pageNo: 1,
     dataType: 'JSON',
     beach_num: beach_num,
-    searchTime: moment().format('YYYYMMDDHHMM'),
+    searchTime: getCurrentYYYYMMDDHH(),
   };
   return await withAxios<BaseResponse<WaveType>>({
     url: `${API_ROUTES.BEACH.WEATHER.WAVE}`,

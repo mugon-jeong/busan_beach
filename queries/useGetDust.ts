@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { withAxios } from '$utils/withAxios';
 import { API_ROUTES } from '$constants/routes';
 import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
@@ -6,6 +5,7 @@ import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
 import { AirQuality } from '$types/Air/AirQuality';
 import { AirBaseResponse } from '$types/AirResponse';
+import { getCurrentDayMinusHour } from '$utils/date';
 
 export interface DustProps {
   pageNo: number;
@@ -21,7 +21,7 @@ export const getDustFetch = async (areaIndex: number) => {
     pageNo: 1,
     resultType: 'json',
     areaIndex: areaIndex,
-    controlnumber: moment().subtract(1, 'hour').format('YYYYMMDDHH'),
+    controlnumber: getCurrentDayMinusHour(),
   };
 
   return await withAxios<AirBaseResponse<AirQuality>>({

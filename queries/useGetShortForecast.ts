@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { withAxios } from '$utils/withAxios';
 import { API_ROUTES } from '$constants/routes';
 import { BaseResponse } from '$types/BaseResponse';
@@ -6,6 +5,7 @@ import { ShortForecast } from '$types/Forecast/ShortForecast';
 import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
+import { getCurrentHHMMMinusOne, getCurrentYYYYMMDD } from '$utils/date';
 
 export interface ShortForecastProps {
   pageNo: number;
@@ -22,8 +22,8 @@ export const getShortForecastFetch = async (nx: number, ny: number) => {
     numOfRows: 1000,
     pageNo: 1,
     dataType: 'JSON',
-    base_date: moment().format('YYYYMMDD'),
-    base_time: '0600',
+    base_date: getCurrentYYYYMMDD(),
+    base_time: getCurrentHHMMMinusOne(),
     nx: nx,
     ny: ny,
   };
