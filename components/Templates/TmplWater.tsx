@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import OFcstFineAir from '../Organisms/OFcstFineAir';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
-import { OFcstWater } from '$components/Organisms/OFcstWater';
+import OFcstWater from '$components/Organisms/OFcstWater';
+import OFcstWave from '$components/Organisms/OFcstWave';
 
 const TemplateRight = styled.div`
   width: 100%;
@@ -19,10 +19,10 @@ const TmplWater = () => {
   return (
     <TemplateRight>
       <AsyncBoundaryWithQuery>
-        <OFcstFineAir />
+        <OFcstWater />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery>
-        <OFcstWater />
+        <OFcstWave />
       </AsyncBoundaryWithQuery>
     </TemplateRight>
   );
