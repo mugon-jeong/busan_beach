@@ -13,6 +13,9 @@ const nextConfig = {
   env: publicRuntimeConfig,
   publicRuntimeConfig,
   swcMinify: true,
+  experimental: {
+    forceSwcTransforms: true,
+  },
   compiler: {
     emotion: {
       sourceMap: isLocal,

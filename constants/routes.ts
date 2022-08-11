@@ -6,6 +6,7 @@ import {
   LIVING_WEATHER_KEY,
   MEDIUM_FORECAST_KEY,
   OCEAN_DATA_KEY,
+  SHORT_FORECAST_KEY,
 } from '$config';
 
 export const API_ROUTES = {
@@ -22,8 +23,9 @@ export const API_ROUTES = {
   LIVING: {
     UV: `${API_URL_BASE}/1360000/LivingWthrIdxServiceV2/getUVIdxV2?serviceKey=${LIVING_WEATHER_KEY}`,
   },
-  MEDIUM: {
-    FORECAST: `${API_URL_BASE}/1360000/MidFcstInfoService/getMidTa?serviceKey=${MEDIUM_FORECAST_KEY}`,
+  FORECAST: {
+    MEDIUM: `${API_URL_BASE}/1360000/MidFcstInfoService/getMidTa?serviceKey=${MEDIUM_FORECAST_KEY}`,
+    SHORT: `${API_URL_BASE}/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${SHORT_FORECAST_KEY}`,
   },
 
   OCEAN: {
