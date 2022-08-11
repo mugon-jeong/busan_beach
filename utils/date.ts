@@ -3,8 +3,21 @@ import moment from 'moment';
 export const getCurrentYYYYMMDDHH = () => {
   return moment().format('YYYYMMDDHHMM');
 };
+export const getShortForecastDate = () => {
+  const currentTime = parseInt(moment().format('HH'));
+  if (0 <= currentTime && currentTime < 2) {
+    return getYtdYYYYMMDD();
+  }
+  return getCurrentYYYYMMDD();
+};
 export const getCurrentYYYYMMDD = () => {
   return moment().format('YYYYMMDD');
+};
+export const getYtdYYYYMMDD = () => {
+  return moment().subtract(1, 'day').format('YYYYMMDD');
+};
+export const getTmrwYYYYMMDD = () => {
+  return moment().add(1, 'day').format('YYYYMMDD');
 };
 export const getCurrentHHMMMinusOne = () => {
   return moment().subtract(1, 'hour').format('HHMM');
@@ -54,14 +67,14 @@ export const requestShortForecastHH = () => {
   } else if (500 <= hh && hh < 800) {
     return '0500';
   } else if (800 <= hh && hh < 1100) {
-    return '800';
+    return '0800';
   } else if (1100 <= hh && hh < 1400) {
     return '1100';
   } else if (1400 <= hh && hh < 1700) {
     return '1400';
   } else if (1700 <= hh && hh < 2000) {
     return '1700';
-  } else if (2000 <= hh && hh < 2300) {
+  } else {
     return '2000';
   }
 };

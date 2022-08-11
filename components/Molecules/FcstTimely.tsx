@@ -10,6 +10,7 @@ const WrapFcstTimely = styled.div`
   line-height: 2;
   margin-bottom: 0.24em;
   margin-right: 1em;
+
   &:last-child {
     margin-right: 0;
   }
@@ -37,6 +38,7 @@ export interface timelyInfo {
   tempTimely: number;
   rainRate: number;
   time: number;
+  sky: string | null;
 }
 
 const FcstTimely = ({ info }: { info: timelyInfo }) => {
@@ -49,7 +51,7 @@ const FcstTimely = ({ info }: { info: timelyInfo }) => {
         <CloudIcon />
       </FcstIcon>
       <TimeCurrent>
-        <AtomDayWeek title={`${info.rainRate}%`} />
+        {info.rainRate == 0 ? <AtomDayWeek title={`${info.sky}`} /> : <AtomDayWeek title={`${info.rainRate}%`} />}
       </TimeCurrent>
       <TimeCurrent>
         <AtomDayWeek title={`${info.time}시`} />

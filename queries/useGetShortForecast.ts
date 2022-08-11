@@ -5,7 +5,7 @@ import { ShortForecast } from '$types/Forecast/ShortForecast';
 import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
-import { getCurrentYYYYMMDD, requestShortForecastHH } from '$utils/date';
+import { getShortForecastDate, requestShortForecastHH } from '$utils/date';
 
 export interface ShortForecastProps {
   pageNo: number;
@@ -22,7 +22,7 @@ export const getShortForecastFetch = async (nx: number, ny: number) => {
     numOfRows: 1000,
     pageNo: 1,
     dataType: 'JSON',
-    base_date: getCurrentYYYYMMDD(),
+    base_date: getShortForecastDate(),
     base_time: requestShortForecastHH()!,
     nx: nx,
     ny: ny,

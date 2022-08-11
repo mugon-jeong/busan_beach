@@ -15,7 +15,7 @@ const TmplFcstTimely = () => {
   return (
     <TemplateLeft>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonTimely />}>
-        <OFcstTimely loading={true} />
+        <OFcstTimely />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>
   );

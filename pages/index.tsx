@@ -25,7 +25,6 @@ const Home: NextPage = () => {
   // axios.get(`${API_ROUTES.API.OCEAN}`, { params: { BeachCode: 'BCH001' } }).then(res => {
   //   console.log(res);
   // });
-
   return (
     <Main>
       <div className="img">
