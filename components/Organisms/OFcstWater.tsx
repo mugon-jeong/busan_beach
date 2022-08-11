@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther, { otherInfo } from '../Molecules/InfoOther';
+import InfoOther from '../Molecules/InfoOther';
+import { useGetWaterTemperature } from '$queries/useGetWaterTemp';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -19,15 +20,20 @@ const WrapMolecules = styled.div`
 `;
 
 const OFcstWater = () => {
-  const dataWater: otherInfo = {
-    icon: 'icon',
-    title: '수온',
-    content: '24℃',
-  };
+  const { data: water } = useGetWaterTemperature(304, {
+    suspense: true,
+    useErrorBoundary: true,
+  });
 
   return (
     <WrapMolecules>
-      <InfoOther info={dataWater} />
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: '수온',
+          content: water?.response.body.items.item[0].tw + '℃',
+        }}
+      />
     </WrapMolecules>
   );
 };
