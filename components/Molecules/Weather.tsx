@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { useState } from 'react';
 
-const WrapComp = styled.div`
+const WrapMolecules = styled.div`
   width: 13.5em;
   padding: 1em;
   margin-bottom: 1em;
@@ -48,7 +48,7 @@ export interface nowInfo {
 
 const Weather = ({ info }: { info: nowInfo }) => {
   return (
-    <WrapComp>
+    <WrapMolecules>
       <div>
         <FcstIcon>
           <WbSunnyIcon fontSize="large" />
@@ -59,7 +59,7 @@ const Weather = ({ info }: { info: nowInfo }) => {
         <TitleRight>기온</TitleRight>
         <FcstTemp>{`${info.temp}℃`}</FcstTemp>
       </div>
-    </WrapComp>
+    </WrapMolecules>
   );
 };
 

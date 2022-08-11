@@ -10,7 +10,7 @@ const Wrap = styled.div`
   font-size: 16px;
 
   @media (max-width: ${props => props.theme.deviceSizes.pc}) {
-    width: 85%;
+    width: 96%;
     background-color: ${props => props.theme.color.coral};
   }
 

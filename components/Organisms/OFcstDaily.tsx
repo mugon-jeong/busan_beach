@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import FcstWeekly, { dailyInfo } from '../Organisms/FcstWeekly';
+import FcstWeekly, { dailyInfo } from '../Molecules/FcstWeekly';
 
 const WrapComp = styled.div`
   width: 100%;
@@ -13,7 +13,7 @@ const WrapComp = styled.div`
   border-radius: 1rem;
 `;
 
-const ComponentFcst = styled.div`
+const WrapMolecules = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -27,7 +27,7 @@ const ComponentFcst = styled.div`
   }
 `;
 
-const CompFcstTimely = ({ fcstTitle }: any) => {
+const OFcstTimely = ({ fcstTitle }: any) => {
   const data1: dailyInfo = {
     tempHigh: 32,
     tempLow: 24,
@@ -50,7 +50,7 @@ const CompFcstTimely = ({ fcstTitle }: any) => {
   return (
     <WrapComp>
       <h1>{fcstTitle}</h1>
-      <ComponentFcst>
+      <WrapMolecules>
         <FcstWeekly info={data1} />
         <FcstWeekly info={data2} />
         <FcstWeekly info={data3} />
@@ -60,9 +60,9 @@ const CompFcstTimely = ({ fcstTitle }: any) => {
         <FcstWeekly info={data2} />
         <FcstWeekly info={data2} />
         <FcstWeekly info={data2} />
-      </ComponentFcst>
+      </WrapMolecules>
     </WrapComp>
   );
 };
 
-export default CompFcstTimely;
+export default OFcstTimely;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import FcstTimely, { timelyInfo } from '../Organisms/FcstTimely';
+import FcstTimely, { timelyInfo } from '../Molecules/FcstTimely';
 
 const WrapComp = styled.div`
   width: 100%;
@@ -13,7 +13,7 @@ const WrapComp = styled.div`
   border-radius: 1rem;
 `;
 
-const ComponentFcst = styled.div`
+const WrapMolecules = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
@@ -27,7 +27,7 @@ const ComponentFcst = styled.div`
   }
 `;
 
-const CompFcstTimely = ({ fcstTitle }: any) => {
+const OFcstTimely = ({ fcstTitle }: any) => {
   const data1: timelyInfo = {
     tempTimely: 28,
     rainRate: 30,
@@ -47,7 +47,7 @@ const CompFcstTimely = ({ fcstTitle }: any) => {
   return (
     <WrapComp>
       <h1>{fcstTitle}</h1>
-      <ComponentFcst>
+      <WrapMolecules>
         <FcstTimely info={data1} />
         <FcstTimely info={data2} />
         <FcstTimely info={data3} />
@@ -57,9 +57,9 @@ const CompFcstTimely = ({ fcstTitle }: any) => {
         <FcstTimely info={data3} />
         <FcstTimely info={data3} />
         <FcstTimely info={data3} />
-      </ComponentFcst>
+      </WrapMolecules>
     </WrapComp>
   );
 };
 
-export default CompFcstTimely;
+export default OFcstTimely;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const Layout = styled.div`
-  width: 30rem;
+  width: 32rem;
   height: 100vh;
   padding: 1%;
   box-sizing: border-box;
