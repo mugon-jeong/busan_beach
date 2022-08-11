@@ -19,7 +19,7 @@ const TemplateRight = styled.div`
 const TmplWater = ({ beachCode }: { beachCode: number }) => {
   return (
     <TemplateRight>
-      <AsyncBoundaryWithQuerypendingFallback={<SkeletonOthers />}>
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
         <OFcstWater beachCode={beachCode} />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>

@@ -32,6 +32,7 @@ export const getWaterTemperatureFetch = async (beach_num: number) => {
     beach_num: 304,
     searchTime: getCurrentYYYYMMDDHH(),
   };
+  setTimeout(() => {}, 10000);
   return await withAxios<BaseResponse<WaterTemperatureType>>({
     url: `${API_ROUTES.BEACH.WEATHER.WATER}`,
     params: {

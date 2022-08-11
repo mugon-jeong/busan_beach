@@ -7,6 +7,7 @@ import { Querykeys } from '$constants/querykeys';
 import { OceanResponse } from '$types/OceanResponse';
 
 export const getOceanDataFetch = async (ocean_code: string) => {
+  setTimeout(() => {}, 10000);
   return await withAxios<OceanResponse<OceanDataType>>({
     url: API_ROUTES.API.OCEAN,
     params: {

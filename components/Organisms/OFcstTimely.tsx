@@ -30,21 +30,19 @@ const WrapMolecules = styled.div`
     background: transparent;
   }
 `;
-const OFcstTimely = ({ fcstTitle }: any) => {
-  const { data: info } = useGetShortForecast(99, 75);
-  useEffect(() => {
-    if (info) {
-      const sliceList = info.response.body.items.item.splice(0, 229);
-
-      sliceList.map((data, index) => {});
-    }
-  }, [info]);
 
 interface PostProps {
   loading: boolean;
 }
 
 const OFcstTimely = ({ fcstTitle }: any, { loading }: PostProps) => {
+  const { data: info } = useGetShortForecast(99, 75);
+  useEffect(() => {
+    if (info) {
+      const sliceList = info.response.body.items.item.splice(0, 229);
+      sliceList.map((data, index) => {});
+    }
+  }, [info]);
   const data1: timelyInfo = {
     tempTimely: 28,
     rainRate: 30,

@@ -25,6 +25,7 @@ export const getUltraForecastFetch = async (beach_num: number) => {
     base_date: getCurrentYYYYMMDD(),
     beach_num: 304,
   };
+  setTimeout(() => {}, 10000);
   return await withAxios<BaseResponse<UltraForecastType>>({
     url: `${API_ROUTES.BEACH.WEATHER.ULTRA.FORECAST}`,
     params: {

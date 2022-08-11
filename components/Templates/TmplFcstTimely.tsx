@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import OFcstTimely from '$components/Organisms/OFcstTimely';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 import SkeletonTimely from '$components/Molecules/SkeletonTimely';
-SkeletonTimely;
+import OFcstTimely from '$components/Organisms/OFcstTimely';
 
 const TemplateLeft = styled.div`
   width: 100%;

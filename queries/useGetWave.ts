@@ -32,6 +32,7 @@ export const getWaveFetch = async (beach_num: number) => {
     beach_num: beach_num,
     searchTime: getCurrentYYYYMMDDHH(),
   };
+  setTimeout(() => {}, 10000);
   return await withAxios<BaseResponse<WaveType>>({
     url: `${API_ROUTES.BEACH.WEATHER.WAVE}`,
     params: {

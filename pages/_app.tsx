@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Seo from '$components/Seo/Seo';
 import { Global } from '@emotion/react';
 import { GlobalStyle } from '$styles/GlobalStyle';
+import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient({
@@ -16,8 +17,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     defaultOptions: {
       queries: {
         retry: false,
-        suspense: false,
-        useErrorBoundary: false,
+        suspense: true,
+        useErrorBoundary: true,
       },
     },
   });
@@ -25,7 +26,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Global styles={GlobalStyle} />
       <Seo />
-      <Component {...pageProps} />
+      <AsyncBoundaryWithQuery>
+        <Component {...pageProps} />
+      </AsyncBoundaryWithQuery>
       {NEXT_PUBLIC_ENV === 'local' ? <ReactQueryDevtools initialIsOpen={false} /> : null}
     </QueryClientProvider>
   );

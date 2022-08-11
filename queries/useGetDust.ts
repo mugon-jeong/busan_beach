@@ -23,6 +23,7 @@ export const getDustFetch = async (areaIndex: number) => {
     areaIndex: areaIndex,
     controlnumber: getCurrentDayMinusHour(),
   };
+  setTimeout(() => {}, 10000);
 
   return await withAxios<AirBaseResponse<AirQuality>>({
     url: API_ROUTES.AIR.QUALITY,
