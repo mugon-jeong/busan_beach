@@ -3,9 +3,11 @@ import styled from '@emotion/styled';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-const WrapFcstTimely = styled.div`
+const WrapFcstDaily = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding: 0 0.25em;
   line-height: 2;
   margin-bottom: 0.24em;
@@ -15,12 +17,22 @@ const WrapFcstTimely = styled.div`
   }
 `;
 
-const TemptCurrent = styled.div`
+const TemptHigh = styled.div`
   font-size: 0.875rem;
   text-align: center;
 `;
 
-const TimeCurrent = styled.div`
+const TemptLow = styled.div`
+  font-size: 0.875rem;
+  text-align: center;
+`;
+
+const Date = styled.div`
+  font-size: 0.875rem;
+  text-align: center;
+`;
+
+const Days = styled.div`
   font-size: 0.875rem;
   text-align: center;
 `;
@@ -32,40 +44,57 @@ const FcstIcon = styled.div`
   border-radius: 50%;
   text-align: center;
   line-height: 1;
-  margin-bottom: 0.2em;
 `;
 
-export interface timelyInfo {
-  tempTimely: number;
-  rainRate: number;
-  time: number;
-}
+const TempBarHeight = styled.div`
+  width: 0.25rem;
+  height: auto;
+`;
 
-const SkeletonTimely = () => {
+const TempBar = styled.div`
+  width: 0.25rem;
+  height: 2em;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+`;
+
+const SkeletonDaily = () => {
   return (
-    <WrapFcstTimely>
-      <TemptCurrent>
+    <WrapFcstDaily>
+      <TemptHigh>
         <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
-      </TemptCurrent>
+      </TemptHigh>
+      <TempBarHeight>
+        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+          <Skeleton height="2em" />
+        </SkeletonTheme>
+      </TempBarHeight>
+      <TemptLow>
+        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+          <Skeleton width={24} />
+        </SkeletonTheme>
+      </TemptLow>
       <FcstIcon>
         <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
           <Skeleton circle height="100%" />
         </SkeletonTheme>
       </FcstIcon>
-      <TimeCurrent>
+      <Date>
         <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
-      </TimeCurrent>
-      <TimeCurrent>
+      </Date>
+      <Days>
         <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
-      </TimeCurrent>
-    </WrapFcstTimely>
+      </Days>
+    </WrapFcstDaily>
   );
 };
 
-export default SkeletonTimely;
+export default SkeletonDaily;

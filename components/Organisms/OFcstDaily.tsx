@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import FcstWeekly, { dailyInfo } from '../Molecules/FcstWeekly';
+import FcstWeekly, { dailyInfo } from '../Molecules/FcstDaily';
+import SkeletonDaily from '$components/Molecules/SkeletonDaily';
 
 const WrapComp = styled.div`
   width: 100%;
@@ -60,6 +61,9 @@ const OFcstDaily = ({ fcstTitle }: any) => {
         <FcstWeekly info={data2} />
         <FcstWeekly info={data2} />
         <FcstWeekly info={data2} />
+        <SkeletonDaily />
+        <SkeletonDaily />
+        <SkeletonDaily />
       </WrapMolecules>
     </WrapComp>
   );

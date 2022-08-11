@@ -19,17 +19,17 @@ const WrapMolecules = styled.div`
   }
 `;
 
-interface PostProps {
-  loading: boolean;
-}
-
-const OFcstWind = ({ loading }: PostProps) => {
+const OFcstWind = () => {
   const dataWind: otherInfo = {
     icon: 'icon',
     title: '남동풍',
     content: '2m/s',
   };
-  return <WrapMolecules>{loading ? <SkeletonOthers /> : <InfoOther info={dataWind} />}</WrapMolecules>;
+  return (
+    <WrapMolecules>
+      <InfoOther info={dataWind} />
+    </WrapMolecules>
+  );
 };
 
 export default OFcstWind;

@@ -19,16 +19,16 @@ const TmplFcstOther = () => {
   return (
     <TemplateCenter>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstUv loading={true} />
+        <OFcstUv />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstWind loading={true} />
+        <OFcstWind />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstAir loading={true} />
+        <OFcstAir />
       </AsyncBoundaryWithQuery>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
-        <OFcstFineAir loading={true} />
+        <OFcstFineAir />
       </AsyncBoundaryWithQuery>
     </TemplateCenter>
   );

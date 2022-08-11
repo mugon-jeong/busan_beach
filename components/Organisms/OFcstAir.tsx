@@ -21,28 +21,20 @@ const WrapMolecules = styled.div`
   }
 `;
 
-interface PostProps {
-  loading: boolean;
-}
-
-const OFcstAir = ({ loading }: PostProps) => {
+const OFcstAir = () => {
   const { data: dust } = useGetDust(221202);
 
   return (
     <WrapMolecules>
-      {loading ? (
-        <SkeletonOthers />
-      ) : (
-        <InfoOther
-          info={{
-            icon: 'icon',
-            title: '미세먼지',
-            content:
-              dustRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0) +
-              ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0}`,
-          }}
-        />
-      )}
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: '미세먼지',
+          content:
+            dustRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0) +
+            ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0}`,
+        }}
+      />
     </WrapMolecules>
   );
 };

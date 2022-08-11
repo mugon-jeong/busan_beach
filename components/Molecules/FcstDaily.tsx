@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import TextDayWeek from '../Atoms/AtomDayWeek';
 
-const WrapFcstTimely = styled.div`
+const WrapFcstDaily = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -50,20 +50,17 @@ const TempBarHeight = styled.div`
 `;
 
 const temphigh = 30;
-const templow = 25;
+const templow = 16;
 
 const gap = temphigh - templow;
 console.log('gap', gap);
 
-const gapValue = 0 <= gap && gap <= 3 ? 15 : 4 <= gap && gap <= 8 ? 45 : 9 <= gap && gap <= 12 ? 70 : 100;
+const gapValue = 0 <= gap && gap <= 3 ? 1 : 4 <= gap && gap <= 8 ? 1.4 : 9 <= gap && gap <= 12 ? 1.8 : 2;
 console.log('gapValue', gapValue);
-
-const gapBar = (1 / gapValue) * 100;
-console.log('gapBar', gapBar);
 
 const TempBar = styled.div`
   width: 0.25rem;
-  height: ${gapBar}em;
+  height: ${gapValue}em;
   background-color: #fff;
   border-radius: 5px;
   position: relative;
@@ -77,9 +74,9 @@ export interface dailyInfo {
   days: string;
 }
 
-const FcstWeekly = ({ info }: { info: dailyInfo }) => {
+const FcstDaily = ({ info }: { info: dailyInfo }) => {
   return (
-    <WrapFcstTimely>
+    <WrapFcstDaily>
       <TemptHigh>
         <TextDayWeek title={`${info.tempHigh}℃`} />
       </TemptHigh>
@@ -96,8 +93,8 @@ const FcstWeekly = ({ info }: { info: dailyInfo }) => {
       <Days>
         <TextDayWeek title={info.days} />
       </Days>
-    </WrapFcstTimely>
+    </WrapFcstDaily>
   );
 };
 
-export default FcstWeekly;
+export default FcstDaily;

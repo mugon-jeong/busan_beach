@@ -21,30 +21,22 @@ const WrapMolecules = styled.div`
   }
 `;
 
-interface PostProps {
-  loading: boolean;
-}
-
-const OFcstFineAir = ({ loading }: PostProps) => {
+const OFcstFineAir = () => {
   const { data: dust } = useGetDust(221202, {
     onSuccess: data => console.log(data),
   });
 
   return (
     <WrapMolecules>
-      {loading ? (
-        <SkeletonOthers />
-      ) : (
-        <InfoOther
-          info={{
-            icon: 'icon',
-            title: '초미세먼지',
-            content:
-              dustFineRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0) +
-              ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0}`,
-          }}
-        />
-      )}
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: '초미세먼지',
+          content:
+            dustFineRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0) +
+            ` ${dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0}`,
+        }}
+      />
     </WrapMolecules>
   );
 };

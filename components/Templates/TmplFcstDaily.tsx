@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import OFcstDaily from '$components/Organisms/OFcstDaily';
+import SkeletonDaily from '$components/Molecules/SkeletonDaily';
+import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 
 const TemplateLeft = styled.div`
   width: 100%;
@@ -12,7 +14,9 @@ const TemplateLeft = styled.div`
 const TmplFcstDaily = () => {
   return (
     <TemplateLeft>
-      <OFcstDaily fcstTitle="주간날씨" />
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonDaily />}>
+        <OFcstDaily fcstTitle="주간날씨" />
+      </AsyncBoundaryWithQuery>
     </TemplateLeft>
   );
 };

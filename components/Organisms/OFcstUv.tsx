@@ -21,26 +21,18 @@ const WrapMolecules = styled.div`
   }
 `;
 
-interface PostProps {
-  loading: boolean;
-}
-
-const OFcstUv = ({ loading }: PostProps) => {
+const OFcstUv = () => {
   const { data: uv } = useGetUV(2635051000);
   return (
     <WrapMolecules>
-      {loading ? (
-        <SkeletonOthers />
-      ) : (
-        <InfoOther
-          info={{
-            icon: 'icon',
-            title: '자외선지수',
-            content:
-              uvRole(uv?.response.body.items.item[0].today ?? 0) + ` ${uv?.response.body.items.item[0].today ?? 0}`,
-          }}
-        />
-      )}
+      <InfoOther
+        info={{
+          icon: 'icon',
+          title: '자외선지수',
+          content:
+            uvRole(uv?.response.body.items.item[0].today ?? 0) + ` ${uv?.response.body.items.item[0].today ?? 0}`,
+        }}
+      />
     </WrapMolecules>
   );
 };
