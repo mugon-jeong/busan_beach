@@ -22,7 +22,7 @@ const OFcstAir = () => {
   const dataAir: otherInfo = {
     icon: 'icon',
     title: '미세먼지',
-    content: '좋음 2',
+    content: '위험 150',
   };
 
   return (
