@@ -6,20 +6,20 @@ import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
 import { OceanResponse } from '$types/OceanResponse';
 
-export const getOceanDataFetch = async (beach_code: string) => {
+export const getOceanDataFetch = async (ocean_code: string) => {
   return await withAxios<OceanResponse<OceanDataType>>({
     url: API_ROUTES.API.OCEAN,
     params: {
-      BeachCode: beach_code,
+      OceanCode: ocean_code,
     },
   });
 };
 
 export const useGetOceanData = (
-  beach_code: string,
+  ocean_code: string,
   options?: UseQueryOptions<OceanResponse<OceanDataType>, AxiosError, OceanResponse<OceanDataType>, string[]>,
 ): UseQueryResult<OceanResponse<OceanDataType>, AxiosError> =>
-  useQuery([`${beach_code}`, ...Querykeys.OCEAN.DATA], () => getOceanDataFetch(beach_code), { ...options });
+  useQuery([`${ocean_code}`, ...Querykeys.OCEAN.DATA], () => getOceanDataFetch(ocean_code), { ...options });
 /**
  *   obs_time: string; 사용 O :
  *   water_temp: number;  사용 O : 수온
