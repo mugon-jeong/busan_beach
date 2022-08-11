@@ -14,7 +14,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       `http://www.khoa.go.kr/api/oceangrid/beach/search.do?ServiceKey=${OCEAN_DATA_KEY}&BeachCode=${OceanCode}&ResultType=json`,
     )
     .then(res => {
-      console.log(res.data);
       return res.data;
     });
 

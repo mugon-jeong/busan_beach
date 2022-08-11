@@ -12,10 +12,6 @@ import LayoutRight from '$components/Layouts/LayoutRight';
 import { useRouter } from 'next/router';
 import { PARAMS } from '$constants/params';
 
-// function Template(beach: string) {
-//   return UseGetUltraForecast(304);
-// }
-
 const Beach: NextPage = () => {
   const router = useRouter();
   const { beach } = router.query;

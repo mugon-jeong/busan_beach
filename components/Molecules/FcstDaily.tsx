@@ -11,6 +11,7 @@ const WrapFcstDaily = styled.div`
   line-height: 2;
   margin-bottom: 0.24em;
   margin-right: 1em;
+
   &:last-child {
     margin-right: 0;
   }
@@ -53,10 +54,8 @@ const temphigh = 30;
 const templow = 16;
 
 const gap = temphigh - templow;
-console.log('gap', gap);
 
 const gapValue = 0 <= gap && gap <= 3 ? 1 : 4 <= gap && gap <= 8 ? 1.4 : 9 <= gap && gap <= 12 ? 1.8 : 2;
-console.log('gapValue', gapValue);
 
 const TempBar = styled.div`
   width: 0.25rem;

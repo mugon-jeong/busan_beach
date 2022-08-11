@@ -5,7 +5,7 @@ import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
 import { AirQuality } from '$types/Air/AirQuality';
 import { AirBaseResponse } from '$types/AirResponse';
-import { getCurrentDayMinusHour } from '$utils/date';
+import { getDustDate } from '$utils/date';
 
 export interface DustProps {
   pageNo: number;
@@ -21,7 +21,7 @@ export const getDustFetch = async (areaIndex: number) => {
     pageNo: 1,
     resultType: 'json',
     areaIndex: areaIndex,
-    controlnumber: getCurrentDayMinusHour(),
+    controlnumber: getDustDate(),
   };
   setTimeout(() => {}, 10000);
 

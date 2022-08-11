@@ -9,11 +9,6 @@ import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient({
-    logger: {
-      log: console.log,
-      warn: console.warn,
-      error: console.error,
-    },
     defaultOptions: {
       queries: {
         retry: false,

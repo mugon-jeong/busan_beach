@@ -10,6 +10,22 @@ export const getShortForecastDate = () => {
   }
   return getCurrentYYYYMMDD();
 };
+
+export const getDustDate = () => {
+  const currentTime = parseInt(moment().format('HH'));
+  if (0 <= currentTime && currentTime < 2) {
+    return getYtdYYYYMMDD() + '24';
+  }
+  return getCurrentDayMinusHour();
+};
+
+export const getMediumYYYYMMDDHH = () => {
+  const currentTime = parseInt(moment().format('HH'));
+  if (0 <= currentTime && currentTime < 9) {
+    return getYtdYYYYMMDD() + '18';
+  }
+  return getCurrentYYYYMMDD() + '06';
+};
 export const getCurrentYYYYMMDD = () => {
   return moment().format('YYYYMMDD');
 };
