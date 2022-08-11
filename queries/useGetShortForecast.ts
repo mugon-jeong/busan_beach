@@ -27,7 +27,6 @@ export const getShortForecastFetch = async (nx: number, ny: number) => {
     nx: nx,
     ny: ny,
   };
-  setTimeout(() => {}, 10000);
   return await withAxios<BaseResponse<ShortForecast>>({
     url: API_ROUTES.FORECAST.SHORT,
     params: {

@@ -23,7 +23,7 @@ export const getMediumForecastFetch = async (regId: string) => {
     regId: regId,
     tmFc: getCurrentYYYYMMDD() + '06',
   };
-  setTimeout(() => {}, 10000);
+
   return await withAxios<BaseResponse<MediumForecastType>>({
     url: `${API_ROUTES.FORECAST.MEDIUM}`,
     params: {

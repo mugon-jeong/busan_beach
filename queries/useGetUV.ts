@@ -23,7 +23,6 @@ export const getUVFetch = async (areaNo: number) => {
     areaNo: areaNo,
     time: getCurrentYYYYMMDD() + '06',
   };
-  setTimeout(() => {}, 10000);
 
   return await withAxios<BaseResponse<UvType>>({
     url: `${API_ROUTES.LIVING.UV}`,
