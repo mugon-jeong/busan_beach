@@ -15,7 +15,7 @@ const TmplFcstDaily = () => {
   return (
     <TemplateLeft>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonDaily />}>
-        <OFcstDaily fcstTitle="주간날씨" />
+        <OFcstDaily loading={true} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>
   );

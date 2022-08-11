@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import FcstWeekly, { dailyInfo } from '../Molecules/FcstDaily';
+import FcstDaily, { dailyInfo } from '../Molecules/FcstDaily';
 import SkeletonDaily from '$components/Molecules/SkeletonDaily';
 
 const WrapComp = styled.div`
@@ -28,7 +28,11 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstDaily = ({ fcstTitle }: any) => {
+interface PostProps {
+  loading: boolean;
+}
+
+const OFcstDaily = ({ loading }: PostProps) => {
   const data1: dailyInfo = {
     tempHigh: 32,
     tempLow: 24,
@@ -50,20 +54,33 @@ const OFcstDaily = ({ fcstTitle }: any) => {
 
   return (
     <WrapComp>
-      <h1>{fcstTitle}</h1>
+      <h1>주간날씨</h1>
       <WrapMolecules>
-        <FcstWeekly info={data1} />
-        <FcstWeekly info={data2} />
-        <FcstWeekly info={data3} />
-        <FcstWeekly info={data2} />
-        <FcstWeekly info={data1} />
-        <FcstWeekly info={data2} />
-        <FcstWeekly info={data2} />
-        <FcstWeekly info={data2} />
-        <FcstWeekly info={data2} />
-        <SkeletonDaily />
-        <SkeletonDaily />
-        <SkeletonDaily />
+        {loading ? (
+          <>
+            <SkeletonDaily />
+            <SkeletonDaily />
+            <SkeletonDaily />
+            <SkeletonDaily />
+            <SkeletonDaily />
+            <SkeletonDaily />
+            <SkeletonDaily />
+            <SkeletonDaily />
+            <SkeletonDaily />
+          </>
+        ) : (
+          <>
+            <FcstDaily info={data1} />
+            <FcstDaily info={data2} />
+            <FcstDaily info={data3} />
+            <FcstDaily info={data2} />
+            <FcstDaily info={data1} />
+            <FcstDaily info={data2} />
+            <FcstDaily info={data2} />
+            <FcstDaily info={data2} />
+            <FcstDaily info={data2} />
+          </>
+        )}
       </WrapMolecules>
     </WrapComp>
   );

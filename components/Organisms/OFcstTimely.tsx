@@ -35,7 +35,7 @@ interface PostProps {
   loading: boolean;
 }
 
-const OFcstTimely = ({ fcstTitle }: any, { loading }: PostProps) => {
+const OFcstTimely = ({ loading }: PostProps) => {
   const { data: info } = useGetShortForecast(99, 75);
   useEffect(() => {
     if (info) {
@@ -61,7 +61,7 @@ const OFcstTimely = ({ fcstTitle }: any, { loading }: PostProps) => {
 
   return (
     <WrapComp>
-      <h1>{fcstTitle}</h1>
+      <h1>하루날씨</h1>
       <WrapMolecules>
         {loading ? (
           <>
@@ -86,9 +86,6 @@ const OFcstTimely = ({ fcstTitle }: any, { loading }: PostProps) => {
             <FcstTimely info={data3} />
             <FcstTimely info={data3} />
             <FcstTimely info={data3} />
-            <SkeletonTimely />
-            <SkeletonTimely />
-            <SkeletonTimely />
           </>
         )}
       </WrapMolecules>
