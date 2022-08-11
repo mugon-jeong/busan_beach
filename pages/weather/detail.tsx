@@ -3,9 +3,14 @@ import type { NextPage } from 'next';
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
 import theme from '$styles/theme';
-import InfoOther, { otherInfo } from '$components/Organisms/InfoOther';
-import CompFcstTimely from '$components/Components/CompFcstTimely';
-import CompFcstWeekly from '$components/Components/CompFcstDaily';
+import OFcstDaily from '$components/Organisms/OFcstDaily';
+import OFcstWater from '$components/Organisms/OFcstWater';
+import OFcstUv from '$components/Organisms/OFcstUv';
+import OFcstAir from '$components/Organisms/OFcstAir';
+import OFcstWind from '$components/Organisms/OFcstWind';
+import TmplFcst from '$components/Templates/TmplFcst';
+import TmplWater from '$components/Templates/TmplWater';
+import TmplFcstTimely from '$components/Templates/TmplFcstTimely';
 import LayoutWrap from '$components/Layouts/LayoutWrap';
 import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
@@ -63,62 +68,26 @@ const Detail: NextPage = () => {
     Day = '토';
   }
 
-  const dataWater: otherInfo = {
-    icon: 'icon',
-    title: '수온',
-    content: '24℃',
-  };
-  const dataWave: otherInfo = {
-    icon: 'icon',
-    title: '파도높이',
-    content: '0.5m/s',
-  };
-  const dataUv: otherInfo = {
-    icon: 'icon',
-    title: '자외선지수',
-    content: '위험 11',
-  };
-  const dataWind: otherInfo = {
-    icon: 'icon',
-    title: '남동풍',
-    content: '2m/s',
-  };
-  const dataAir: otherInfo = {
-    icon: 'icon',
-    title: '미세먼지',
-    content: '좋음 2',
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <LayoutWrap>
         <LayoutLeft>
-          <TemplateLeft>
-            {/*<CompNow*/}
-            {/*  Template={Template('A').data?.response.body.items.item[24].fcstValue}*/}
-            {/*  month={month}*/}
-            {/*  day={day}*/}
-            {/*  Day={Day}*/}
-            {/*/>*/}
-          </TemplateLeft>
-          <TemplateRight>
-            <InfoOther info={dataWater} />
-            <InfoOther info={dataWave} />
-          </TemplateRight>
+          <TmplFcst />
+          <TmplWater />
         </LayoutLeft>
         <LayoutRight>
+          <TmplFcstTimely />
           <TemplateLeft>
-            <CompFcstTimely fcstTitle="하루날씨" />
-            <CompFcstWeekly fcstTitle="주간날씨" />
+            <OFcstDaily fcstTitle="주간날씨" />
           </TemplateLeft>
           <div>
             <TemplateCenter>
-              <InfoOther info={dataUv} />
-              <InfoOther info={dataWater} />
+              <OFcstUv />
+              <OFcstWater />
             </TemplateCenter>
             <TemplateCenter>
-              <InfoOther info={dataAir} />
-              <InfoOther info={dataWind} />
+              <OFcstAir />
+              <OFcstWind />
             </TemplateCenter>
           </div>
         </LayoutRight>
