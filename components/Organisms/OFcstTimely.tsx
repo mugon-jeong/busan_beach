@@ -33,11 +33,8 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstTimely = () => {
-  const { data: info } = useGetShortForecast(99, 75, {
-    suspense: false,
-    useErrorBoundary: false,
-  });
+const OFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
+  const { data: info } = useGetShortForecast(nx, ny);
   const [tmrw, setTmrw] = useState<{ [key in string]: timelyInfo }>({});
   const [today, setToday] = useState<{ [key in string]: timelyInfo }>({});
   const [ytd, setYtd] = useState<{ [key in string]: timelyInfo }>({});
