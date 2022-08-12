@@ -29,14 +29,17 @@ const WrapButtonsBig = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
   div {
     width: 44%;
     margin-bottom: 1.6vh;
     cursor: pointer;
+
     :hover {
       transform: translateY(-5%);
     }
   }
+
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 80%;
   }
@@ -54,10 +57,12 @@ const WrapButtonsSmall = styled.div`
   div {
     width: 30%;
     cursor: pointer;
+
     :hover {
       transform: translateY(-5%);
     }
   }
+
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 80%;
   }
@@ -75,15 +80,6 @@ const Div = styled.div`
 
 const Home: NextPage = () => {
   const router = useRouter();
-  // const { data: ocean } = useGetOceanData('BCH002', {
-  //   onSuccess: data => {
-  //     console.log(data.result);
-  //   },
-  // });
-
-  // axios.get(`${API_ROUTES.API.OCEAN}`, { params: { BeachCode: 'BCH001' } }).then(res => {
-  //   console.log(res);
-  // });
   return (
     <ThemeProvider theme={theme}>
       <Main>

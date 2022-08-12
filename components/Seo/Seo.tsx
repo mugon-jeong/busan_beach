@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { NAVER_ANALYTICS_KEY } from '$config';
+import { NAVER_ANALYTICS_KEY, NEXT_PUBLIC_ENV } from '$config';
 import Script from 'next/script';
 
 const Seo = () => {
@@ -10,19 +10,25 @@ const Seo = () => {
   ];
   return (
     <>
-      <Script type="text/javascript" src="//wcs.naver.net/wcslog.js" />
-      <Script
-        id={'naver_script'}
-        type="text/javascript"
-        dangerouslySetInnerHTML={{
-          __html: `
+      {NEXT_PUBLIC_ENV === 'local' ? (
+        <></>
+      ) : (
+        <>
+          <Script type="text/javascript" src="//wcs.naver.net/wcslog.js" />
+          <Script
+            id={'naver_script'}
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
             if(!wcs_add) var wcs_add = {};
             wcs_add["wa"] = "${NAVER_ANALYTICS_KEY}";
             if(window.wcs) {
             wcs_do();
                 `,
-        }}
-      />
+            }}
+          />
+        </>
+      )}
       <Head>
         <title>부산해수욕장날씨</title>
         <meta name={'type'} property="og:type" content="website" />
