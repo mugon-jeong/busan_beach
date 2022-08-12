@@ -20,6 +20,7 @@ const Seo = () => {
       <link rel="canonical" href="https://busanbeachweather.com/" />
       <Script type="text/javascript" src="//wcs.naver.net/wcslog.js" />
       <Script
+        id={'naver_script'}
         type="text/javascript"
         dangerouslySetInnerHTML={{
           __html: `
