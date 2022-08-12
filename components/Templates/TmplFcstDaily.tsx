@@ -11,7 +11,7 @@ const TemplateLeft = styled.div`
   flex-direction: column;
 `;
 
-const TmplFcstDaily = ({ regId }: { regId: string }) => {
+const TmplFcstDaily = ({ regIdR, regIdM }: { regIdR: string; regIdM: string }) => {
   return (
     <TemplateLeft
       onMouseDown={e => {
@@ -28,7 +28,7 @@ const TmplFcstDaily = ({ regId }: { regId: string }) => {
       }}
     >
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonDaily />}>
-        <OFcstDaily regId={regId} />
+        <OFcstDaily regIdR={regIdR} regIdM={regIdM} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>
   );
