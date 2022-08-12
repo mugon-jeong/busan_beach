@@ -21,9 +21,6 @@ const Main = styled.div`
 const WrapImg = styled.div`
   width: 100%;
   height: auto;
-  div {
-    margin-bottom: 1.6vh;
-  }
 `;
 
 const WrapButtonsBig = styled.div`
@@ -34,6 +31,7 @@ const WrapButtonsBig = styled.div`
   flex-wrap: wrap;
   div {
     width: 44%;
+    margin-bottom: 1.6vh;
     cursor: pointer;
     :hover {
       transform: translateY(-5%);
@@ -72,7 +70,6 @@ const Div = styled.div`
   height: auto;
   display: flex;
   justify-content: center;
-  background-color: royalblue;
 `;
 
 const Home: NextPage = () => {
