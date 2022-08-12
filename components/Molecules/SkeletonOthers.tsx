@@ -30,18 +30,18 @@ const SkeletonOthers = () => {
   return (
     <>
       <FcstIcon>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton circle height="100%" />
         </SkeletonTheme>
       </FcstIcon>
       <div>
         <TitleRight>
-          <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+          <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
             <Skeleton width={100} />
           </SkeletonTheme>
         </TitleRight>
         <FcstTemp>
-          <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+          <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
             <Skeleton width={100} />
           </SkeletonTheme>
         </FcstTemp>

@@ -45,22 +45,22 @@ const SkeletonTimely = () => {
   return (
     <WrapFcstTimely>
       <TemptCurrent>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
       </TemptCurrent>
       <FcstIcon>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton circle height="100%" />
         </SkeletonTheme>
       </FcstIcon>
       <TimeCurrent>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
       </TimeCurrent>
       <TimeCurrent>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
       </TimeCurrent>
