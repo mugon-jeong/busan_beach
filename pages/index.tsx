@@ -27,24 +27,27 @@ const WrapImg = styled.div`
 `;
 
 const WrapButtonsBig = styled.div`
-  width: 92%;
+  width: 55%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   div {
-    width: 40%;
+    width: 44%;
     cursor: pointer;
     :hover {
       transform: translateY(-5%);
     }
+  }
+  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
+    width: 80%;
   }
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     width: 100%;
   }
 `;
 const WrapButtonsSmall = styled.div`
-  width: 80%;
+  width: 55%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -55,6 +58,12 @@ const WrapButtonsSmall = styled.div`
     :hover {
       transform: translateY(-5%);
     }
+  }
+  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
+    width: 80%;
+  }
+  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
+    width: 100%;
   }
 `;
 
