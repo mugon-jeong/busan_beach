@@ -49,7 +49,7 @@ const Beach: NextPage = () => {
           </LayoutLeft>
           <LayoutRight>
             <TmplFcstTimely nx={param.FORECAST.NX} ny={param.FORECAST.NY} />
-            <TmplFcstDaily />
+            <TmplFcstDaily regId={param.REGID} />
             <TmplFcstOther areaNo={param.AREANO} oceanCode={param.OCEANCODE} areaIndex={param.AREAINDEX} />
           </LayoutRight>
         </LayoutWrap>
