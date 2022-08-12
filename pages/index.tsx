@@ -91,7 +91,7 @@ const Home: NextPage = () => {
           <WrapButtonsBig>
             <Div>
               <Image
-                src="/asset/img/bgimg_tube_clear.png"
+                src="/asset/img/button_haewoondae.png"
                 alt="go to heawoondae"
                 width={200}
                 height={200}
@@ -100,7 +100,7 @@ const Home: NextPage = () => {
             </Div>
             <Div>
               <Image
-                src="/asset/img/bgimg_tube_clear.png"
+                src="/asset/img/button_gwangalli.png"
                 alt="go to heawoondae"
                 width={200}
                 height={200}
@@ -111,7 +111,7 @@ const Home: NextPage = () => {
           <WrapButtonsBig>
             <Div>
               <Image
-                src="/asset/img/bgimg_tube_clear.png"
+                src="/asset/img/button_dadaepo.png"
                 alt="go to heawoondae"
                 width={200}
                 height={200}
@@ -120,7 +120,7 @@ const Home: NextPage = () => {
             </Div>
             <Div>
               <Image
-                src="/asset/img/bgimg_tube_clear.png"
+                src="/asset/img/button_songjung.png"
                 alt="go to heawoondae"
                 width={200}
                 height={200}
