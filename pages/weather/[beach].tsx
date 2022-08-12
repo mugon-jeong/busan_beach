@@ -15,18 +15,18 @@ import { PARAMS } from '$constants/params';
 const Beach: NextPage = () => {
   const router = useRouter();
   const { beach } = router.query;
-  const pram = PARAMS[beach as string];
+  const param = PARAMS[beach as string];
   return (
     <ThemeProvider theme={theme}>
       <LayoutWrap>
         <LayoutLeft>
-          <TmplFcst nx={pram.FORECAST.NX} ny={pram.FORECAST.NY} />
-          <TmplWater beachCode={pram.BEACH} />
+          <TmplFcst beach={param.KO} nx={param.FORECAST.NX} ny={param.FORECAST.NY} />
+          <TmplWater beachCode={param.BEACH} />
         </LayoutLeft>
         <LayoutRight>
-          <TmplFcstTimely nx={pram.FORECAST.NX} ny={pram.FORECAST.NY} />
+          <TmplFcstTimely nx={param.FORECAST.NX} ny={param.FORECAST.NY} />
           <TmplFcstDaily />
-          <TmplFcstOther areaNo={pram.AREANO} oceanCode={pram.OCEANCODE} areaIndex={pram.AREAINDEX} />
+          <TmplFcstOther areaNo={param.AREANO} oceanCode={param.OCEANCODE} areaIndex={param.AREAINDEX} />
         </LayoutRight>
       </LayoutWrap>
     </ThemeProvider>
