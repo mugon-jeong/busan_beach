@@ -11,11 +11,11 @@ const TemplateLeft = styled.div`
   flex-direction: column;
 `;
 
-const TmplFcstTimely = () => {
+const TmplFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
   return (
     <TemplateLeft>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonTimely />}>
-        <OFcstTimely />
+        <OFcstTimely nx={nx} ny={ny} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>
   );

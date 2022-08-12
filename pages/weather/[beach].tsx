@@ -24,7 +24,7 @@ const Beach: NextPage = () => {
           <TmplWater beachCode={pram.BEACH} />
         </LayoutLeft>
         <LayoutRight>
-          <TmplFcstTimely />
+          <TmplFcstTimely nx={pram.FORECAST.NX} ny={pram.FORECAST.NY} />
           <TmplFcstDaily />
           <TmplFcstOther areaNo={pram.AREANO} oceanCode={pram.OCEANCODE} areaIndex={pram.AREAINDEX} />
         </LayoutRight>
