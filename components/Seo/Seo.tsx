@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import { NAVER_ANALYTICS_KEY } from '$config';
+import Script from 'next/script';
 
 const Seo = () => {
   const [title, description] = [
@@ -16,6 +18,18 @@ const Seo = () => {
       <meta name={'author'} property="og:article:author" content="물반사람반" />
       <meta name="naver-site-verification" content="ee1214d056ffb202a72aed111273b21151cbc728" />
       <link rel="canonical" href="https://busanbeachweather.com/" />
+      <Script type="text/javascript" src="//wcs.naver.net/wcslog.js" />
+      <Script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            if(!wcs_add) var wcs_add = {};
+            wcs_add["wa"] = "${NAVER_ANALYTICS_KEY}";
+            if(window.wcs) {
+            wcs_do();
+                `,
+        }}
+      />
     </Head>
   );
 };
