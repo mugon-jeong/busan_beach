@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import TextDayWeek from '../Atoms/AtomDayWeek';
+import IconDaily from '$components/Icons/IconDaily';
 
 const WrapFcstDaily = styled.div`
   display: flex;
@@ -64,7 +65,7 @@ const TempBar = styled.div((props: TempBarProps) => ({
 export interface dailyInfo {
   tempHigh: number;
   tempLow: number;
-  rate: string;
+  rate: number;
   days: string;
 }
 
@@ -82,9 +83,18 @@ const FcstDaily = ({ info }: { info: dailyInfo }) => {
       <TemptLow>
         <TextDayWeek title={`${info.tempLow}℃`} />
       </TemptLow>
-      <FcstIcon />
+      {info.rate == 0 ? (
+        <>
+          <IconDaily iconKey={'CLEAN'} />
+        </>
+      ) : (
+        <>
+          <IconDaily iconKey={'RAIN'} />
+        </>
+      )}
+
       <Date>
-        <TextDayWeek title={info.rate} />
+        <TextDayWeek title={info.rate + '%'} />
       </Date>
       <Days>
         <TextDayWeek title={info.days} />
