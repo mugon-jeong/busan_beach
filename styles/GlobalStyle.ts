@@ -26,6 +26,8 @@ export const GlobalStyle = css`
     h1 {
       line-height: 1;
     }
+    background: radial-gradient(#61c2a1, #0b90ad);
+    background-repeat: no-repeat;
   }
 
   ::-webkit-scrollbar {

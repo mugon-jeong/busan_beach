@@ -8,6 +8,19 @@ const Wrap = styled.div`
   justify-content: space-between;
   color: ${props => props.theme.color.coral};
   font-size: 16px;
+  position: relative;
+  &::before {
+    width: 60%;
+    height: 60%;
+    content: '';
+    background: url('/asset/img/bgimg_tube_clear.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    z-index: -999;
+  }
 
   @media (max-width: ${props => props.theme.deviceSizes.pc}) {
     width: 96%;
