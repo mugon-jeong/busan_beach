@@ -13,7 +13,20 @@ const TemplateLeft = styled.div`
 
 const TmplFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
   return (
-    <TemplateLeft>
+    <TemplateLeft
+      onMouseDown={e => {
+        e.stopPropagation();
+      }}
+      onMouseUp={e => {
+        e.stopPropagation();
+      }}
+      onTouchStart={e => {
+        e.stopPropagation();
+      }}
+      onTouchEnd={e => {
+        e.stopPropagation();
+      }}
+    >
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonTimely />}>
         <OFcstTimely nx={nx} ny={ny} />
       </AsyncBoundaryWithQuery>

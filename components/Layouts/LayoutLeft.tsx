@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-
 const Layout = styled.div`
   width: 35rem;
   height: 100vh;
@@ -20,10 +19,7 @@ const Layout = styled.div`
 const LayoutLeft = (props: any) => {
   const [posX, setPosX] = useState(0);
   const router = useRouter();
-  return;
-  <>
-    <Layout>{props.children}</Layout>;
-  </>;
+  return <Layout>{props.children}</Layout>;
 };
 
 export default LayoutLeft;

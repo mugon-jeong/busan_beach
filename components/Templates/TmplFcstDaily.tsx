@@ -11,11 +11,24 @@ const TemplateLeft = styled.div`
   flex-direction: column;
 `;
 
-const TmplFcstDaily = () => {
+const TmplFcstDaily = ({ regId }: { regId: string }) => {
   return (
-    <TemplateLeft>
+    <TemplateLeft
+      onMouseDown={e => {
+        e.stopPropagation();
+      }}
+      onMouseUp={e => {
+        e.stopPropagation();
+      }}
+      onTouchStart={e => {
+        e.stopPropagation();
+      }}
+      onTouchEnd={e => {
+        e.stopPropagation();
+      }}
+    >
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonDaily />}>
-        <OFcstDaily />
+        <OFcstDaily regId={regId} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>
   );
