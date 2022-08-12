@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
+import { IconKey, IconURL } from '$constants/icons';
 
-const IconTimely = () => {
-  return <Image src="/asset/icon/cloud-rain-snow.svg" alt="" width={18} height={18} />;
+const IconTimely = ({ iconKey }: { iconKey: IconKey | string }) => {
+  const icon = IconURL[iconKey as IconKey];
+  return <Image src={icon.url} alt={icon.alt} width={18} height={18} />;
 };
 
 export default IconTimely;

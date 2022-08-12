@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import AtomDayWeek from '../Atoms/AtomDayWeek';
-import CloudIcon from '@mui/icons-material/Cloud';
 import IconTimely from '$components/Icons/IconTimely';
 
 const WrapFcstTimely = styled.div`
@@ -49,7 +48,15 @@ const FcstTimely = ({ info }: { info: timelyInfo }) => {
         <AtomDayWeek title={`${info.tempTimely}℃`} />
       </TemptCurrent>
       <FcstIcon>
-        <IconTimely />
+        {info.rainRate == 0 ? (
+          <>
+            <IconTimely iconKey={info.sky == '맑음' ? 'CLEAN' : info.sky == '구름많음' ? 'CLOUD' : 'BLUR'} />
+          </>
+        ) : (
+          <>
+            <IconTimely iconKey={'RAIN'} />
+          </>
+        )}
       </FcstIcon>
       <TimeCurrent>
         {info.rainRate == 0 ? <AtomDayWeek title={`${info.sky}`} /> : <AtomDayWeek title={`${info.rainRate}%`} />}

@@ -1,10 +1,15 @@
+export const SkyStatus = {
+  clean: '맑음',
+  cloud: '구름많음',
+  blur: '흐림',
+};
 export const skyRole = (fcstValue: number): string | null => {
   if (0 <= fcstValue && fcstValue < 6) {
-    return '맑음';
+    return SkyStatus.clean;
   } else if (6 <= fcstValue && fcstValue < 9) {
-    return '구름많음';
+    return SkyStatus.cloud;
   } else if (9 <= fcstValue && fcstValue < 11) {
-    return '흐림';
+    return SkyStatus.blur;
   } else {
     return null;
   }
