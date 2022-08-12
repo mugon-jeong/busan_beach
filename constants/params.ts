@@ -1,5 +1,6 @@
 export const PARAMS: {
   [key in string]: {
+    KO: string;
     BEACH: number;
     FORECAST: {
       NX: number;
@@ -12,6 +13,7 @@ export const PARAMS: {
   };
 } = {
   HEAWOONDAE: {
+    KO: '해운대',
     BEACH: 304,
     FORECAST: {
       NX: 99,
@@ -23,6 +25,7 @@ export const PARAMS: {
     AREAINDEX: 221192,
   },
   SONGDO: {
+    KO: '송도',
     BEACH: 268,
     FORECAST: {
       NX: 97,
@@ -34,6 +37,7 @@ export const PARAMS: {
     AREAINDEX: 221202,
   },
   SONGJUNG: {
+    KO: '송정',
     BEACH: 305,
     FORECAST: {
       NX: 100,
@@ -45,6 +49,7 @@ export const PARAMS: {
     AREAINDEX: 221192,
   },
   GUANGANLEE: {
+    KO: '광안리',
     BEACH: 306,
     FORECAST: {
       NX: 99,
@@ -56,6 +61,7 @@ export const PARAMS: {
     AREAINDEX: 221271,
   },
   DADAEPO: {
+    KO: '다대포',
     BEACH: 308,
     FORECAST: {
       NX: 96,
@@ -67,6 +73,7 @@ export const PARAMS: {
     AREAINDEX: 221202,
   },
   IMLANG: {
+    KO: '임랑',
     BEACH: 307,
     FORECAST: {
       NX: 101,
@@ -78,6 +85,7 @@ export const PARAMS: {
     AREAINDEX: 221231,
   },
   ILGUANG: {
+    KO: '일광',
     BEACH: 309,
     FORECAST: {
       NX: 101,
