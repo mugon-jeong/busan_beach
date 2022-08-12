@@ -11,6 +11,7 @@ interface Config {
   MEDIUM_FORECAST_KEY: string;
   SHORT_FORECAST_KEY: string;
   AIR_QUALITY_KEY: string;
+  NAVER_ANALYTICS_KEY: string;
 }
 
 const config = getConfig();
@@ -25,4 +26,5 @@ export const {
   MEDIUM_FORECAST_KEY,
   SHORT_FORECAST_KEY,
   AIR_QUALITY_KEY,
+  NAVER_ANALYTICS_KEY,
 } = publicRuntimeConfig;

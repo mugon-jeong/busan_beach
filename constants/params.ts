@@ -6,7 +6,8 @@ export const PARAMS: {
       NX: number;
       NY: number;
     };
-    REGID: string;
+    REGIDRAIN: string;
+    REGIDMEDIUM: string;
     AREANO: number;
     OCEANCODE: string;
     AREAINDEX: number;
@@ -19,7 +20,8 @@ export const PARAMS: {
       NX: 99,
       NY: 75,
     },
-    REGID: '11H20000',
+    REGIDRAIN: '11H20000',
+    REGIDMEDIUM: '11H20201',
     AREANO: 2635051000,
     OCEANCODE: 'BCH001',
     AREAINDEX: 221192,
@@ -31,7 +33,8 @@ export const PARAMS: {
       NX: 97,
       NY: 73,
     },
-    REGID: '11H20000',
+    REGIDRAIN: '11H20000',
+    REGIDMEDIUM: '11H20201',
     AREANO: 2614068000,
     OCEANCODE: 'BCH012',
     AREAINDEX: 221202,
@@ -43,7 +46,8 @@ export const PARAMS: {
       NX: 100,
       NY: 76,
     },
-    REGID: '11H20000',
+    REGIDRAIN: '11H20000',
+    REGIDMEDIUM: '11H20201',
     AREANO: 2635056000,
     OCEANCODE: 'BCH010',
     AREAINDEX: 221192,
@@ -55,7 +59,8 @@ export const PARAMS: {
       NX: 99,
       NY: 75,
     },
-    REGID: '11H20000',
+    REGIDRAIN: '11H20000',
+    REGIDMEDIUM: '11H20201',
     AREANO: 2650077000,
     OCEANCODE: 'BCH002',
     AREAINDEX: 221271,
@@ -67,7 +72,8 @@ export const PARAMS: {
       NX: 96,
       NY: 73,
     },
-    REGID: '11H20000',
+    REGIDRAIN: '11H20000',
+    REGIDMEDIUM: '11H20201',
     AREANO: 2638060100,
     OCEANCODE: 'BCH013',
     AREAINDEX: 221202,
@@ -79,7 +85,8 @@ export const PARAMS: {
       NX: 101,
       NY: 79,
     },
-    REGID: '11H20000',
+    REGIDRAIN: '11H20000',
+    REGIDMEDIUM: '11H20201',
     AREANO: 2671025300,
     OCEANCODE: 'BCH172',
     AREAINDEX: 221231,
@@ -91,7 +98,8 @@ export const PARAMS: {
       NX: 101,
       NY: 78,
     },
-    REGID: '11H20000',
+    REGIDRAIN: '11H20000',
+    REGIDMEDIUM: '11H20201',
     AREANO: 2671025900,
     OCEANCODE: 'BCH008',
     AREAINDEX: 221231,

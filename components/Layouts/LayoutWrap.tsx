@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 const Wrap = styled.div`
   width: 1280px;
@@ -11,6 +10,7 @@ const Wrap = styled.div`
   color: ${props => props.theme.color.white};
   font-size: 16px;
   position: relative;
+
   &::before {
     width: 60%;
     height: 60%;
@@ -57,17 +57,14 @@ const LayoutWrap = (props: any) => {
     <Wrap
       onMouseDown={e => {
         setPosX(e.pageX);
-        console.log(e);
       }}
       onMouseUp={e => {
         if (e.pageX > posX + window.outerWidth / 1.8) {
           router.back();
-          console.log(e);
         }
       }}
       onTouchStart={e => {
         setPosX(e.changedTouches[0].pageX);
-        console.log(e);
       }}
       onTouchEnd={e => {
         if (e.changedTouches[0].pageX > posX + (window.outerWidth - window.outerWidth / 9)) {
