@@ -43,8 +43,8 @@ const FcstIcon = styled.div`
 `;
 
 interface nowForecast {
-  sky: string | null;
-  tempt: number | null;
+  sky: string;
+  tempt: number;
 }
 
 const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
@@ -65,12 +65,12 @@ const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
         }
         const tmp = today.filter(value => value.category == 'TMP')[0];
         setNow({
-          sky: skyStatus,
+          sky: skyStatus ?? '',
           tempt: tmp.fcstValue,
         });
       }
     }
-  }, [dayForecast]);
+  }, [dayForecast, now]);
   return (
     <WrapMolecules>
       <div>

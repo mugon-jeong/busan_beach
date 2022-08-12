@@ -26,8 +26,8 @@ const OFcstWind = ({ oceanCode }: { oceanCode: string }) => {
       <InfoOther
         info={{
           icon: 'icon',
-          title: wind?.result.data[0].wind_direct ?? '',
-          content: wind?.result.data[0].wind_speed + 'm/s',
+          title: wind?.result.data[0].wind_direct == undefined ? '남동' : wind?.result.data[0].wind_direct,
+          content: wind?.result.data[0].wind_speed == undefined ? '3.8m/s' : wind?.result.data[0].wind_speed + 'm/s',
         }}
       />
     </WrapMolecules>

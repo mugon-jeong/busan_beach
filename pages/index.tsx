@@ -50,6 +50,7 @@ const WrapButtonsSmall = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
   div {
     width: 30%;
     cursor: pointer;
@@ -103,7 +104,7 @@ const Home: NextPage = () => {
                 alt="go to heawoondae"
                 width={200}
                 height={200}
-                onClick={() => router.push(ROUTES.HEAWOONDAE)}
+                onClick={() => router.push(ROUTES.GUANGANLEE)}
               />
             </Div>
           </WrapButtonsBig>
@@ -114,7 +115,7 @@ const Home: NextPage = () => {
                 alt="go to heawoondae"
                 width={200}
                 height={200}
-                onClick={() => router.push(ROUTES.HEAWOONDAE)}
+                onClick={() => router.push(ROUTES.DADAEPO)}
               />
             </Div>
             <Div>
@@ -123,7 +124,7 @@ const Home: NextPage = () => {
                 alt="go to heawoondae"
                 width={200}
                 height={200}
-                onClick={() => router.push(ROUTES.HEAWOONDAE)}
+                onClick={() => router.push(ROUTES.SONGJUNG)}
               />
             </Div>
           </WrapButtonsBig>
@@ -134,7 +135,7 @@ const Home: NextPage = () => {
                 alt="go to heawoondae"
                 width={200}
                 height={200}
-                onClick={() => router.push(ROUTES.HEAWOONDAE)}
+                onClick={() => router.push(ROUTES.IMLANG)}
               />
             </Div>
             <Div>
@@ -143,7 +144,7 @@ const Home: NextPage = () => {
                 alt="go to heawoondae"
                 width={200}
                 height={200}
-                onClick={() => router.push(ROUTES.HEAWOONDAE)}
+                onClick={() => router.push(ROUTES.ILGUANG)}
               />
             </Div>
             <Div>
@@ -152,7 +153,7 @@ const Home: NextPage = () => {
                 alt="go to heawoondae"
                 width={200}
                 height={200}
-                onClick={() => router.push(ROUTES.HEAWOONDAE)}
+                onClick={() => router.push(ROUTES.SONGDO)}
               />
             </Div>
           </WrapButtonsSmall>
