@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { useGetShortForecast } from '$queries/useGetShortForecast';
 import { getCurrentYYYYMMDD } from '$utils/date';
 import { rainRole, skyRole } from '$utils/skyRole';
 import SkeletonWeather from '$components/Molecules/SkeletonWeather';
+import IconFcst from '$components/Icons/IconFcst';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -79,9 +79,7 @@ const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
   ) : (
     <WrapMolecules>
       <div>
-        <FcstIcon>
-          <WbSunnyIcon fontSize="large" />
-        </FcstIcon>
+        <IconFcst iconKey={now.sky == '맑음' ? 'CLEAN' : now.sky == '구름많음' ? 'CLOUD' : 'BLUR'} />
         <TitleCenter>{now.sky}</TitleCenter>
       </div>
       <div>

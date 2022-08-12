@@ -27,7 +27,7 @@ const OFcstAir = ({ areaIndex }: { areaIndex: number }) => {
     <WrapMolecules>
       <InfoOther
         info={{
-          icon: 'icon',
+          icon: 'DUST',
           title: '미세먼지',
           content:
             dustRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm10 ?? 0) +

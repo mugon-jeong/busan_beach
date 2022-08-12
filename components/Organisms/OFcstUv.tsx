@@ -26,7 +26,7 @@ const OFcstUv = ({ areaNo }: { areaNo: number }) => {
     <WrapMolecules>
       <InfoOther
         info={{
-          icon: 'icon',
+          icon: 'UV',
           title: '자외선지수',
           content:
             uvRole(uv?.response.body.items.item[0].today ?? 0) + ` ${uv?.response.body.items.item[0].today ?? 0}`,

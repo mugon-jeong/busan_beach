@@ -25,7 +25,7 @@ const OFcstWave = ({ beachCode }: { beachCode: number }) => {
     <WrapMolecules>
       <InfoOther
         info={{
-          icon: 'icon',
+          icon: 'WAVE',
           title: '파도높이',
           content: wave?.response.body.items.item[0].wh + 'm/s',
         }}

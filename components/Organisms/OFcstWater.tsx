@@ -25,7 +25,7 @@ const OFcstWater = ({ beachCode }: { beachCode: number }) => {
     <WrapMolecules>
       <InfoOther
         info={{
-          icon: 'icon',
+          icon: 'WATER',
           title: '수온',
           content: water?.response.body.items.item[0].tw + '℃',
         }}

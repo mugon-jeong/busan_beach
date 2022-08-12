@@ -27,7 +27,7 @@ const OFcstFineAir = ({ areaIndex }: { areaIndex: number }) => {
     <WrapMolecules>
       <InfoOther
         info={{
-          icon: 'icon',
+          icon: 'FINEDUST',
           title: '초미세먼지',
           content:
             dustFineRole(dust?.getAirQualityInfoClassifiedByStation.body.items.item[0].pm25 ?? 0) +
