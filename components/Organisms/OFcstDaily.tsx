@@ -32,9 +32,9 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstDaily = () => {
-  const { data: medium } = useGetMediumForecast('11B10101');
-  const { data: rain } = useGetMediumRain('11B10101');
+const OFcstDaily = ({ regId }: { regId: string }) => {
+  const { data: medium } = useGetMediumForecast(regId);
+  const { data: rain } = useGetMediumRain(regId);
   const [daily, setDaily] = useState<{ [key in number]: dailyInfo | null }>({});
   useEffect(() => {
     if (medium && rain) {

@@ -20,7 +20,7 @@ export const Icon: {
     url: '/asset/icon/cloud-showers-heavy-solid.svg',
     alt: '비',
   },
-  '비/눈': {
+  비눈: {
     url: '/asset/icon/cloud-rain-snow.svg',
     alt: '비나눈',
   },

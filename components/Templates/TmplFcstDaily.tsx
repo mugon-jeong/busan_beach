@@ -11,11 +11,11 @@ const TemplateLeft = styled.div`
   flex-direction: column;
 `;
 
-const TmplFcstDaily = () => {
+const TmplFcstDaily = ({ regId }: { regId: string }) => {
   return (
     <TemplateLeft>
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonDaily />}>
-        <OFcstDaily />
+        <OFcstDaily regId={regId} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>
   );
