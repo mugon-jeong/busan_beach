@@ -42,42 +42,46 @@ const FcstIcon = styled.div`
   line-height: 2.75em;
 `;
 
+interface nowForecast {
+  sky: string | null;
+  tempt: number | null;
+}
+
 const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
-  const [sky, setSky] = useState('');
-  const [tempt, setTempt] = useState(0);
+  const [now, setNow] = useState<nowForecast>({
+    sky: '',
+    tempt: 0,
+  });
   const { data: dayForecast } = useGetShortForecast(nx, ny);
   useEffect(() => {
-    const sky = dayForecast?.response.body.items.item
-      .filter(value => value.category == 'SKY')
-      .filter(value => value.fcstDate == getCurrentYYYYMMDD())[0];
-    if (sky) {
-      let skyStatus = skyRole(sky!.fcstValue);
-      if (!skyStatus) {
-        const rain = dayForecast?.response.body.items.item
-          .filter(value => value.category == 'PTY')
-          .filter(value => value.fcstDate == getCurrentYYYYMMDD())[0];
-        skyStatus = rainRole(rain!.fcstValue);
+    if (dayForecast) {
+      const today = dayForecast.response.body.items.item.filter(value => value.fcstDate == getCurrentYYYYMMDD());
+      const sky = today.filter(value => value.category == 'SKY')[0];
+      if (sky) {
+        let skyStatus = skyRole(sky.fcstValue);
+        if (!skyStatus) {
+          const rain = today.filter(value => value.category == 'PTY')[0];
+          skyStatus = rainRole(rain!.fcstValue);
+        }
+        const tmp = today.filter(value => value.category == 'TMP')[0];
+        setNow({
+          sky: skyStatus,
+          tempt: tmp.fcstValue,
+        });
       }
-      setSky(skyStatus!);
     }
-    const tmp = dayForecast?.response.body.items.item
-      .filter(value => value.category == 'TMP')
-      .filter(value => value.fcstDate == getCurrentYYYYMMDD())[0];
-    if (tmp) {
-      setTempt(tmp!.fcstValue);
-    }
-  }, [dayForecast?.response.body.items.item]);
+  }, [dayForecast]);
   return (
     <WrapMolecules>
       <div>
         <FcstIcon>
           <WbSunnyIcon fontSize="large" />
         </FcstIcon>
-        <TitleCenter>{sky}</TitleCenter>
+        <TitleCenter>{now.sky}</TitleCenter>
       </div>
       <div>
         <TitleRight>기온</TitleRight>
-        <FcstTemp>{`${tempt}℃`}</FcstTemp>
+        <FcstTemp>{`${now.tempt}℃`}</FcstTemp>
       </div>
     </WrapMolecules>
   );
