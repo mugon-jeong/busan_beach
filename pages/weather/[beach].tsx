@@ -12,7 +12,6 @@ import LayoutRight from '$components/Layouts/LayoutRight';
 import { useRouter } from 'next/router';
 import { PARAMS } from '$constants/params';
 import { useState } from 'react';
-import Link from 'next/link';
 
 const Beach: NextPage = () => {
   const [posX, setPosX] = useState(0);
@@ -24,6 +23,7 @@ const Beach: NextPage = () => {
     <div
       onTouchStart={e => {
         setPosX(e.changedTouches[0].pageX);
+        console.log(e);
       }}
       onTouchEnd={e => {
         if (e.changedTouches[0].pageX > posX + window.outerWidth / 5) {

@@ -35,6 +35,10 @@ export const getYtdYYYYMMDD = () => {
 export const getTmrwYYYYMMDD = () => {
   return moment().add(1, 'day').format('YYYYMMDD');
 };
+
+export const addDayMMDD = (day: number) => {
+  return moment().add(day, 'day').format('MM.DD');
+};
 export const getCurrentHHMMMinusOne = () => {
   return moment().subtract(1, 'hour').format('HHMM');
 };

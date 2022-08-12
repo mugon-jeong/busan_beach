@@ -24,7 +24,10 @@ export const API_ROUTES = {
     UV: `${API_URL_BASE}/1360000/LivingWthrIdxServiceV2/getUVIdxV2?serviceKey=${LIVING_WEATHER_KEY}`,
   },
   FORECAST: {
-    MEDIUM: `${API_URL_BASE}/1360000/MidFcstInfoService/getMidTa?serviceKey=${MEDIUM_FORECAST_KEY}`,
+    MEDIUM: {
+      TEMPT: `${API_URL_BASE}/1360000/MidFcstInfoService/getMidTa?serviceKey=${MEDIUM_FORECAST_KEY}`,
+      RAIN: `${API_URL_BASE}/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${MEDIUM_FORECAST_KEY}`,
+    },
     SHORT: `${API_URL_BASE}/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${SHORT_FORECAST_KEY}`,
   },
 

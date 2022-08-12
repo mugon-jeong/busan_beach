@@ -4,6 +4,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { useGetShortForecast } from '$queries/useGetShortForecast';
 import { getCurrentYYYYMMDD } from '$utils/date';
 import { rainRole, skyRole } from '$utils/skyRole';
+import SkeletonWeather from '$components/Molecules/SkeletonWeather';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -71,7 +72,11 @@ const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
       }
     }
   }, [dayForecast, now]);
-  return (
+  return now.tempt == 0 ? (
+    <>
+      <SkeletonWeather />
+    </>
+  ) : (
     <WrapMolecules>
       <div>
         <FcstIcon>

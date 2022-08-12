@@ -5,7 +5,7 @@ import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query
 import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
 import { MediumForecastType } from '$types/Forecast/MediumForecastType';
-import { getCurrentYYYYMMDD } from '$utils/date';
+import { getMediumYYYYMMDDHH } from '$utils/date';
 
 export interface MiddleWeatherProp {
   pageNo: number;
@@ -21,11 +21,11 @@ export const getMediumForecastFetch = async (regId: string) => {
     pageNo: 1,
     dataType: 'JSON',
     regId: regId,
-    tmFc: getCurrentYYYYMMDD() + '06',
+    tmFc: getMediumYYYYMMDDHH(),
   };
 
   return await withAxios<BaseResponse<MediumForecastType>>({
-    url: `${API_ROUTES.FORECAST.MEDIUM}`,
+    url: API_ROUTES.FORECAST.MEDIUM.TEMPT,
     params: {
       numOfRows: props.numOfRows,
       pageNo: props.pageNo,
@@ -40,7 +40,7 @@ export const useGetMediumForecast = (
   regId: string,
   options?: UseQueryOptions<BaseResponse<MediumForecastType>, AxiosError, BaseResponse<MediumForecastType>, string[]>,
 ): UseQueryResult<BaseResponse<MediumForecastType>, AxiosError> =>
-  useQuery([`${regId}`, ...Querykeys.FORECAST.MEDIUM], () => getMediumForecastFetch(regId), { ...options });
+  useQuery([`${regId}`, ...Querykeys.FORECAST.MEDIUM.TEMPT], () => getMediumForecastFetch(regId), { ...options });
 /**
  *   regId: string;  사용 X : 지역 코드
  *   taMin3: number;  사용 O : 3일 뒤 최저 기온
