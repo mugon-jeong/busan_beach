@@ -49,22 +49,17 @@ const TempBarHeight = styled.div`
   width: 0.25rem;
   height: auto;
 `;
-
-const temphigh = 30;
-const templow = 16;
-
-const gap = temphigh - templow;
-
-const gapValue = 0 <= gap && gap <= 3 ? 1 : 4 <= gap && gap <= 8 ? 1.4 : 9 <= gap && gap <= 12 ? 1.8 : 2;
-
-const TempBar = styled.div`
-  width: 0.25rem;
-  height: ${gapValue}em;
-  background-color: #fff;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-`;
+type TempBarProps = {
+  gapValue: number;
+};
+const TempBar = styled.div((props: TempBarProps) => ({
+  width: '0.25rem',
+  height: `${props.gapValue}em`,
+  backgroundColor: '#fff',
+  borderRadius: '5px',
+  position: 'relative',
+  overflow: 'hidden',
+}));
 
 export interface dailyInfo {
   tempHigh: number;
@@ -74,13 +69,15 @@ export interface dailyInfo {
 }
 
 const FcstDaily = ({ info }: { info: dailyInfo }) => {
+  const gap = info.tempHigh - info.tempLow;
+  const gapValue = 0 <= gap && gap <= 3 ? 1 : 4 <= gap && gap <= 8 ? 1.4 : 9 <= gap && gap <= 12 ? 1.8 : 2;
   return (
     <WrapFcstDaily>
       <TemptHigh>
         <TextDayWeek title={`${info.tempHigh}℃`} />
       </TemptHigh>
       <TempBarHeight>
-        <TempBar />
+        <TempBar gapValue={gapValue} />
       </TempBarHeight>
       <TemptLow>
         <TextDayWeek title={`${info.tempLow}℃`} />
