@@ -22,8 +22,19 @@ const Beach: NextPage = () => {
   const param = PARAMS[beach as string];
   return (
     <div
+      onMouseDown={e => {
+        setPosX(e.pageX);
+        console.log(e);
+      }}
+      onMouseUp={e => {
+        if (e.pageX > posX + window.outerWidth / 5) {
+          router.back();
+          console.log(e);
+        }
+      }}
       onTouchStart={e => {
         setPosX(e.changedTouches[0].pageX);
+        console.log(e);
       }}
       onTouchEnd={e => {
         if (e.changedTouches[0].pageX > posX + window.outerWidth / 5) {
