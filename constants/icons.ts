@@ -1,58 +1,72 @@
-export const Icon: {
-  [key in string]: {
+export type IconKey =
+  | 'CLEAN'
+  | 'CLOUD'
+  | 'BLUR'
+  | 'RAIN'
+  | 'RAINSNOW'
+  | 'SNOW'
+  | 'SMALLRAIN'
+  | 'WATER'
+  | 'WAVE'
+  | 'WIND'
+  | 'UV'
+  | 'DUST'
+  | 'FINEDUST';
+export const IconURL: {
+  [key in IconKey]: {
     url: string;
     alt: string;
   };
 } = {
-  맑음: {
+  CLEAN: {
     url: '/asset/icon/sun-solid.svg',
     alt: '맑음',
   },
-  구름많음: {
+  CLOUD: {
     url: '/asset/icon/cloud-sun-solid.svg',
     alt: '구름많음',
   },
-  흐림: {
+  BLUR: {
     url: '/asset/icon/cloud-solid.svg',
     alt: '흐림',
   },
-  비: {
+  RAIN: {
     url: '/asset/icon/cloud-showers-heavy-solid.svg',
     alt: '비',
   },
-  비눈: {
+  RAINSNOW: {
     url: '/asset/icon/cloud-rain-snow.svg',
     alt: '비나눈',
   },
-  눈: {
+  SNOW: {
     url: '/asset/icon/snowflake-solid.svg',
     alt: '눈',
   },
-  소나기: {
+  SMALLRAIN: {
     url: '/asset/icon/cloud-showers-heavy-solid.svg',
     alt: '소나기',
   },
-  수온: {
+  WATER: {
     url: '/asset/icon/temperature-half-solid.svg',
     alt: '수온',
   },
-  파도높이: {
+  WAVE: {
     url: '/asset/icon/wave-solid.svg',
     alt: '파도높이',
   },
-  바람: {
+  WIND: {
     url: '/asset/icon/wind-solid.svg',
     alt: '바람',
   },
-  자외선: {
+  UV: {
     url: '/asset/icon/sun-uv.svg',
     alt: '자외선',
   },
-  미세먼지: {
+  DUST: {
     url: '/asset/icon/air-dust.svg',
     alt: '미세먼지',
   },
-  초미세먼지: {
+  FINEDUST: {
     url: '/asset/icon/air-dust.svg',
     alt: '초미세먼지',
   },
