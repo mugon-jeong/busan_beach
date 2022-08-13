@@ -53,7 +53,7 @@ const WrapButtonsBig = styled.div`
     }
   }
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
-    width: 50%;
+    width: 100%;
   }
 `;
 
