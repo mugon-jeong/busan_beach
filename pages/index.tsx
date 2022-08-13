@@ -5,6 +5,7 @@ import theme from '$styles/theme';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { ROUTES } from '$constants/routes';
+import useBeforeInstallPrompt from '$hooks/useBeforeInstallPrompt';
 // import { useGetOceanData } from '$queries/useGetOceanData';
 
 const Main = styled.div`
@@ -80,11 +81,14 @@ const Div = styled.div`
 
 const Home: NextPage = () => {
   const router = useRouter();
+  const { isInstalled, addToHomeScreen } = useBeforeInstallPrompt();
+
   return (
     <ThemeProvider theme={theme}>
       <Main>
         <WrapImg>
           <WrapButtonsBig>
+            {isInstalled && <button onClick={addToHomeScreen}>Add to home screen</button>}
             <Div>
               <Image
                 src="/asset/img/button_haewoondae.png"

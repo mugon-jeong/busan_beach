@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 프로젝트
 
-## Getting Started
+> 부산 해수욕장 날씨
 
-First, run the development server:
+## 제작
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+> 팀 : 물반사람반
+> - 기획 : 손해원
+> - 개발 : 정무곤, 김보라, 장주영
+> - 디자인 : 깁보라
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# 기획의도
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+이 프로젝트는 부산 해수욕장을 방문하는 이들에게 도움이 되는 정보를 제공하는 사이트이다.
+해수욕장에 가기 위해서 검색을 하면, 간단한 위치 정보와 날씨 정보가 제공된다.
+날씨만 보고 해수욕장을 방문했지만, 예상 외로 차가운 수온, 높은 파도 등에 제대로 즐기지 못한 체 돌아가야 했던 경험과 현재 정보를 제공해주는 사이트들의 UI에 아쉬움을 느껴 이를 보완하고자 제작하게 되었다
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# 주요기능
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 메인화면
 
-## Learn More
+부산의 7대 해수욕장(해운대, 광안리, 다대포, 송도, 송정, 일광, 임랑)의 상세 정보를 선택하여 볼 수 있게 하는 아이콘이 있습니다.
 
-To learn more about Next.js, take a look at the following resources:
+## 상세화면
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. 실시간 제공
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- 기온, 수온, 파고, 풍향, 풍속, 자외선지수, 미세먼지, 초미세먼지
 
-## Deploy on Vercel
+2. 하루예보
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 매 시간 기온, 강수확률
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. 주간예보
+
+- 해당일 최저/최고 기온, 강수확률
+
