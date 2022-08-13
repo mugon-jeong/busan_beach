@@ -1,13 +1,17 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ */
+
+const withPlugins = require('next-compose-plugins');
+const withPWA = require('next-pwa');
 const { NEXT_PUBLIC_ENV } = process.env;
 const isLocal = NEXT_PUBLIC_ENV === 'local';
 const CONFIG = require(`./config/${NEXT_PUBLIC_ENV}`);
-const LOCAL_ORIGIN = 'http://127.0.0.1:3000';
+const LOCAL_ORIGIN = 'http://localhost:3000';
 const publicRuntimeConfig = {
   NEXT_PUBLIC_ENV,
   ...CONFIG,
 };
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 const nextConfig = {
   reactStrictMode: true,
   env: publicRuntimeConfig,
@@ -34,4 +38,16 @@ const nextConfig = {
   }),
 };
 
-module.exports = nextConfig;
+module.exports = withPlugins(
+  [
+    [
+      withPWA,
+      {
+        pwa: {
+          dest: 'public',
+        },
+      },
+    ],
+  ],
+  nextConfig,
+);
