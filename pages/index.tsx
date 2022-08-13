@@ -26,7 +26,7 @@ const WrapImg = styled.div`
 `;
 
 const WrapButtonsBig = styled.div`
-  width: 55%;
+  width: 54%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -40,16 +40,26 @@ const WrapButtonsBig = styled.div`
       transform: translateY(-5%);
     }
   }
+  @media (min-width: 1281px) {
+    width: 50%;
+  }
+  @media (max-width: ${props => props.theme.deviceSizes.pc}) {
+    width: 60%;
+  }
 
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
-    width: 80%;
+    width: 64%;
+    div {
+      width: 50%;
+    }
   }
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
-    width: 100%;
+    width: 50%;
   }
 `;
+
 const WrapButtonsSmall = styled.div`
-  width: 55%;
+  width: 56%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -62,6 +72,14 @@ const WrapButtonsSmall = styled.div`
     :hover {
       transform: translateY(-5%);
     }
+  }
+
+  @media (min-width: 1281px) {
+    width: 68%;
+  }
+
+  @media (max-width: ${props => props.theme.deviceSizes.pc}) {
+    width: 80%;
   }
 
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
@@ -142,6 +160,9 @@ const Home: NextPage = () => {
                 onClick={() => router.push(ROUTES.GUANGANLEE)}
               />
             </Div>
+          </WrapButtonsBig>
+          <WrapButtonsBig>
+            {' '}
             <Div>
               <Image
                 src="/asset/img/button_dadaepo.png"
@@ -161,7 +182,6 @@ const Home: NextPage = () => {
               />
             </Div>
           </WrapButtonsBig>
-          <WrapButtonsBig></WrapButtonsBig>
           <WrapButtonsSmall>
             <Div>
               <Image
