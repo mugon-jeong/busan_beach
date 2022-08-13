@@ -88,7 +88,7 @@ const Home: NextPage = () => {
       <Main>
         <WrapImg>
           <WrapButtonsBig>
-            {isInstalled && <button onClick={addToHomeScreen}>Add to home screen</button>}
+            {!isInstalled && <button onClick={addToHomeScreen}>Add to home screen</button>}
             <Div>
               <Image
                 src="/asset/img/button_haewoondae.png"

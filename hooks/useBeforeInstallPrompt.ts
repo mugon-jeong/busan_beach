@@ -38,7 +38,7 @@ const useBeforeInstallPrompt = (options?: Options): ReturnType => {
   const addToHomeScreen = async () => {
     if (!beforeInstallPromptEvent) return false;
 
-    beforeInstallPromptEvent.prompt();
+    await beforeInstallPromptEvent.prompt();
 
     const { outcome } = await beforeInstallPromptEvent.userChoice;
 
@@ -68,7 +68,7 @@ const useBeforeInstallPrompt = (options?: Options): ReturnType => {
     return () => {
       window.removeEventListener('beforeinstallprompt', handler);
     };
-  }, [installedFn]);
+  }, [beforeInstallPromptEvent, installedFn]);
 
   useEffect(() => {
     const handler = () => {

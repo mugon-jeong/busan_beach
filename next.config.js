@@ -4,6 +4,7 @@
 
 const withPlugins = require('next-compose-plugins');
 const withPWA = require('next-pwa');
+const runtimeCaching = require('next-pwa/cache');
 const { NEXT_PUBLIC_ENV } = process.env;
 const isLocal = NEXT_PUBLIC_ENV === 'local';
 const CONFIG = require(`./config/${NEXT_PUBLIC_ENV}`);
@@ -17,9 +18,6 @@ const nextConfig = {
   env: publicRuntimeConfig,
   publicRuntimeConfig,
   swcMinify: true,
-  experimental: {
-    forceSwcTransforms: true,
-  },
   compiler: {
     emotion: {
       sourceMap: isLocal,
@@ -43,8 +41,14 @@ module.exports = withPlugins(
     [
       withPWA,
       {
+        reactStrictMode: true,
         pwa: {
           dest: 'public',
+          register: true,
+          skipWaiting: true,
+          runtimeCaching,
+          buildExcludes: [/middleware-manifest.json$/],
+          disable: process.env.NODE_ENV === 'local',
         },
       },
     ],
