@@ -64,32 +64,32 @@ const SkeletonDaily = () => {
   return (
     <WrapFcstDaily>
       <TemptHigh>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
       </TemptHigh>
       <TempBarHeight>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton height="2em" />
         </SkeletonTheme>
       </TempBarHeight>
       <TemptLow>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
       </TemptLow>
       <FcstIcon>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton circle height="100%" />
         </SkeletonTheme>
       </FcstIcon>
       <Date>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
       </Date>
       <Days>
-        <SkeletonTheme baseColor="#cc4a30" highlightColor="#FF8067" borderRadius="0.5rem" duration={4}>
+        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton width={24} />
         </SkeletonTheme>
       </Days>

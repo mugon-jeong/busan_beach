@@ -12,7 +12,7 @@ const WrapMolecules = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     width: 48%;

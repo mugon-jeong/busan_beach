@@ -4,22 +4,23 @@ import IconOthers from '$components/Icons/IconOthers';
 import { IconKey } from '$constants/icons';
 
 const TitleRight = styled.div`
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   text-align: right;
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     text-align: center;
+    margin-top: 0.2em;
   }
 `;
 
 const FcstTemp = styled.div`
-  font-size: 2em;
+  font-size: 1.8em;
   text-align: right;
   font-weight: 500;
 `;
 
 const FcstIcon = styled.div`
-  width: 3.2em;
-  height: 3.2em;
+  width: 3em;
+  height: 3em;
   background-color: #fff;
   border-radius: 50%;
   text-align: center;

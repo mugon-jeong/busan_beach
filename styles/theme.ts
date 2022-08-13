@@ -14,7 +14,7 @@ const theme: Theme = {
     deepCoral: '#FE6F69',
     coral: '#fad4cd',
     sand: '#FFF6E5',
-    white: '#f0f0f0',
+    white: '#fff',
   },
 };
 

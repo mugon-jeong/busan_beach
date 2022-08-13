@@ -7,7 +7,7 @@ const Wrap = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  color: ${props => props.theme.color.coral};
+  color: ${props => props.theme.color.white};
   font-size: 16px;
   position: relative;
 
