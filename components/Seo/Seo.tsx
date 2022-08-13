@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { GA_TRACKING_ID, NAVER_ANALYTICS_KEY, NEXT_PUBLIC_ENV } from '$config';
+import { GA_TRACKING_ID } from '$config';
 import Script from 'next/script';
 
 const Seo = () => {
@@ -10,45 +10,26 @@ const Seo = () => {
   ];
   return (
     <>
-      {NEXT_PUBLIC_ENV === 'local' ? (
-        <></>
-      ) : (
-        <>
-          <Script type="text/javascript" src="//wcs.naver.net/wcslog.js" strategy="afterInteractive" />
-          <Script
-            id={'naver_script'}
-            type="text/javascript"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-            if(!wcs_add) var wcs_add = {};
-            wcs_add["wa"] = "${NAVER_ANALYTICS_KEY}";
-            if(window.wcs) {
-              wcs_do();
-              }
-            `,
-            }}
-          />
-          <Script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script
-            id={'Google-tag'}
-            type="text/javascript"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
+      <>
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id={'Google-tag'}
+          type="text/javascript"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
                       window.dataLayer = window.dataLayer || [];
                       function gtag(){dataLayer.push(arguments);}
                       gtag('js', new Date());
                       gtag('config', '${GA_TRACKING_ID}');
                       `,
-            }}
-          />
-        </>
-      )}
+          }}
+        />
+      </>
       <Head>
         <title>부산해수욕장날씨</title>
         <meta name={'type'} property="og:type" content="website" />
