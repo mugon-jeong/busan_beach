@@ -26,31 +26,30 @@ const WrapImg = styled.div`
 `;
 
 const WrapButtonsBig = styled.div`
-  width: 54%;
+  width: 56%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 
   div {
-    margin-bottom: 1.6vh;
+    width: 24%;
+    margin-bottom: 1rem;
     cursor: pointer;
 
     :hover {
       transform: translateY(-5%);
     }
   }
-  @media (min-width: 1281px) {
-    width: 50%;
-  }
+
   @media (max-width: ${props => props.theme.deviceSizes.pc}) {
-    width: 60%;
+    width: 64%;
   }
 
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 64%;
     div {
-      width: 50%;
+      width: 44%;
     }
   }
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
@@ -66,7 +65,7 @@ const WrapButtonsSmall = styled.div`
   flex-wrap: wrap;
 
   div {
-    width: 30%;
+    width: 24%;
     cursor: pointer;
 
     :hover {
@@ -84,6 +83,10 @@ const WrapButtonsSmall = styled.div`
 
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 80%;
+    div {
+      width: 44%;
+      margin-bottom: 1rem;
+    }
   }
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     width: 100%;
@@ -160,9 +163,6 @@ const Home: NextPage = () => {
                 onClick={() => router.push(ROUTES.GUANGANLEE)}
               />
             </Div>
-          </WrapButtonsBig>
-          <WrapButtonsBig>
-            {' '}
             <Div>
               <Image
                 src="/asset/img/button_dadaepo.png"

@@ -4,7 +4,7 @@ const theme: Theme = {
   deviceSizes: {
     mobileSE: '320px',
     mobile13P: '428px',
-    tablet: '1024px',
+    tablet: '1064px',
     pc: '1280px',
   },
   color: {
