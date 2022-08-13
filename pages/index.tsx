@@ -32,10 +32,8 @@ const WrapButtonsBig = styled.div`
   flex-wrap: wrap;
 
   div {
-    width: 44%;
     margin-bottom: 1.6vh;
     cursor: pointer;
-
     :hover {
       transform: translateY(-5%);
     }
@@ -56,7 +54,6 @@ const WrapButtonsSmall = styled.div`
   flex-wrap: wrap;
 
   div {
-    width: 30%;
     cursor: pointer;
 
     :hover {
@@ -79,6 +76,17 @@ const Div = styled.div`
   justify-content: center;
 `;
 
+const AddToHome = styled.div`
+  width: auto;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
 const Home: NextPage = () => {
   const router = useRouter();
   const { isInstalled, addToHomeScreen } = useBeforeInstallPrompt();
@@ -88,11 +96,10 @@ const Home: NextPage = () => {
       <Main>
         <WrapImg>
           <WrapButtonsBig>
-            {isInstalled && <button onClick={addToHomeScreen}>Add to home screen</button>}
             <Div>
               <Image
                 src="/asset/img/button_haewoondae.png"
-                alt="go to heawoondae"
+                alt="go to Heawoondae"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.HEAWOONDAE)}
@@ -101,18 +108,16 @@ const Home: NextPage = () => {
             <Div>
               <Image
                 src="/asset/img/button_gwangalli.png"
-                alt="go to heawoondae"
+                alt="go to Guananlee"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.GUANGANLEE)}
               />
             </Div>
-          </WrapButtonsBig>
-          <WrapButtonsBig>
             <Div>
               <Image
                 src="/asset/img/button_dadaepo.png"
-                alt="go to heawoondae"
+                alt="go to Dadaepo"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.DADAEPO)}
@@ -121,18 +126,19 @@ const Home: NextPage = () => {
             <Div>
               <Image
                 src="/asset/img/button_songjung.png"
-                alt="go to heawoondae"
+                alt="go to Songjung"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.SONGJUNG)}
               />
             </Div>
           </WrapButtonsBig>
+          <WrapButtonsBig></WrapButtonsBig>
           <WrapButtonsSmall>
             <Div>
               <Image
                 src="/asset/img/bgimg_tube_clear.png"
-                alt="go to heawoondae"
+                alt="go to Imlang"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.IMLANG)}
@@ -141,7 +147,7 @@ const Home: NextPage = () => {
             <Div>
               <Image
                 src="/asset/img/bgimg_tube_clear.png"
-                alt="go to heawoondae"
+                alt="go to Ilguang"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.ILGUANG)}
@@ -150,11 +156,18 @@ const Home: NextPage = () => {
             <Div>
               <Image
                 src="/asset/img/bgimg_tube_clear.png"
-                alt="go to heawoondae"
+                alt="go to Songdo"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.SONGDO)}
               />
+            </Div>
+            <Div>
+              {isInstalled && (
+                <AddToHome onClick={addToHomeScreen}>
+                  <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={150} height={150} />
+                </AddToHome>
+              )}
             </Div>
           </WrapButtonsSmall>
         </WrapImg>
