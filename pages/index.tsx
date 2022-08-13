@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { ROUTES } from '$constants/routes';
 import useBeforeInstallPrompt from '$hooks/useBeforeInstallPrompt';
+import { gtagEvent } from '$utils/googleAnalytics';
 // import { useGetOceanData } from '$queries/useGetOceanData';
 
 const Main = styled.div`
@@ -109,7 +110,32 @@ const AddToHome = styled.div`
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const { isInstalled, addToHomeScreen } = useBeforeInstallPrompt();
+  const { isInstalled, addToHomeScreen } = useBeforeInstallPrompt({
+    acceptedFn: () => {
+      gtagEvent({
+        action: 'send',
+        category: 'event',
+        label: 'A2H',
+        value: 'install',
+      });
+    },
+    dismissedFn: () => {
+      gtagEvent({
+        action: 'send',
+        category: 'event',
+        label: 'A2H',
+        value: 'cancel',
+      });
+    },
+    installedFn: () => {
+      gtagEvent({
+        action: 'send',
+        category: 'event',
+        label: 'A2H',
+        value: 'already',
+      });
+    },
+  });
 
   return (
     <ThemeProvider theme={theme}>
