@@ -118,7 +118,7 @@ const Home: NextPage = () => {
       gtagEvent({
         action: 'send',
         category: 'event',
-        label: 'A2H',
+        label: 'PWA',
         value: 'install',
       });
     },
@@ -126,7 +126,7 @@ const Home: NextPage = () => {
       gtagEvent({
         action: 'send',
         category: 'event',
-        label: 'A2H',
+        label: 'PWA',
         value: 'cancel',
       });
     },
@@ -134,7 +134,7 @@ const Home: NextPage = () => {
       gtagEvent({
         action: 'send',
         category: 'event',
-        label: 'A2H',
+        label: 'PWA',
         value: 'already',
       });
     },
@@ -211,11 +211,9 @@ const Home: NextPage = () => {
               />
             </Div>
             <Div>
-              {!isInstalled && (
-                <AddToHome onClick={addToHomeScreen}>
-                  <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={150} height={150} />
-                </AddToHome>
-              )}
+              <AddToHome onClick={addToHomeScreen}>
+                <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={150} height={150} />
+              </AddToHome>
             </Div>
           </WrapButtonsSmall>
         </WrapImg>

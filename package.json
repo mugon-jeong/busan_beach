@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NEXT_PUBLIC_ENV=local next dev",
+    "dev:production": "cross-env NEXT_PUBLIC_ENV=production next dev",
     "build": "next build",
     "build:local": "cross-env NEXT_PUBLIC_ENV=local next build",
     "build:production": "cross-env NEXT_PUBLIC_ENV=production next build",
