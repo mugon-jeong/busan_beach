@@ -12,6 +12,7 @@ interface Config {
   SHORT_FORECAST_KEY: string;
   AIR_QUALITY_KEY: string;
   NAVER_ANALYTICS_KEY: string;
+  GA_TRACKING_ID: string;
 }
 
 const config = getConfig();
@@ -27,4 +28,5 @@ export const {
   SHORT_FORECAST_KEY,
   AIR_QUALITY_KEY,
   NAVER_ANALYTICS_KEY,
+  GA_TRACKING_ID,
 } = publicRuntimeConfig;

@@ -7,6 +7,7 @@ const {
   SHORT_FORECAST_KEY,
   AIR_QUALITY_KEY,
   NAVER_ANALYTICS_KEY,
+  GA_TRACKING_ID,
 } = process.env;
 
 module.exports = {
@@ -18,4 +19,5 @@ module.exports = {
   SHORT_FORECAST_KEY,
   AIR_QUALITY_KEY,
   NAVER_ANALYTICS_KEY,
+  GA_TRACKING_ID,
 };

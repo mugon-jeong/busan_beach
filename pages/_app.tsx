@@ -6,6 +6,11 @@ import Seo from '$components/Seo/Seo';
 import { Global } from '@emotion/react';
 import { GlobalStyle } from '$styles/GlobalStyle';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { gtagPageview } from '$utils/googleAnalytics';
+
+declare let gtag: Function;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient({
@@ -17,6 +22,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       },
     },
   });
+  const router = useRouter();
+  useEffect(() => {
+    if (NEXT_PUBLIC_ENV === 'production') {
+      const handleRouteChange = (url: string) => {
+        gtagPageview(url);
+      };
+      router.events.on('routeChangeComplete', handleRouteChange);
+      return () => {
+        router.events.off('routeChangeComplete', handleRouteChange);
+      };
+    }
+  }, [router.events]);
   return (
     <QueryClientProvider client={queryClient}>
       <Global styles={GlobalStyle} />
