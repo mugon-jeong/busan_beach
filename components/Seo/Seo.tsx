@@ -23,8 +23,9 @@ const Seo = () => {
             if(!wcs_add) var wcs_add = {};
             wcs_add["wa"] = "${NAVER_ANALYTICS_KEY}";
             if(window.wcs) {
-            wcs_do();
-                `,
+              wcs_do();
+              }
+            `,
             }}
           />
         </>
