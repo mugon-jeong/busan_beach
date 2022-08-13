@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { NAVER_ANALYTICS_KEY, NEXT_PUBLIC_ENV } from '$config';
+import { GA_TRACKING_ID, NAVER_ANALYTICS_KEY, NEXT_PUBLIC_ENV } from '$config';
 import Script from 'next/script';
 
 const Seo = () => {
@@ -14,10 +14,11 @@ const Seo = () => {
         <></>
       ) : (
         <>
-          <Script type="text/javascript" src="//wcs.naver.net/wcslog.js" />
+          <Script type="text/javascript" src="//wcs.naver.net/wcslog.js" strategy="afterInteractive" />
           <Script
             id={'naver_script'}
             type="text/javascript"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
             if(!wcs_add) var wcs_add = {};
@@ -26,6 +27,24 @@ const Seo = () => {
               wcs_do();
               }
             `,
+            }}
+          />
+          <Script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script
+            id={'Google-tag'}
+            type="text/javascript"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+                      gtag('config', '${GA_TRACKING_ID}');
+                      `,
             }}
           />
         </>
