@@ -34,6 +34,7 @@ const WrapButtonsBig = styled.div`
   div {
     margin-bottom: 1.6vh;
     cursor: pointer;
+
     :hover {
       transform: translateY(-5%);
     }
@@ -164,7 +165,7 @@ const Home: NextPage = () => {
               />
             </Div>
             <Div>
-              {isInstalled && (
+              {!isInstalled && (
                 <AddToHome onClick={addToHomeScreen}>
                   <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={150} height={150} />
                 </AddToHome>

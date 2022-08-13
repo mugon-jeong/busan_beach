@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "\ubd80\uc0b0\ud574\uc218\uc695\uc7a5\ub0a0\uc528",
-  "short_name": "\ubd80\uc0b0\ud574\uc218\uc695\uc7a5\ub0a0\uc528",
-  "description": "\ubd80\uc0b0\uad11\uc5ed\uc2dc \ud574\uc218\uc695\uc7a5\uc758 \ub0a0\uc528,\uc218\uc628,\ud30c\uace0 \ub4f1 \ud574\uc218\uc695\uc5d0 \ub3c4\uc6c0\uc774 \ub418\ub294 \uc815\ubcf4\ub97c \uc81c\uacf5\ud55c\ub2e4.",
+  "name": "부산해수욕장날씨",
+  "short_name": "부산바다날씨",
+  "description": "부산광역시 해수욕장의 날씨,수온,파고 등 해수욕에 도움이 되는 정보를 제공한다.",
   "icons": [
     {
       "src": "/pwa/icon_x48.png",

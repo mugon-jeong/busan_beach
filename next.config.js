@@ -36,22 +36,29 @@ const nextConfig = {
   }),
 };
 
-module.exports = withPlugins(
-  [
-    [
-      withPWA,
-      {
-        reactStrictMode: true,
-        pwa: {
-          dest: 'public',
-          register: true,
-          skipWaiting: true,
-          runtimeCaching,
-          buildExcludes: [/middleware-manifest.json$/],
-          disable: process.env.NODE_ENV === 'local',
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+    runtimeCaching,
+  },
+  reactStrictMode: true,
+  env: publicRuntimeConfig,
+  publicRuntimeConfig,
+  swcMinify: true,
+  compiler: {
+    emotion: {
+      sourceMap: isLocal,
+    },
+  },
+  ...(isLocal && {
+    async rewrites() {
+      return [
+        {
+          basePath: false,
+          source: '/assets/:path*',
+          destination: `${LOCAL_ORIGIN}/:publicfiles`,
         },
-      },
-    ],
-  ],
-  nextConfig,
-);
+      ];
+    },
+  }),
+});

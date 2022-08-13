@@ -23,7 +23,7 @@
     "emotion-reset": "^3.0.1",
     "moment": "^2.29.4",
     "next": "12.2.4",
-    "next-pwa": "^5.5.5",
+    "next-pwa": "5.5.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "^18.2.0",
