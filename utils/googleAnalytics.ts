@@ -18,7 +18,7 @@ export interface GTAGType {
   value: string;
 }
 
-export const event = ({ action, category, label, value }: GTAGType) => {
+export const gtagEvent = ({ action, category, label, value }: GTAGType) => {
   window.gtag('event', action, {
     event_category: category,
     event_label: label,

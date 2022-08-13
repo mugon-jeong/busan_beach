@@ -3,7 +3,7 @@
   "background_color": "#61C2A1",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/?utm_source=app",
   "name": "부산해수욕장날씨",
   "short_name": "부산바다날씨",
   "description": "부산광역시 해수욕장의 날씨,수온,파고 등 해수욕에 도움이 되는 정보를 제공한다.",
