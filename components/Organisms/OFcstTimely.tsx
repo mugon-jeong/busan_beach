@@ -119,7 +119,6 @@ const OFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
       const sortYtd = Object.fromEntries(Object.entries(ytdList).sort(([, a], [, b]) => a.time - b.time));
       const sortToday = Object.fromEntries(Object.entries(todayList).sort(([, a], [, b]) => a.time - b.time));
       const sortTmrw = Object.fromEntries(Object.entries(tmrwList).sort(([, a], [, b]) => a.time - b.time));
-      console.log('내일', sortTmrw);
       setYtd(sortYtd);
       setToday(sortToday);
       setTmrw(sortTmrw);
