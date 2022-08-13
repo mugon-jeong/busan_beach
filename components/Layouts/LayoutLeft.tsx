@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+
 const Layout = styled.div`
   width: 35rem;
   height: 100vh;

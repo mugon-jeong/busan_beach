@@ -11,7 +11,8 @@ export type IconKey =
   | 'WIND'
   | 'UV'
   | 'DUST'
-  | 'FINEDUST';
+  | 'FINEDUST'
+  | 'BACK';
 export const IconURL: {
   [key in IconKey]: {
     url: string;
@@ -69,5 +70,9 @@ export const IconURL: {
   FINEDUST: {
     url: '/asset/icon/air-dust.svg',
     alt: '초미세먼지',
+  },
+  BACK: {
+    url: '/asset/icon/back.svg',
+    alt: '뒤로가기',
   },
 };
