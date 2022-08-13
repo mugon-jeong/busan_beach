@@ -211,9 +211,11 @@ const Home: NextPage = () => {
               />
             </Div>
             <Div>
-              <AddToHome onClick={addToHomeScreen}>
-                <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={150} height={150} />
-              </AddToHome>
+              {!isInstalled && (
+                <AddToHome onClick={addToHomeScreen}>
+                  <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={150} height={150} />
+                </AddToHome>
+              )}
             </Div>
           </WrapButtonsSmall>
         </WrapImg>
