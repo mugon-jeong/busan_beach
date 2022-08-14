@@ -37,7 +37,7 @@ const FcstIcon = styled.div`
 export interface timelyInfo {
   tempTimely: number;
   rainRate: number;
-  time: number;
+  time: string;
   sky: string | null;
 }
 

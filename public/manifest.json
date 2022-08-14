@@ -39,7 +39,7 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/pwa/icon_384.png",
+      "src": "/pwa/icon_x384.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "any maskable"

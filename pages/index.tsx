@@ -104,7 +104,7 @@ const Home: NextPage = () => {
       gtagEvent({
         action: 'send',
         category: 'event',
-        label: 'A2H',
+        label: 'PWA',
         value: 'install',
       });
     },
@@ -112,7 +112,7 @@ const Home: NextPage = () => {
       gtagEvent({
         action: 'send',
         category: 'event',
-        label: 'A2H',
+        label: 'PWA',
         value: 'cancel',
       });
     },
@@ -120,7 +120,7 @@ const Home: NextPage = () => {
       gtagEvent({
         action: 'send',
         category: 'event',
-        label: 'A2H',
+        label: 'PWA',
         value: 'already',
       });
     },

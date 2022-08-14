@@ -4,8 +4,8 @@ export const getCurrentYYYYMMDDHH = () => {
   return moment().format('YYYYMMDDHHMM');
 };
 export const getShortForecastDate = () => {
-  const currentTime = parseInt(moment().format('HH'));
-  if (0 <= currentTime && currentTime < 2) {
+  const currentTime = convertHHtoInt();
+  if (0 <= currentTime && currentTime < 3) {
     return getYtdYYYYMMDD();
   }
   return getCurrentYYYYMMDD();
@@ -77,24 +77,26 @@ export const convertCurrentDay = () => {
   }
 };
 export const convertHHtoInt = (): number => {
-  return parseInt(moment().format('HH') + '00');
+  return parseInt(moment().format('HH'));
 };
 
 export const requestShortForecastHH = () => {
   const hh = convertHHtoInt();
-  if (200 <= hh && hh < 500) {
+  if (3 <= hh && hh < 6) {
     return '0200';
-  } else if (500 <= hh && hh < 800) {
+  } else if (6 <= hh && hh < 9) {
     return '0500';
-  } else if (800 <= hh && hh < 1100) {
+  } else if (9 <= hh && hh < 12) {
     return '0800';
-  } else if (1100 <= hh && hh < 1400) {
+  } else if (12 <= hh && hh < 15) {
     return '1100';
-  } else if (1400 <= hh && hh < 1700) {
+  } else if (15 <= hh && hh < 18) {
     return '1400';
-  } else if (1700 <= hh && hh < 2000) {
+  } else if (18 <= hh && hh < 21) {
     return '1700';
-  } else {
+  } else if (21 <= hh && hh < 24) {
     return '2000';
+  } else {
+    return '2300';
   }
 };

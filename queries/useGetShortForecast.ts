@@ -23,7 +23,7 @@ export const getShortForecastFetch = async (nx: number, ny: number) => {
     pageNo: 1,
     dataType: 'JSON',
     base_date: getShortForecastDate(),
-    base_time: requestShortForecastHH()!,
+    base_time: requestShortForecastHH(),
     nx: nx,
     ny: ny,
   };
