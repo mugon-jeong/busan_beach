@@ -63,6 +63,7 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+
   p {
     font-size: 1.1em;
     font-family: 'Cafe24Ssurround';
@@ -131,14 +132,8 @@ const Home: NextPage = () => {
       <Main>
         <WrapImg>
           <WrapButtonsBig>
-            <Div>
-              <Image
-                src="/asset/img/button_haewoondae.png"
-                alt="go to Heawoondae"
-                width={200}
-                height={200}
-                onClick={() => router.push(ROUTES.HEAWOONDAE)}
-              />
+            <Div onClick={() => router.push(ROUTES.HEAWOONDAE)}>
+              <Image src="/asset/img/button_haewoondae.png" alt="go to Heawoondae" width={200} height={200} />
               <p>해운대</p>
             </Div>
             <Div>
@@ -151,24 +146,12 @@ const Home: NextPage = () => {
               />
               <p>광안리</p>
             </Div>
-            <Div>
-              <Image
-                src="/asset/img/button_dadaepo.png"
-                alt="go to Dadaepo"
-                width={200}
-                height={200}
-                onClick={() => router.push(ROUTES.DADAEPO)}
-              />
+            <Div onClick={() => router.push(ROUTES.DADAEPO)}>
+              <Image src="/asset/img/button_dadaepo.png" alt="go to Dadaepo" width={200} height={200} />
               <p>다대포</p>
             </Div>
-            <Div>
-              <Image
-                src="/asset/img/button_songjung.png"
-                alt="go to Songjung"
-                width={200}
-                height={200}
-                onClick={() => router.push(ROUTES.SONGJUNG)}
-              />
+            <Div onClick={() => router.push(ROUTES.SONGJUNG)}>
+              <Image src="/asset/img/button_songjung.png" alt="go to Songjung" width={200} height={200} />
               <p>송정</p>
             </Div>
           </WrapButtonsBig>
@@ -183,24 +166,12 @@ const Home: NextPage = () => {
               />
               <p>임랑</p>
             </Div>
-            <Div>
-              <Image
-                src="/asset/img/button_ilguang.png"
-                alt="go to Ilguang"
-                width={200}
-                height={200}
-                onClick={() => router.push(ROUTES.ILGUANG)}
-              />
+            <Div onClick={() => router.push(ROUTES.ILGUANG)}>
+              <Image src="/asset/img/button_ilguang.png" alt="go to Ilguang" width={200} height={200} />
               <p>일광</p>
             </Div>
-            <Div>
-              <Image
-                src="/asset/img/button_songdo.png"
-                alt="go to Songdo"
-                width={200}
-                height={200}
-                onClick={() => router.push(ROUTES.SONGDO)}
-              />
+            <Div onClick={() => router.push(ROUTES.SONGDO)}>
+              <Image src="/asset/img/button_songdo.png" alt="go to Songdo" width={200} height={200} />
               <p>송도</p>
             </Div>
             <Div>
