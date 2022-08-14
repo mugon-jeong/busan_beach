@@ -57,47 +57,33 @@ const WrapButtonsBig = styled.div`
   }
 `;
 
-const WrapButtonsSmall = styled.div`
-  width: 56%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  div {
-    width: 24%;
-    cursor: pointer;
-
-    :hover {
-      transform: translateY(-5%);
-    }
-  }
-
-  @media (min-width: 1281px) {
-    width: 68%;
-  }
-
-  @media (max-width: ${props => props.theme.deviceSizes.pc}) {
-    width: 80%;
-  }
-
-  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
-    width: 80%;
-    div {
-      width: 44%;
-      margin-bottom: 1rem;
-    }
-  }
-  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
-    width: 100%;
-  }
-`;
-
 const Div = styled.div`
   width: auto;
   height: auto;
   display: flex;
   justify-content: center;
+  position: relative;
+  p {
+    font-size: 1.1em;
+    font-family: 'Cafe24Ssurround';
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 0.6em;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
+      width: 62%;
+      text-align: center;
+    }
+  }
 `;
 
 const AddToHome = styled.div`
@@ -153,6 +139,7 @@ const Home: NextPage = () => {
                 height={200}
                 onClick={() => router.push(ROUTES.HEAWOONDAE)}
               />
+              <p>해운대</p>
             </Div>
             <Div>
               <Image
@@ -162,6 +149,7 @@ const Home: NextPage = () => {
                 height={200}
                 onClick={() => router.push(ROUTES.GUANGANLEE)}
               />
+              <p>광안리</p>
             </Div>
             <Div>
               <Image
@@ -171,6 +159,7 @@ const Home: NextPage = () => {
                 height={200}
                 onClick={() => router.push(ROUTES.DADAEPO)}
               />
+              <p>다대포</p>
             </Div>
             <Div>
               <Image
@@ -180,35 +169,39 @@ const Home: NextPage = () => {
                 height={200}
                 onClick={() => router.push(ROUTES.SONGJUNG)}
               />
+              <p>송정</p>
             </Div>
           </WrapButtonsBig>
-          <WrapButtonsSmall>
+          <WrapButtonsBig>
             <Div>
               <Image
-                src="/asset/img/bgimg_tube_clear.png"
+                src="/asset/img/button_imlang.png"
                 alt="go to Imlang"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.IMLANG)}
               />
+              <p>임랑</p>
             </Div>
             <Div>
               <Image
-                src="/asset/img/bgimg_tube_clear.png"
+                src="/asset/img/button_ilguang.png"
                 alt="go to Ilguang"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.ILGUANG)}
               />
+              <p>일광</p>
             </Div>
             <Div>
               <Image
-                src="/asset/img/bgimg_tube_clear.png"
+                src="/asset/img/button_songdo.png"
                 alt="go to Songdo"
                 width={200}
                 height={200}
                 onClick={() => router.push(ROUTES.SONGDO)}
               />
+              <p>송도</p>
             </Div>
             <Div>
               {!isInstalled && (
@@ -217,7 +210,7 @@ const Home: NextPage = () => {
                 </AddToHome>
               )}
             </Div>
-          </WrapButtonsSmall>
+          </WrapButtonsBig>
         </WrapImg>
       </Main>
     </ThemeProvider>
