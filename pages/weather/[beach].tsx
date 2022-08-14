@@ -11,11 +11,16 @@ import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
 import { useRouter } from 'next/router';
 import { PARAMS } from '$constants/params';
+import { useEffect, useState } from 'react';
 
 const Beach: NextPage = () => {
   const router = useRouter();
-  const { beach } = router.query;
-  const param = PARAMS[beach as string];
+  const [param, setParam] = useState(PARAMS['HEAWOONDAE']);
+  useEffect(() => {
+    const { beach } = router.query;
+    const getParam = PARAMS[beach as string];
+    setParam(getParam);
+  }, [router]);
   return (
     <ThemeProvider theme={theme}>
       <LayoutWrap>

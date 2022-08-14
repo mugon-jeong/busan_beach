@@ -71,7 +71,7 @@ const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
         });
       }
     }
-  }, [dayForecast, now]);
+  }, [dayForecast, setNow]);
   return now.tempt == 0 ? (
     <>
       <SkeletonWeather />

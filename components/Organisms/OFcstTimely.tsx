@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import FcstTimely, { timelyInfo } from '../Molecules/FcstTimely';
 import { useGetShortForecast } from '$queries/useGetShortForecast';
 import { ShortForecast } from '$types/Forecast/ShortForecast';
-import { getCurrentYYYYMMDD, getTmrwYYYYMMDD, getYtdYYYYMMDD } from '$utils/date';
+import { getCurrentYYYYMMDD, getTmrwYYYYMMDD } from '$utils/date';
 import { skyRole } from '$utils/skyRole';
 
 const WrapComp = styled.div`
@@ -37,108 +37,99 @@ const OFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
   const { data: info } = useGetShortForecast(nx, ny);
   const [tmrw, setTmrw] = useState<{ [key in string]: timelyInfo }>({});
   const [today, setToday] = useState<{ [key in string]: timelyInfo }>({});
-  const [ytd, setYtd] = useState<{ [key in string]: timelyInfo }>({});
   useEffect(() => {
     if (info) {
-      const sliceList = info.response.body.items.item.splice(0, 229);
       const list: { [key in string]: Array<ShortForecast> } = {};
-      sliceList.map(data => {
-        if (list[data.fcstTime] == undefined) {
-          list[data.fcstTime] = [];
+      info.response.body.items.item.map(data => {
+        if (list[data.fcstDate] == undefined) {
+          list[data.fcstDate] = [];
         }
-        list[data.fcstTime].push(data);
+        list[data.fcstDate].push(data);
       });
+
       const todayList: { [key in string]: timelyInfo } = {};
       const tmrwList: { [key in string]: timelyInfo } = {};
-      const ytdList: { [key in string]: timelyInfo } = {};
       Object.entries(list).map(([key, values]) => {
-        if (values[0].fcstDate == getYtdYYYYMMDD()) {
-          if (values.length > 11) {
-            if (ytdList[key] == undefined) {
-              ytdList[key] = {
-                time: 0,
+        if (key == getCurrentYYYYMMDD()) {
+          values.map(infos => {
+            if (todayList[infos.fcstTime] == undefined) {
+              todayList[infos.fcstTime] = {
+                time: infos.fcstTime.substring(0, 2),
                 tempTimely: 0,
                 rainRate: 0,
                 sky: '',
               };
             }
-            const pop = values.filter(value => value.category == 'POP')[0];
-            const sky = values.filter(value => value.category == 'SKY')[0];
-            const tmp = values.filter(value => value.category == 'TMP')[0];
-            ytdList[key] = {
-              time: parseInt(key.substring(0, 2)),
-              tempTimely: tmp.fcstValue,
-              rainRate: pop.fcstValue,
-              sky: skyRole(sky.fcstValue),
-            };
-          }
+            if (infos.category == 'POP') {
+              todayList[infos.fcstTime] = {
+                ...todayList[infos.fcstTime],
+                rainRate: infos.fcstValue,
+              };
+            }
+            if (infos.category == 'SKY') {
+              todayList[infos.fcstTime] = {
+                ...todayList[infos.fcstTime],
+                sky: skyRole(infos.fcstValue),
+              };
+            }
+            if (infos.category == 'TMP') {
+              todayList[infos.fcstTime] = {
+                ...todayList[infos.fcstTime],
+                tempTimely: infos.fcstValue,
+              };
+            }
+          });
         }
-        if (values[0].fcstDate == getCurrentYYYYMMDD()) {
-          if (values.length > 11) {
-            if (todayList[key] == undefined) {
-              todayList[key] = {
-                time: 0,
+        if (key == getTmrwYYYYMMDD()) {
+          values.map(infos => {
+            if (tmrwList[infos.fcstTime] == undefined) {
+              tmrwList[infos.fcstTime] = {
+                time: infos.fcstTime.substring(0, 2),
                 tempTimely: 0,
                 rainRate: 0,
                 sky: '',
               };
             }
-            const pop = values.filter(value => value.category == 'POP')[0];
-            const sky = values.filter(value => value.category == 'SKY')[0];
-            const tmp = values.filter(value => value.category == 'TMP')[0];
-            todayList[key] = {
-              time: parseInt(key.substring(0, 2)),
-              tempTimely: tmp.fcstValue,
-              rainRate: pop.fcstValue,
-              sky: skyRole(sky.fcstValue),
-            };
-          }
-        }
-        if (values[0].fcstDate == getTmrwYYYYMMDD()) {
-          if (values.length > 11) {
-            if (tmrwList[key] == undefined) {
-              tmrwList[key] = {
-                time: 0,
-                tempTimely: 0,
-                rainRate: 0,
-                sky: '',
+            if (infos.category == 'POP') {
+              tmrwList[infos.fcstTime] = {
+                ...tmrwList[infos.fcstTime],
+                rainRate: infos.fcstValue,
               };
             }
-            const pop = values.filter(value => value.category == 'POP')[0];
-            const sky = values.filter(value => value.category == 'SKY')[0];
-            const tmp = values.filter(value => value.category == 'TMP')[0];
-            tmrwList[key] = {
-              time: parseInt(key.substring(0, 2)),
-              tempTimely: tmp.fcstValue,
-              rainRate: pop.fcstValue,
-              sky: skyRole(sky.fcstValue),
-            };
-          }
+            if (infos.category == 'SKY') {
+              tmrwList[infos.fcstTime] = {
+                ...tmrwList[infos.fcstTime],
+                sky: skyRole(infos.fcstValue),
+              };
+            }
+            if (infos.category == 'TMP') {
+              tmrwList[infos.fcstTime] = {
+                ...tmrwList[infos.fcstTime],
+                tempTimely: infos.fcstValue,
+              };
+            }
+          });
         }
       });
-      const sortYtd = Object.fromEntries(Object.entries(ytdList).sort(([, a], [, b]) => a.time - b.time));
-      const sortToday = Object.fromEntries(Object.entries(todayList).sort(([, a], [, b]) => a.time - b.time));
-      const sortTmrw = Object.fromEntries(Object.entries(tmrwList).sort(([, a], [, b]) => a.time - b.time));
-      setYtd(sortYtd);
-      setToday(sortToday);
-      setTmrw(sortTmrw);
+      setToday(todayList);
+      setTmrw(tmrwList);
     }
-  }, [info]);
-
+  }, [info, setToday, setTmrw]);
   return (
     <WrapComp>
       <h1>하루날씨</h1>
       <WrapMolecules>
         <>
-          {Object.entries(ytd).map(([key, values], index) => {
-            return <FcstTimely key={index} info={values} />;
-          })}
-          {Object.entries(today).map(([key, values], index) => {
-            return <FcstTimely key={index} info={values} />;
-          })}
-          {Object.entries(tmrw).map(([key, values], index) => {
-            return <FcstTimely key={index} info={values} />;
-          })}
+          {Object.entries(today)
+            .sort(([, a], [, b]) => a.time.localeCompare(b.time))
+            .map(([key, values], index) => {
+              return <FcstTimely key={index} info={values} />;
+            })}
+          {Object.entries(tmrw)
+            .sort(([, a], [, b]) => a.time.localeCompare(b.time))
+            .map(([key, values], index) => {
+              return <FcstTimely key={index} info={values} />;
+            })}
         </>
       </WrapMolecules>
     </WrapComp>
