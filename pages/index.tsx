@@ -23,7 +23,7 @@ const WrapImg = styled.div`
   height: auto;
 `;
 
-const WrapButtonsBig = styled.div`
+const WrapButtons = styled.div`
   width: 56%;
   margin: 0 auto;
   display: flex;
@@ -41,7 +41,7 @@ const WrapButtonsBig = styled.div`
   }
 
   @media (max-width: ${props => props.theme.deviceSizes.pc}) {
-    width: 64%;
+    width: 70%;
   }
 
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
@@ -79,8 +79,9 @@ const Div = styled.div`
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
-      width: 62%;
+      width: 64%;
       text-align: center;
+      padding: 0.3em;
     }
   }
 `;
@@ -129,7 +130,7 @@ const Home: NextPage = () => {
     <ThemeProvider theme={theme}>
       <Main>
         <WrapImg>
-          <WrapButtonsBig>
+          <WrapButtons>
             <Div onClick={() => router.push(ROUTES.HEAWOONDAE)}>
               <Image src="/asset/img/button_haewoondae.png" alt="go to Heawoondae" width={200} height={200} />
               <p>해운대</p>
@@ -152,8 +153,8 @@ const Home: NextPage = () => {
               <Image src="/asset/img/button_songjung.png" alt="go to Songjung" width={200} height={200} />
               <p>송정</p>
             </Div>
-          </WrapButtonsBig>
-          <WrapButtonsBig>
+          </WrapButtons>
+          <WrapButtons>
             <Div>
               <Image
                 src="/asset/img/button_imlang.png"
@@ -179,7 +180,7 @@ const Home: NextPage = () => {
                 </AddToHome>
               )}
             </Div>
-          </WrapButtonsBig>
+          </WrapButtons>
         </WrapImg>
       </Main>
     </ThemeProvider>
