@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.busanbeachweather.twa",
+      "sha256_cert_fingerprints": [
+        "89:D5:BD:F3:0B:E0:69:4F:9B:4A:D9:C4:E6:AB:90:D1:13:F9:B1:18:97:EB:17:B8:47:6B:76:75:85:64:46:3D"
+      ]
+    }
+  }
+]
