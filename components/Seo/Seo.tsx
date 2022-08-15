@@ -44,6 +44,9 @@ const Seo = () => {
         <meta name="theme-color" content="#61C2A1" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="default icon" href="https://busanbeachweather.com/favicon.ico" />
         <link
           href="/splashscreens/iphone5_splash.png"
           media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
