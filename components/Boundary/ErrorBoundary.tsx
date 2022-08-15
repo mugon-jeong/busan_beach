@@ -37,6 +37,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
 
   // 공통에러처리
   componentDidCatch(error: any, errorInfo: any) {
+    window.location.replace('/');
     // 예기치 못한 에러는 메인페이지로 이동
     // if (!isInstanceOfCommonApiError(error)) {
     //   window.location.replace('/');
