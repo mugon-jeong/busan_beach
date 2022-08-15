@@ -21,7 +21,6 @@ const FcstTemp = styled.div`
 const FcstIcon = styled.div`
   width: 3em;
   height: 3em;
-  background-color: #fff;
   border-radius: 50%;
   text-align: center;
   line-height: 3.2em;

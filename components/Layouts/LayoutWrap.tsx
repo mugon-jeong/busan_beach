@@ -15,7 +15,7 @@ const Wrap = styled.div`
     width: 60%;
     height: 60%;
     content: '';
-    background: url('/asset/img/bgimg_tube_clear.png');
+    /* background: url('/asset/img/tube.svg'); */
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;

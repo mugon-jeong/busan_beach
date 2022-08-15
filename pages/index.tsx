@@ -16,8 +16,6 @@ const Main = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(#79f3e7, #0b90ad);
-  background-repeat: no-repeat;
 `;
 
 const WrapImg = styled.div`
