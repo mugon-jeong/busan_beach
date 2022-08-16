@@ -6,13 +6,13 @@ import TmplWater from '$components/Templates/TmplWater';
 import TmplFcstTimely from '$components/Templates/TmplFcstTimely';
 import TmplFcstDaily from '$components/Templates/TmplFcstDaily';
 import TmplFcstOther from '$components/Templates/TmplFcstOther';
+import BeachContentBox from '$components/Content/BeachContentBox';
 import LayoutWrap from '$components/Layouts/LayoutWrap';
 import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
 import { useRouter } from 'next/router';
 import { PARAMS } from '$constants/params';
 import { useEffect, useState } from 'react';
-
 const Beach: NextPage = () => {
   const router = useRouter();
   const [param, setParam] = useState(PARAMS['HEAWOONDAE']);
@@ -32,6 +32,8 @@ const Beach: NextPage = () => {
           <TmplFcstTimely nx={param.FORECAST.NX} ny={param.FORECAST.NY} />
           <TmplFcstDaily regIdM={param.REGIDMEDIUM} regIdR={param.REGIDRAIN} />
           <TmplFcstOther areaNo={param.AREANO} oceanCode={param.OCEANCODE} areaIndex={param.AREAINDEX} />
+          <BeachContentBox beach={param.KO} />
+          <></>
         </LayoutRight>
       </LayoutWrap>
     </ThemeProvider>
