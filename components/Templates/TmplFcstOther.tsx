@@ -24,10 +24,10 @@ const TmplFcstOther = ({ areaNo, oceanCode, areaIndex }: { areaNo: number; ocean
       <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
         <OFcstWind oceanCode={oceanCode} />
       </AsyncBoundaryWithQuery>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={params => <SkeletonOthers />}>
         <OFcstAir areaIndex={areaIndex} />
       </AsyncBoundaryWithQuery>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={params => <SkeletonOthers />}>
         <OFcstFineAir areaIndex={areaIndex} />
       </AsyncBoundaryWithQuery>
     </TemplateCenter>

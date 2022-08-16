@@ -9,10 +9,10 @@ const TemplateLeft = styled.div`
   flex-direction: column;
 `;
 
-const TmplLeftTop = ({ beach, nx, ny }: { beach: string; nx: number; ny: number }) => {
+const TmplLeftTop = ({ beach, beachCode }: { beach: string; beachCode: number }) => {
   return (
     <TemplateLeft>
-      <OFcstNow beach={beach} nx={nx} ny={ny} />
+      <OFcstNow beach={beach} beachCode={beachCode} />
     </TemplateLeft>
   );
 };

@@ -14,7 +14,7 @@ export const getShortForecastDate = () => {
 export const getDustDate = () => {
   const currentTime = parseInt(moment().format('HH'));
   if (0 <= currentTime && currentTime < 2) {
-    return getYtdYYYYMMDD() + '24';
+    return getYtdYYYYMMDD() + '23';
   }
   return getCurrentDayMinusHour();
 };

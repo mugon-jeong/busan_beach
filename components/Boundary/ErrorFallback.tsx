@@ -11,7 +11,6 @@ function ErrorFallback({ error, reset }: RenderFallbackParams) {
 
   return (
     <>
-      <span data-testid="error-message">{error.message}</span>
       <button data-testid="retry-button" onClick={refreshFetch}>
         재시도
       </button>

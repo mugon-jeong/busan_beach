@@ -5,7 +5,8 @@ import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query
 import { AxiosError } from 'axios';
 import { Querykeys } from '$constants/querykeys';
 import { UltraForecastType } from '$types/BeachWeather/UltraForecastType';
-import { getCurrentDayMinusHourHHMM, getCurrentYYYYMMDD } from '$utils/date';
+import { getCurrentHHMMMinusOne, getCurrentYYYYMMDD, getYtdYYYYMMDD } from '$utils/date';
+import moment from 'moment';
 
 export interface UltraForecastProps {
   pageNo: number;
@@ -17,13 +18,14 @@ export interface UltraForecastProps {
 }
 
 export const getUltraForecastFetch = async (beach_num: number) => {
+  const currentTime = parseInt(moment().format('HH'));
   const props: UltraForecastProps = {
     pageNo: 1,
     numOfRows: 60,
     dataType: 'JSON',
-    base_time: getCurrentDayMinusHourHHMM(),
-    base_date: getCurrentYYYYMMDD(),
-    beach_num: 304,
+    base_time: getCurrentHHMMMinusOne(),
+    base_date: 0 <= currentTime && currentTime <= 1 ? getYtdYYYYMMDD() : getCurrentYYYYMMDD(),
+    beach_num: beach_num,
   };
   return await withAxios<BaseResponse<UltraForecastType>>({
     url: `${API_ROUTES.BEACH.WEATHER.ULTRA.FORECAST}`,
@@ -41,7 +43,7 @@ export const UseGetUltraForecast = (
   beach_num: number,
   options?: UseQueryOptions<BaseResponse<UltraForecastType>, AxiosError, BaseResponse<UltraForecastType>, string[]>,
 ): UseQueryResult<BaseResponse<UltraForecastType>, AxiosError> =>
-  useQuery([`${beach_num}`, ...Querykeys.BEACH.WEATHER.WATER], () => getUltraForecastFetch(beach_num), {
+  useQuery([`${beach_num}`, ...Querykeys.BEACH.WEATHER.ULTRA.FORECAST], () => getUltraForecastFetch(beach_num), {
     ...options,
   });
 /**
