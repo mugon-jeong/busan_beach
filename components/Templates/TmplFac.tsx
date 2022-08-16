@@ -17,6 +17,23 @@ const TemplateCenter = styled.div`
   flex-wrap: wrap;
 `;
 
+const TitleSection = styled.div`
+  width: 100%;
+  padding: 0.6em;
+  box-sizing: border-box;
+  position: relative;
+  ::before {
+    width: 56%;
+    height: 1px;
+    content: '';
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+`;
+
 const TmplFac = ({
   swim,
   parking,
@@ -38,14 +55,19 @@ const TmplFac = ({
 }) => {
   return (
     <TemplateCenter>
-      <OFacSwim swim={swim} />
-      <OFacParking parking={parking} />
-      <OFacBooth booth={booth} />
-      <OFacShower shower={shower} />
-      <OFacLifejacket lifejacket={lifejacket} />
-      <OFacParasole parasole={parasole} />
-      <OFacSunbed sunbed={sunbed} />
-      <OFacTube tube={tube} />
+      <TitleSection>
+        <h2>해수욕장 시설정보</h2>
+      </TitleSection>
+      <>
+        <OFacSwim swim={swim} />
+        <OFacParking parking={parking} />
+        <OFacBooth booth={booth} />
+        <OFacShower shower={shower} />
+        <OFacLifejacket lifejacket={lifejacket} />
+        <OFacParasole parasole={parasole} />
+        <OFacSunbed sunbed={sunbed} />
+        <OFacTube tube={tube} />
+      </>
     </TemplateCenter>
   );
 };

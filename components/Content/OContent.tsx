@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import BeachContentInfoOther from './BeachContentInfoOther';
 import { IconURL } from '$components/Content/Contents';
+
 const WrapMolecules = styled.div`
   width: 13.5em;
   padding: 0.8em;
