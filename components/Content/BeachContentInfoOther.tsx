@@ -25,6 +25,71 @@ export interface beachCOntentInfoOther {
 }
 
 const BeachContentInfoOther = ({ info }: { info: beachCOntentInfoOther }) => {
+  const title = info.title.split(' ');
+
+  if (info.title.length > 8) {
+    if (info.link !== '') {
+      return (
+        <>
+          <ContentOthers iconKey={info.icon} />
+          <div>
+            <TitleRight>
+              {title[0]}
+              <br />
+              {title[1]}
+              <br />
+              <Link href={info.link}>
+                <a target="_blank">바로가기</a>
+              </Link>
+            </TitleRight>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <ContentOthers iconKey={info.icon} />
+          <div>
+            <TitleRight>
+              {title[0]}
+              <br />
+              {title[1]}
+              <br />
+            </TitleRight>
+          </div>
+        </>
+      );
+    }
+  } else {
+    if (info.link !== '') {
+      return (
+        <>
+          <ContentOthers iconKey={info.icon} />
+          <div>
+            <TitleRight>
+              {info.title}
+              <br />
+              <Link href={info.link}>
+                <a target="_blank">바로가기</a>
+              </Link>
+            </TitleRight>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <ContentOthers iconKey={info.icon} />
+          <div>
+            <TitleRight>
+              {info.title}
+              <br />
+            </TitleRight>
+          </div>
+        </>
+      );
+    }
+  }
   if (info.link !== '') {
     return (
       <>
