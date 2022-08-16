@@ -108,7 +108,7 @@ export const IconURL: {
     alt: '샤워실',
   },
   SWIM: {
-    url: '/asset/icon/facility_swim.svg',
+    url: '/asset/icon/facility_swimming.svg',
     alt: '이용가능시간',
   },
   TUBE: {
