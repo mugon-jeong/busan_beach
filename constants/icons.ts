@@ -12,7 +12,15 @@ export type IconKey =
   | 'UV'
   | 'DUST'
   | 'FINEDUST'
-  | 'BACK';
+  | 'BACK'
+  | 'PARKING'
+  | 'LIFEJACKET'
+  | 'PARASOLE'
+  | 'SUNBED'
+  | 'BOOTH'
+  | 'SHOWER'
+  | 'SWIM'
+  | 'TUBE';
 export const IconURL: {
   [key in IconKey]: {
     url: string;
@@ -74,5 +82,37 @@ export const IconURL: {
   BACK: {
     url: '/asset/icon/back.svg',
     alt: '뒤로가기',
+  },
+  PARKING: {
+    url: '/asset/icon/facility_parking.svg',
+    alt: '주차장',
+  },
+  LIFEJACKET: {
+    url: '/asset/icon/facility_lifejacket.svg',
+    alt: '구명조끼',
+  },
+  PARASOLE: {
+    url: '/asset/icon/facility_parasole.svg',
+    alt: '파라솔',
+  },
+  SUNBED: {
+    url: '/asset/icon/facility_sunbed.svg',
+    alt: '선베드',
+  },
+  BOOTH: {
+    url: '/asset/icon/facility_booth.svg',
+    alt: '탈의실',
+  },
+  SHOWER: {
+    url: '/asset/icon/facility_shower.svg',
+    alt: '샤워실',
+  },
+  SWIM: {
+    url: '/asset/icon/facility_swim.svg',
+    alt: '이용가능시간',
+  },
+  TUBE: {
+    url: '/asset/icon/facility_tube.svg',
+    alt: '이용가능시간',
   },
 };

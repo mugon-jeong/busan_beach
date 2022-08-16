@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import InfoOther from '../Molecules/InfoOther';
-import { useGetUV } from '$queries/useGetUV';
-import { uvRole } from '$utils/uvRole';
+import InfoFac from '../Molecules/InfoFac';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -20,20 +18,18 @@ const WrapMolecules = styled.div`
   }
 `;
 
-const OFcstUv = ({ areaNo }: { areaNo: number }) => {
-  const { data: uv } = useGetUV(areaNo);
+const OFacParasole = ({ parasole }: { parasole: string }) => {
   return (
     <WrapMolecules>
-      <InfoOther
+      <InfoFac
         info={{
-          icon: 'UV',
-          title: '자외선지수',
-          content:
-            uvRole(uv?.response.body.items.item[0].today ?? 0) + ` ${uv?.response.body.items.item[0].today ?? 0}`,
+          icon: 'PARASOLE',
+          title: '파라솔',
+          content: parasole,
         }}
       />
     </WrapMolecules>
   );
 };
 
-export default OFcstUv;
+export default OFacParasole;

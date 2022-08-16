@@ -10,7 +10,7 @@ const WrapMolecules = styled.div`
   margin-bottom: 1em;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 1rem;

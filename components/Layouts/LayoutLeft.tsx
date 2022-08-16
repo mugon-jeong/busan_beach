@@ -15,7 +15,8 @@ const Layout = styled.div`
 
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 100%;
-    padding: 1.2rem 1rem 4rem 1rem;
+    height: 94vh;
+    padding: 1.2rem 1rem 2rem 1rem;
   }
 `;
 

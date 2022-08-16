@@ -26,9 +26,23 @@ const FcstIcon = styled.div`
   line-height: 1;
 `;
 
+const WrpaSkeleton = styled.div`
+  width: 13.5em;
+  padding: 0.8em;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
+    width: 48%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
 const SkeletonOthers = () => {
   return (
-    <>
+    <WrpaSkeleton>
       <FcstIcon>
         <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
           <Skeleton circle height="100%" />
@@ -46,7 +60,7 @@ const SkeletonOthers = () => {
           </SkeletonTheme>
         </FcstTemp>
       </div>
-    </>
+    </WrpaSkeleton>
   );
 };
 

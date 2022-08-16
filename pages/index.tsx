@@ -83,6 +83,12 @@ const Div = styled.div`
       text-align: center;
       padding: 0.3em;
     }
+    @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
+      width: 72%;
+      text-align: center;
+      padding: 0.3em;
+      font-size: 1em;
+    }
   }
 `;
 
