@@ -118,8 +118,8 @@ const Seo = () => {
         <meta name="application-name" content={title} />
         <meta name="apple-mobile-web-app-title" content={title} />
         <link rel="apple-touch-icon" href="/pwa/icon_x192.png" />
-        <meta name="msapplication-TileColor" content="#61C2A1" />
-        <meta name="theme-color" content="#61C2A1" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="shortcut icon" href="/favicon.ico" />
