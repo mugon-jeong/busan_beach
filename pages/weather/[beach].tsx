@@ -7,6 +7,8 @@ import TmplFcstTimely from '$components/Templates/TmplFcstTimely';
 import TmplFcstDaily from '$components/Templates/TmplFcstDaily';
 import TmplFcstOther from '$components/Templates/TmplFcstOther';
 import TmplFac from '$components/Templates/TmplFac';
+import BeachContentBox from '$components/Content/BeachContentBox';
+
 import LayoutWrap from '$components/Layouts/LayoutWrap';
 import LayoutLeft from '$components/Layouts/LayoutLeft';
 import LayoutRight from '$components/Layouts/LayoutRight';
@@ -50,6 +52,8 @@ const Beach: NextPage = () => {
             sunbed={fac.SUNBED}
             tube={fac.TUBE}
           />
+          <BeachContentBox beach={param.KO} />
+          <></>
         </LayoutRight>
       </LayoutWrap>
     </ThemeProvider>
