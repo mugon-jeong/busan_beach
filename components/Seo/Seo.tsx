@@ -3,6 +3,83 @@ import Head from 'next/head';
 import { GA_TRACKING_ID } from '$config';
 import Script from 'next/script';
 
+const schemaData = {
+  '@context': 'http://schema.org',
+  '@type': 'ItemList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      item: {
+        '@type': 'Organization',
+        name: '해운대',
+        image: 'https://busanbeachweather.com/asset/button_haewoondae.png',
+        url: 'https://busanbeachweather.com/weather/HEAWOONDAE',
+      },
+      position: '1',
+    },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@type': 'Organization',
+        name: '광안리',
+        image: 'https://busanbeachweather.com/asset/img/button_gwangalli.png',
+        url: 'https://busanbeachweather.com/weather/GUANGANLEE',
+      },
+      position: '2',
+    },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@type': 'Organization',
+        name: '다대포',
+        image: 'https://busanbeachweather.com/asset/img/button_dadaepo.png',
+        url: 'https://busanbeachweather.com/weather/DADAEPO',
+      },
+      position: '3',
+    },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@type': 'Organization',
+        name: '송정',
+        image: 'https://busanbeachweather.com/asset/img/button_songjung.png',
+        url: 'https://busanbeachweather.com/weather/SONGJUNG',
+      },
+      position: '4',
+    },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@type': 'Organization',
+        name: '임랑',
+        image: 'https://busanbeachweather.com/asset/img/button_imlang.png',
+        url: 'https://busanbeachweather.com/weather/IMLANG',
+      },
+      position: '5',
+    },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@type': 'Organization',
+        name: '일광',
+        image: 'https://busanbeachweather.com/asset/img/button_ilguang.png',
+        url: 'https://busanbeachweather.com/weather/ILGUANG',
+      },
+      position: '6',
+    },
+    {
+      '@type': 'ListItem',
+      item: {
+        '@type': 'Organization',
+        name: '송도',
+        image: 'https://busanbeachweather.com/asset/img/button_songdo.png',
+        url: 'https://busanbeachweather.com/weather/SONGDO',
+      },
+      position: '7',
+    },
+  ],
+};
+
 const Seo = () => {
   const [title, description] = [
     '부산해수욕장날씨',
@@ -26,6 +103,7 @@ const Seo = () => {
           `,
           }}
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </>
       <Head>
         <title>부산해수욕장날씨</title>
