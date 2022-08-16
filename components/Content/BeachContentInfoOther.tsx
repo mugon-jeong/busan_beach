@@ -21,21 +21,36 @@ const FcstTemp = styled.div`
 export interface beachCOntentInfoOther {
   icon: string;
   title: string;
+  link: string;
 }
 
 const BeachContentInfoOther = ({ info }: { info: beachCOntentInfoOther }) => {
-  return (
-    <>
-      <ContentOthers iconKey={info.icon} />
-      <div>
-        <TitleRight>
-          {info.title}
-          <br />
-          <Link href={'https://www.bluelinepark.com'}>바로가기</Link>
-        </TitleRight>
-      </div>
-    </>
-  );
+  if (info.link !== '') {
+    return (
+      <>
+        <ContentOthers iconKey={info.icon} />
+        <div>
+          <TitleRight>
+            {info.title}
+            <br />
+            <a href={info.link}>바로가기</a>
+          </TitleRight>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <ContentOthers iconKey={info.icon} />
+        <div>
+          <TitleRight>
+            {info.title}
+            <br />
+          </TitleRight>
+        </div>
+      </>
+    );
+  }
 };
 
 export default BeachContentInfoOther;

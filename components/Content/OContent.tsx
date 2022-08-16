@@ -25,6 +25,7 @@ const OContent = ({ beach }: { beach: string }) => {
         info={{
           icon: beachItem.url,
           title: beachItem.content,
+          link: beachItem.link,
         }}
       />
     </WrapMolecules>
