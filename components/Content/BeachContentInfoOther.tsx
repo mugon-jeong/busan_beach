@@ -33,7 +33,9 @@ const BeachContentInfoOther = ({ info }: { info: beachCOntentInfoOther }) => {
           <TitleRight>
             {info.title}
             <br />
-            <a href={info.link}>바로가기</a>
+            <Link href={info.link}>
+              <a target="_blank">바로가기</a>
+            </Link>
           </TitleRight>
         </div>
       </>
