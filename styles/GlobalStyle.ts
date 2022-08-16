@@ -25,6 +25,7 @@ export const GlobalStyle = css`
 
   body {
     width: 100%;
+    height: auto;
     margin: 0 auto;
     box-sizing: border-box;
     line-height: 1.6;
@@ -32,8 +33,9 @@ export const GlobalStyle = css`
     h1 {
       line-height: 1;
     }
-    background: radial-gradient(#61c2a1, #0b90ad);
+    background: url('/asset/img/layered-waves.svg');
     background-repeat: no-repeat;
+    background-size: cover;
   }
 
   ::-webkit-scrollbar {

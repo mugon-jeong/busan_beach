@@ -41,7 +41,6 @@ const Days = styled.div`
 const FcstIcon = styled.div`
   width: 2em;
   height: 2em;
-  background-color: #fff;
   border-radius: 50%;
   text-align: center;
 `;
