@@ -8,6 +8,8 @@ import OFacLifejacket from '$components/Organisms/OFacLifejacket';
 import OFacParasole from '$components/Organisms/OFacParasole';
 import OFacSunbed from '$components/Organisms/OFacSunbed';
 import OFacTube from '$components/Organisms/OFacTube';
+import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
+import SkeletonOthers from '$components/Molecules/SkeletonOthers';
 
 const TemplateCenter = styled.div`
   width: 100%;
@@ -15,23 +17,14 @@ const TemplateCenter = styled.div`
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 1.2em;
 `;
 
 const TitleSection = styled.div`
   width: 100%;
-  padding: 0.6em;
   box-sizing: border-box;
   position: relative;
-  ::before {
-    width: 56%;
-    height: 1px;
-    content: '';
-    background-color: #fff;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-  }
+  border-top: 1px solid #fff;
 `;
 
 const TmplFac = ({
@@ -59,14 +52,30 @@ const TmplFac = ({
         <h2>해수욕장 시설정보</h2>
       </TitleSection>
       <>
-        <OFacSwim swim={swim} />
-        <OFacParking parking={parking} />
-        <OFacBooth booth={booth} />
-        <OFacShower shower={shower} />
-        <OFacLifejacket lifejacket={lifejacket} />
-        <OFacParasole parasole={parasole} />
-        <OFacSunbed sunbed={sunbed} />
-        <OFacTube tube={tube} />
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <OFacSwim swim={swim} />
+        </AsyncBoundaryWithQuery>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <OFacParking parking={parking} />
+        </AsyncBoundaryWithQuery>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <OFacBooth booth={booth} />
+        </AsyncBoundaryWithQuery>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <OFacShower shower={shower} />
+        </AsyncBoundaryWithQuery>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <OFacLifejacket lifejacket={lifejacket} />
+        </AsyncBoundaryWithQuery>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <OFacParasole parasole={parasole} />
+        </AsyncBoundaryWithQuery>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <OFacSunbed sunbed={sunbed} />
+        </AsyncBoundaryWithQuery>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <OFacTube tube={tube} />
+        </AsyncBoundaryWithQuery>
       </>
     </TemplateCenter>
   );

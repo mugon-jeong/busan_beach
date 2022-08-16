@@ -10,23 +10,14 @@ const ContentCenter = styled.div`
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 1.2em;
 `;
 
 const TitleSection = styled.div`
   width: 100%;
-  padding: 0.6em;
   box-sizing: border-box;
   position: relative;
-  ::before {
-    width: 56%;
-    height: 1px;
-    content: '';
-    background-color: #fff;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-  }
+  border-top: 1px solid #fff;
 `;
 
 const BeachContentBox = ({ beach }: { beach: string }) => {

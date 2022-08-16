@@ -13,6 +13,7 @@ const TemplateCenter = styled.div`
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 1.2em;
 `;
 
 const TmplFcstOther = ({ areaNo, oceanCode, areaIndex }: { areaNo: number; oceanCode: string; areaIndex: number }) => {

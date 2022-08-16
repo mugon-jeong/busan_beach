@@ -8,8 +8,9 @@ const WrapMolecules = styled.div`
   margin-bottom: 1em;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
