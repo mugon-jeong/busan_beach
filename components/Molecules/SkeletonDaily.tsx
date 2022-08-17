@@ -12,6 +12,7 @@ const WrapComp = styled.div`
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
+  overflow: hidden;
 `;
 
 const WrapMolecules = styled.div`
@@ -19,7 +20,7 @@ const WrapMolecules = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow-x: scroll;
+  overflow: hidden;
 
   ::-webkit-scrollbar {
     height: 4px;
@@ -29,11 +30,12 @@ const WrapMolecules = styled.div`
     background: transparent;
   }
 `;
+
 const SkeletonDaily = () => {
   return (
     <WrapComp>
       <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
-        <Skeleton width={50} height={40} />
+        <Skeleton width={200} height={40} />
       </SkeletonTheme>
       <WrapMolecules>
         <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
