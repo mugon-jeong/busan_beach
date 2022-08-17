@@ -3,24 +3,13 @@ export const SkyStatus = {
   cloud: '구름많음',
   blur: '흐림',
 };
-export const skyRole = (fcstValue: number, isUltra?: boolean | false): string | null => {
-  if (isUltra) {
-    if (fcstValue == 1) {
-      return SkyStatus.clean;
-    } else if (fcstValue == 3) {
-      return SkyStatus.cloud;
-    } else {
-      return SkyStatus.blur;
-    }
-  }
-  if (0 <= fcstValue && fcstValue < 6) {
+export const skyRole = (fcstValue: number): string | null => {
+  if (fcstValue == 1) {
     return SkyStatus.clean;
-  } else if (6 <= fcstValue && fcstValue < 9) {
+  } else if (fcstValue == 3) {
     return SkyStatus.cloud;
-  } else if (9 <= fcstValue && fcstValue < 11) {
-    return SkyStatus.blur;
   } else {
-    return null;
+    return SkyStatus.blur;
   }
 };
 export const rainRole = (fcstValue: number, isUltra?: boolean | false): string | null => {

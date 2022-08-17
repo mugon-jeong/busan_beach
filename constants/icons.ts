@@ -20,7 +20,8 @@ export type IconKey =
   | 'BOOTH'
   | 'SHOWER'
   | 'SWIM'
-  | 'TUBE';
+  | 'TUBE'
+  | 'PLUS';
 export const IconURL: {
   [key in IconKey]: {
     url: string;
@@ -114,5 +115,9 @@ export const IconURL: {
   TUBE: {
     url: '/asset/icon/facility_tube.svg',
     alt: '이용가능시간',
+  },
+  PLUS: {
+    url: '/asset/icon/plus.svg',
+    alt: '바로가기',
   },
 };

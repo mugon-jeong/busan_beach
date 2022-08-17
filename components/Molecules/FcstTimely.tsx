@@ -2,6 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import AtomDayWeek from '../Atoms/AtomDayWeek';
 import IconTimely from '$components/Icons/IconTimely';
+import { convertIconKey } from '$utils/util';
+import { rainRole } from '$utils/skyRole';
 
 const WrapFcstTimely = styled.div`
   display: flex;
@@ -39,6 +41,7 @@ export interface timelyInfo {
   rainRate: number;
   time: string;
   sky: string | null;
+  pty: number;
 }
 
 const FcstTimely = ({ info }: { info: timelyInfo }) => {
@@ -48,13 +51,13 @@ const FcstTimely = ({ info }: { info: timelyInfo }) => {
         <AtomDayWeek title={`${info.tempTimely}℃`} />
       </TemptCurrent>
       <FcstIcon>
-        {info.rainRate == 0 ? (
+        {info.pty == 0 ? (
           <>
             <IconTimely iconKey={info.sky == '맑음' ? 'CLEAN' : info.sky == '구름많음' ? 'CLOUD' : 'BLUR'} />
           </>
         ) : (
           <>
-            <IconTimely iconKey={'RAIN'} />
+            <IconTimely iconKey={convertIconKey(rainRole(info.pty) ?? '비') ?? 'RAIN'} />
           </>
         )}
       </FcstIcon>

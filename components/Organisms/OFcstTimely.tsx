@@ -58,12 +58,19 @@ const OFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
                 tempTimely: 0,
                 rainRate: 0,
                 sky: '',
+                pty: 0,
               };
             }
             if (infos.category == 'POP') {
               todayList[infos.fcstTime] = {
                 ...todayList[infos.fcstTime],
                 rainRate: infos.fcstValue,
+              };
+            }
+            if (infos.category == 'PTY') {
+              todayList[infos.fcstTime] = {
+                ...todayList[infos.fcstTime],
+                pty: infos.fcstValue,
               };
             }
             if (infos.category == 'SKY') {
@@ -88,12 +95,19 @@ const OFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
                 tempTimely: 0,
                 rainRate: 0,
                 sky: '',
+                pty: 0,
               };
             }
             if (infos.category == 'POP') {
               tmrwList[infos.fcstTime] = {
                 ...tmrwList[infos.fcstTime],
                 rainRate: infos.fcstValue,
+              };
+            }
+            if (infos.category == 'PTY') {
+              tmrwList[infos.fcstTime] = {
+                ...tmrwList[infos.fcstTime],
+                pty: infos.fcstValue,
               };
             }
             if (infos.category == 'SKY') {
