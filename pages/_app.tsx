@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         retry: false,
         suspense: true,
         useErrorBoundary: true,
+        staleTime: 1000 * 60 * 5,
       },
     },
   });

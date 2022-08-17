@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import SkeletonWeather from '$components/Molecules/SkeletonWeather';
 import IconFcst from '$components/Icons/IconFcst';
 import { UseGetUltraForecast } from '$queries/useGetUltraForecast';
-import { getCurrentHHMMMinusOne } from '$utils/date';
 import { rainRole, skyRole } from '$utils/skyRole';
 import { convertIconKey } from '$utils/util';
 
@@ -55,7 +54,6 @@ const Weather = ({ beachCode }: { beachCode: number }) => {
     tempt: 0,
   });
   const { data: realTime } = UseGetUltraForecast(beachCode);
-  console.log(getCurrentHHMMMinusOne());
   useEffect(() => {
     if (realTime) {
       let skyStatus: string | null = '';

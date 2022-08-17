@@ -20,9 +20,7 @@ const WrapMolecules = styled.div`
   }
 `;
 const OFcstWater = ({ beachCode }: { beachCode: number }) => {
-  const { data: water } = useGetWaterTemperature(beachCode, {
-    onSuccess: data => console.log('water', data),
-  });
+  const { data: water } = useGetWaterTemperature(beachCode);
 
   return water ? (
     <WrapMolecules>
