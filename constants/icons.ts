@@ -21,7 +21,8 @@ export type IconKey =
   | 'SHOWER'
   | 'SWIM'
   | 'TUBE'
-  | 'PLUS';
+  | 'PLUS'
+  | 'ERROR';
 export const IconURL: {
   [key in IconKey]: {
     url: string;
@@ -119,5 +120,9 @@ export const IconURL: {
   PLUS: {
     url: '/asset/icon/plus.svg',
     alt: '바로가기',
+  },
+  ERROR: {
+    url: '/asset/icon/error.svg',
+    alt: '서버에러',
   },
 };

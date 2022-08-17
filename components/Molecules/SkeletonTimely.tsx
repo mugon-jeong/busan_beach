@@ -5,6 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 const WrapComp = styled.div`
   width: 100%;
+  height: auto;
   padding: 1em;
   margin-bottom: 1em;
   box-sizing: border-box;
@@ -17,9 +18,6 @@ const WrapComp = styled.div`
 
 const WrapMolecules = styled.div`
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   overflow: hidden;
   ::-webkit-scrollbar {
     height: 4px;
@@ -38,7 +36,10 @@ const SkeletonTimely = () => {
       </SkeletonTheme>
       <WrapMolecules>
         <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
-          <Skeleton width={500} height={60} />
+          <Skeleton width={500} height={20} />
+          <Skeleton width={500} height={36} />
+          <Skeleton width={500} height={20} />
+          <Skeleton width={500} height={20} />
         </SkeletonTheme>
       </WrapMolecules>
     </WrapComp>
