@@ -10,6 +10,7 @@ import OFacSunbed from '$components/Organisms/OFacSunbed';
 import OFacTube from '$components/Organisms/OFacTube';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 import SkeletonOthers from '$components/Molecules/SkeletonOthers';
+import ErrorMesage from '$components/Molecules/ErrorMessage';
 
 const TemplateCenter = styled.div`
   width: 100%;
@@ -52,28 +53,28 @@ const TmplFac = ({
         <h2>해수욕장 시설정보</h2>
       </TitleSection>
       <>
-        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacSwim swim={swim} />
         </AsyncBoundaryWithQuery>
-        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacParking parking={parking} />
         </AsyncBoundaryWithQuery>
-        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacBooth booth={booth} />
         </AsyncBoundaryWithQuery>
-        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacShower shower={shower} />
         </AsyncBoundaryWithQuery>
-        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacLifejacket lifejacket={lifejacket} />
         </AsyncBoundaryWithQuery>
-        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacParasole parasole={parasole} />
         </AsyncBoundaryWithQuery>
-        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacSunbed sunbed={sunbed} />
         </AsyncBoundaryWithQuery>
-        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+        <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacTube tube={tube} />
         </AsyncBoundaryWithQuery>
       </>

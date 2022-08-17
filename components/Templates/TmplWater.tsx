@@ -4,6 +4,8 @@ import OFcstWater from '../Organisms/OFcstWater';
 import OFcstWave from '../Organisms/OFcstWave';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 import SkeletonOthers from '$components/Molecules/SkeletonOthers';
+import 'react-loading-skeleton/dist/skeleton.css';
+import ErrorMesage from '$components/Molecules/ErrorMessage';
 
 const TemplateRight = styled.div`
   width: 100%;
@@ -19,10 +21,10 @@ const TemplateRight = styled.div`
 const TmplWater = ({ beachCode }: { beachCode: number }) => {
   return (
     <TemplateRight>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
         <OFcstWater beachCode={beachCode} />
       </AsyncBoundaryWithQuery>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
         <OFcstWave beachCode={beachCode} />
       </AsyncBoundaryWithQuery>
     </TemplateRight>

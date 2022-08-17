@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 import SkeletonTimely from '$components/Molecules/SkeletonTimely';
 import OFcstTimely from '$components/Organisms/OFcstTimely';
+import ErrorMesage from '$components/Molecules/ErrorMessage';
 
 const TemplateLeft = styled.div`
   width: 100%;
@@ -27,7 +28,7 @@ const TmplFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
         e.stopPropagation();
       }}
     >
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonTimely />}>
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonTimely />} rejectedFallback={() => <ErrorMesage />}>
         <OFcstTimely nx={nx} ny={ny} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>

@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import OFcstDaily from '$components/Organisms/OFcstDaily';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 import SkeletonDaily from '$components/Molecules/SkeletonDaily';
+import ErrorMesage from '$components/Molecules/ErrorMessage';
 
 const TemplateLeft = styled.div`
   width: 100%;
@@ -27,7 +28,7 @@ const TmplFcstDaily = ({ regIdR, regIdM }: { regIdR: string; regIdM: string }) =
         e.stopPropagation();
       }}
     >
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonDaily />}>
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonDaily />} rejectedFallback={() => <ErrorMesage />}>
         <OFcstDaily regIdR={regIdR} regIdM={regIdM} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>

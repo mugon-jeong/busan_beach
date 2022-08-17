@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import OContent from '$components/Content/OContent';
 import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
 import SkeletonOthers from '$components/Molecules/SkeletonOthers';
+import ErrorMesage from '$components/Molecules/ErrorMessage';
 
 const ContentCenter = styled.div`
   width: 100%;
@@ -28,16 +29,16 @@ const BeachContentBox = ({ beach }: { beach: string }) => {
           <h2>이 지역 관광정보</h2>
         </TitleSection>
         <>
-          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
             <OContent beach={beach + '1'} />
           </AsyncBoundaryWithQuery>
-          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
             <OContent beach={beach + '2'} />
           </AsyncBoundaryWithQuery>
-          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
             <OContent beach={beach + '3'} />
           </AsyncBoundaryWithQuery>
-          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />}>
+          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
             <OContent beach={beach + '4'} />
           </AsyncBoundaryWithQuery>
         </>
