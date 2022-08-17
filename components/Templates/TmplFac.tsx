@@ -26,6 +26,7 @@ const TitleSection = styled.div`
   box-sizing: border-box;
   position: relative;
   border-top: 1px solid #fff;
+  font-size: 1.1em;
 `;
 
 const TmplFac = ({
@@ -49,9 +50,7 @@ const TmplFac = ({
 }) => {
   return (
     <TemplateCenter>
-      <TitleSection>
-        <h2>해수욕장 시설정보</h2>
-      </TitleSection>
+      <TitleSection>해수욕장 시설정보</TitleSection>
       <>
         <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
           <OFacSwim swim={swim} />

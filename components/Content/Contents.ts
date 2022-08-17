@@ -46,10 +46,10 @@ export const IconURL: {
     link: 'https://blog.naver.com/portbusan2/222249328690',
   },
   임랑3: {
-    url: '/asset/content/Imrang_Outlet.png',
-    alt: '프리미엄아울렛',
-    content: '프리미엄아울렛',
-    link: 'https://www.premiumoutlets.co.kr/busan/ko',
+    url: '/asset/content/Imrang_Galmaetgil.png',
+    alt: '갈맷길 1-1코스 사진',
+    content: '갈맷길 1-1',
+    link: 'https://www.busan.go.kr/galmaetgil/tour0101',
   },
   임랑4: {
     url: '/asset/content/Imrang_Waveon.png',
