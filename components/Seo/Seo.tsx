@@ -89,7 +89,11 @@ const Seo = () => {
   return (
     <>
       <>
-        <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+        <Script
+          id={'gtag'}
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        />
         <Script
           id="gtag-init"
           strategy="afterInteractive"
@@ -104,7 +108,12 @@ const Seo = () => {
           `,
           }}
         />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+        <Script
+          id={'ld+json'}
+          strategy={'beforeInteractive'}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
       </>
       <Head>
         <title>부산해수욕장날씨</title>
