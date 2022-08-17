@@ -13,7 +13,7 @@ const OFcstNow = ({ beach, beachCode }: { beach: string; beachCode: number }) =>
     <>
       <AtomDate today={`${month}월 ${date}일 ${day}요일`} />
       <AtomPlace place={beach} />
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonWeather />}>
+      <AsyncBoundaryWithQuery pendingFallback={<SkeletonWeather />} rejectedFallback={() => <ErrorMesage />}>
         <Weather beachCode={beachCode} />
       </AsyncBoundaryWithQuery>
     </>
