@@ -20,7 +20,6 @@ import { useEffect, useState } from 'react';
 const Beach: NextPage = () => {
   const router = useRouter();
   const [param, setParam] = useState(PARAMS['HEAWOONDAE']);
-
   const [fac, setFac] = useState(FAC['HEAWOONDAE']);
 
   useEffect(() => {
@@ -35,7 +34,7 @@ const Beach: NextPage = () => {
     <ThemeProvider theme={theme}>
       <LayoutWrap>
         <LayoutLeft>
-          <TmplFcst beach={param.KO} nx={param.FORECAST.NX} ny={param.FORECAST.NY} />
+          <TmplFcst beach={param.KO} beachCode={param.BEACH} />
           <TmplWater beachCode={param.BEACH} />
         </LayoutLeft>
         <LayoutRight>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import { useGetShortForecast } from '$queries/useGetShortForecast';
-import { getCurrentYYYYMMDD } from '$utils/date';
-import { rainRole, skyRole } from '$utils/skyRole';
 import SkeletonWeather from '$components/Molecules/SkeletonWeather';
 import IconFcst from '$components/Icons/IconFcst';
+import { UseGetUltraForecast } from '$queries/useGetUltraForecast';
+import { getCurrentHHMMMinusOne } from '$utils/date';
+import { rainRole, skyRole } from '$utils/skyRole';
+import { convertIconKey } from '$utils/util';
 
 const WrapMolecules = styled.div`
   width: 13.5em;
@@ -48,30 +49,30 @@ interface nowForecast {
   tempt: number;
 }
 
-const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
+const Weather = ({ beachCode }: { beachCode: number }) => {
   const [now, setNow] = useState<nowForecast>({
     sky: '',
     tempt: 0,
   });
-  const { data: dayForecast } = useGetShortForecast(nx, ny);
+  const { data: realTime } = UseGetUltraForecast(beachCode);
+  console.log(getCurrentHHMMMinusOne());
   useEffect(() => {
-    if (dayForecast) {
-      const today = dayForecast.response.body.items.item.filter(value => value.fcstDate == getCurrentYYYYMMDD());
-      const sky = today.filter(value => value.category == 'SKY')[0];
-      if (sky) {
-        let skyStatus = skyRole(sky.fcstValue);
-        if (!skyStatus) {
-          const rain = today.filter(value => value.category == 'PTY')[0];
-          skyStatus = rainRole(rain!.fcstValue);
-        }
-        const tmp = today.filter(value => value.category == 'TMP')[0];
-        setNow({
-          sky: skyStatus ?? '',
-          tempt: tmp.fcstValue,
-        });
+    if (realTime) {
+      let skyStatus: string | null = '';
+      const pty = realTime.response.body.items.item.filter(value => value.category == 'PTY')[1];
+      const tmp = realTime.response.body.items.item.filter(value => value.category == 'T1H')[1];
+      if (pty.fcstValue == '0') {
+        const sky = realTime.response.body.items.item.filter(value => value.category == 'SKY')[1];
+        skyStatus = skyRole(Number(sky.fcstValue), true);
+      } else {
+        skyStatus = rainRole(Number(pty.fcstValue), true);
       }
+      setNow({
+        sky: skyStatus ?? '',
+        tempt: Number(tmp.fcstValue),
+      });
     }
-  }, [dayForecast, setNow]);
+  }, [realTime, setNow]);
   return now.tempt == 0 ? (
     <>
       <SkeletonWeather />
@@ -79,7 +80,7 @@ const Weather = ({ nx, ny }: { nx: number; ny: number }) => {
   ) : (
     <WrapMolecules>
       <div>
-        <IconFcst iconKey={now.sky == '맑음' ? 'CLEAN' : now.sky == '구름많음' ? 'CLOUD' : 'BLUR'} />
+        <IconFcst iconKey={convertIconKey(now.sky) ?? 'CLEAN'} />
         <TitleCenter>{now.sky}</TitleCenter>
       </div>
       <div>
