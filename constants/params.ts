@@ -15,7 +15,7 @@ export const PARAMS: {
 } = {
   HEAWOONDAE: {
     KO: '해운대',
-    BEACH: 3042,
+    BEACH: 304,
     FORECAST: {
       NX: 99,
       NY: 75,
