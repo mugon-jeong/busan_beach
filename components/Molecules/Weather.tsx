@@ -61,7 +61,7 @@ const Weather = ({ beachCode }: { beachCode: number }) => {
       const tmp = realTime.response.body.items.item.filter(value => value.category == 'T1H')[1];
       if (pty.fcstValue == '0') {
         const sky = realTime.response.body.items.item.filter(value => value.category == 'SKY')[1];
-        skyStatus = skyRole(Number(sky.fcstValue), true);
+        skyStatus = skyRole(Number(sky.fcstValue));
       } else {
         skyStatus = rainRole(Number(pty.fcstValue), true);
       }
