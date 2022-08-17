@@ -14,20 +14,48 @@ const ContentCenter = styled.div`
   margin-bottom: 1.2em;
 `;
 
-const TitleSection = styled.div`
+const WrapTitle = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const TitleLine = styled.div`
+  width: 54%;
+  height: 1px;
+  background-color: #fff;
+  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
+    width: 74%;
+  }
+  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
+    width: 50%;
+  }
+`;
+
+const TitleSection = styled.div`
+  width: 10em;
   box-sizing: border-box;
   position: relative;
-  border-top: 1px solid #fff;
+  font-size: 1.6em;
+  font-weight: 700;
+  padding: 1.2em 0;
+  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
+    width: 13em;
+  }
+  @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
+    width: 12em;
+  }
 `;
 
 const BeachContentBox = ({ beach }: { beach: string }) => {
   return (
     <>
       <ContentCenter>
-        <TitleSection>
-          <h2>이 지역 관광정보</h2>
-        </TitleSection>
+        <WrapTitle>
+          <TitleSection>이 지역 관광정보</TitleSection>
+          <TitleLine />
+        </WrapTitle>
         <>
           <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
             <OContent beach={beach + '1'} />
