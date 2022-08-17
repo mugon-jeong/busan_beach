@@ -15,13 +15,13 @@ const Layout = styled.div`
 
   @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
     width: 100%;
-    height: 94vh;
+    height: 92vh;
     padding: 1.2rem 1rem 2rem 1rem;
   }
 `;
 
 const WrapBg = styled.div`
-  width: 70%;
+  width: 88%;
   height: auto;
   z-index: -1;
   position: absolute;

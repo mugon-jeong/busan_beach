@@ -3,7 +3,7 @@ import { Theme } from '@emotion/react';
 const theme: Theme = {
   deviceSizes: {
     mobileSE: '320px',
-    mobile13P: '440px',
+    mobile13P: '480px',
     tablet: '1064px',
     pc: '1280px',
   },

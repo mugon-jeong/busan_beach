@@ -1,13 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import OFacParking from '$components/Organisms/OFacParking';
-import OFacBooth from '$components/Organisms/OFacBooth';
-import OFacShower from '$components/Organisms/OFacShower';
-import OFacSwim from '$components/Organisms/OFacSwim';
-import OFacLifejacket from '$components/Organisms/OFacLifejacket';
-import OFacParasole from '$components/Organisms/OFacParasole';
-import OFacSunbed from '$components/Organisms/OFacSunbed';
-import OFacTube from '$components/Organisms/OFacTube';
+import OFac from '$components/Organisms/OFac';
 
 const TemplateCenter = styled.div`
   width: 100%;
@@ -78,14 +71,14 @@ const TmplFac = ({
         <TitleLine />
       </WrapTitle>
       <>
-        <OFacSwim swim={swim} />
-        <OFacParking parking={parking} />
-        <OFacBooth booth={booth} />
-        <OFacShower shower={shower} />
-        <OFacLifejacket lifejacket={lifejacket} />
-        <OFacParasole parasole={parasole} />
-        <OFacSunbed sunbed={sunbed} />
-        <OFacTube tube={tube} />
+        <OFac iconKey={'SWIM'} title={'입수시간'} content={swim} />
+        <OFac iconKey={'PARKING'} title={'주차장'} content={parking} />
+        <OFac iconKey={'SHOWER'} title={'샤워시설'} content={shower} />
+        <OFac iconKey={'BOOTH'} title={'탈의실'} content={booth} />
+        <OFac iconKey={'LIFEJACKET'} title={'구명조끼'} content={lifejacket} />
+        <OFac iconKey={'PARASOLE'} title={'파라솔'} content={parasole} />
+        <OFac iconKey={'SUNBED'} title={'선베드'} content={sunbed} />
+        <OFac iconKey={'TUBE'} title={'튜브'} content={tube} />
       </>
     </TemplateCenter>
   );

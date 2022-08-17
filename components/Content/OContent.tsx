@@ -3,16 +3,18 @@ import BeachContentInfoOther from './BeachContentInfoOther';
 import { IconURL } from '$components/Content/Contents';
 
 const WrapMolecules = styled.div`
-  width: 13.5em;
+  width: 48%;
   padding: 0.8em;
   margin-bottom: 1em;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  flex-direction: column;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
+  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
+    width: 32%;
+  }
   @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
     width: 48%;
     flex-direction: column;

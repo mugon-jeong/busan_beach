@@ -28,7 +28,10 @@ const TmplFcstTimely = ({ nx, ny }: { nx: number; ny: number }) => {
         e.stopPropagation();
       }}
     >
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonTimely />} rejectedFallback={() => <ErrorMesage />}>
+      <AsyncBoundaryWithQuery
+        pendingFallback={<SkeletonTimely />}
+        rejectedFallback={() => <ErrorMesage IsLarge={true} />}
+      >
         <OFcstTimely nx={nx} ny={ny} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>

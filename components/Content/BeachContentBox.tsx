@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import OContent from '$components/Content/OContent';
-import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery';
-import SkeletonOthers from '$components/Molecules/SkeletonOthers';
-import ErrorMesage from '$components/Molecules/ErrorMessage';
 
 const ContentCenter = styled.div`
   width: 100%;
@@ -57,18 +54,10 @@ const BeachContentBox = ({ beach }: { beach: string }) => {
           <TitleLine />
         </WrapTitle>
         <>
-          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
-            <OContent beach={beach + '1'} />
-          </AsyncBoundaryWithQuery>
-          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
-            <OContent beach={beach + '2'} />
-          </AsyncBoundaryWithQuery>
-          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
-            <OContent beach={beach + '3'} />
-          </AsyncBoundaryWithQuery>
-          <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
-            <OContent beach={beach + '4'} />
-          </AsyncBoundaryWithQuery>
+          <OContent beach={beach + '1'} />
+          <OContent beach={beach + '2'} />
+          <OContent beach={beach + '3'} />
+          <OContent beach={beach + '4'} />
         </>
       </ContentCenter>
     </>

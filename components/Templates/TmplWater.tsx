@@ -21,10 +21,16 @@ const TemplateRight = styled.div`
 const TmplWater = ({ beachCode }: { beachCode: number }) => {
   return (
     <TemplateRight>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
+      <AsyncBoundaryWithQuery
+        pendingFallback={<SkeletonOthers />}
+        rejectedFallback={() => <ErrorMesage IsLarge={false} />}
+      >
         <OFcstWater beachCode={beachCode} />
       </AsyncBoundaryWithQuery>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
+      <AsyncBoundaryWithQuery
+        pendingFallback={<SkeletonOthers />}
+        rejectedFallback={() => <ErrorMesage IsLarge={false} />}
+      >
         <OFcstWave beachCode={beachCode} />
       </AsyncBoundaryWithQuery>
     </TemplateRight>

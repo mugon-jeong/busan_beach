@@ -20,16 +20,28 @@ const TemplateCenter = styled.div`
 const TmplFcstOther = ({ areaNo, oceanCode, areaIndex }: { areaNo: number; oceanCode: string; areaIndex: number }) => {
   return (
     <TemplateCenter>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
+      <AsyncBoundaryWithQuery
+        pendingFallback={<SkeletonOthers />}
+        rejectedFallback={() => <ErrorMesage IsLarge={false} />}
+      >
         <OFcstUv areaNo={areaNo} />
       </AsyncBoundaryWithQuery>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
+      <AsyncBoundaryWithQuery
+        pendingFallback={<SkeletonOthers />}
+        rejectedFallback={() => <ErrorMesage IsLarge={false} />}
+      >
         <OFcstWind oceanCode={oceanCode} />
       </AsyncBoundaryWithQuery>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
+      <AsyncBoundaryWithQuery
+        pendingFallback={<SkeletonOthers />}
+        rejectedFallback={() => <ErrorMesage IsLarge={false} />}
+      >
         <OFcstAir areaIndex={areaIndex} />
       </AsyncBoundaryWithQuery>
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonOthers />} rejectedFallback={() => <ErrorMesage />}>
+      <AsyncBoundaryWithQuery
+        pendingFallback={<SkeletonOthers />}
+        rejectedFallback={() => <ErrorMesage IsLarge={false} />}
+      >
         <OFcstFineAir areaIndex={areaIndex} />
       </AsyncBoundaryWithQuery>
     </TemplateCenter>

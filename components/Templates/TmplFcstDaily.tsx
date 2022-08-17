@@ -28,7 +28,10 @@ const TmplFcstDaily = ({ regIdR, regIdM }: { regIdR: string; regIdM: string }) =
         e.stopPropagation();
       }}
     >
-      <AsyncBoundaryWithQuery pendingFallback={<SkeletonDaily />} rejectedFallback={() => <ErrorMesage />}>
+      <AsyncBoundaryWithQuery
+        pendingFallback={<SkeletonDaily />}
+        rejectedFallback={() => <ErrorMesage IsLarge={true} />}
+      >
         <OFcstDaily regIdR={regIdR} regIdM={regIdM} />
       </AsyncBoundaryWithQuery>
     </TemplateLeft>
