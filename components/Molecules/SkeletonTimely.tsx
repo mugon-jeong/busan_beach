@@ -3,68 +3,45 @@ import styled from '@emotion/styled';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-const WrapFcstTimely = styled.div`
+const WrapComp = styled.div`
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 0 0.25em;
-  line-height: 2;
-  margin-bottom: 0.24em;
-  margin-right: 1em;
-  &:last-child {
-    margin-right: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+`;
+
+const WrapMolecules = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: scroll;
+
+  ::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
   }
 `;
 
-const TemptCurrent = styled.div`
-  font-size: 0.875rem;
-  text-align: center;
-`;
-
-const TimeCurrent = styled.div`
-  font-size: 0.875rem;
-  text-align: center;
-`;
-
-const FcstIcon = styled.div`
-  width: 1.4em;
-  height: 1.4em;
-  background-color: transparent;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 1;
-  margin-bottom: 0.2em;
-`;
-
-export interface timelyInfo {
-  tempTimely: number;
-  rainRate: number;
-  time: number;
-}
-
 const SkeletonTimely = () => {
   return (
-    <WrapFcstTimely>
-      <TemptCurrent>
+    <WrapComp>
+      <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
+        <Skeleton width={50} height={40} />
+      </SkeletonTheme>
+      <WrapMolecules>
         <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
-          <Skeleton width={24} />
+          <Skeleton width={500} height={60} />
         </SkeletonTheme>
-      </TemptCurrent>
-      <FcstIcon>
-        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
-          <Skeleton circle height="100%" />
-        </SkeletonTheme>
-      </FcstIcon>
-      <TimeCurrent>
-        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
-          <Skeleton width={24} />
-        </SkeletonTheme>
-      </TimeCurrent>
-      <TimeCurrent>
-        <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
-          <Skeleton width={24} />
-        </SkeletonTheme>
-      </TimeCurrent>
-    </WrapFcstTimely>
+      </WrapMolecules>
+    </WrapComp>
   );
 };
 

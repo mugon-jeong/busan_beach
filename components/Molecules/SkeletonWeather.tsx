@@ -45,11 +45,6 @@ const SkeletonOthers = () => {
     <>
       <WrapMolecules>
         <div>
-          <FcstIcon>
-            <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
-              <Skeleton circle height="100%" />
-            </SkeletonTheme>
-          </FcstIcon>
           <TitleCenter>
             <SkeletonTheme baseColor="#afafaf" highlightColor="#e0e0e0" borderRadius="0.5rem" duration={4}>
               <Skeleton width={40} />

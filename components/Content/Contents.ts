@@ -47,8 +47,8 @@ export const IconURL: {
   },
   임랑3: {
     url: '/asset/content/Imrang_Outlet.png',
-    alt: '부산프리미엄아울렛',
-    content: '부산프리미엄아울렛',
+    alt: '프리미엄아울렛',
+    content: '프리미엄아울렛',
     link: 'https://www.premiumoutlets.co.kr/busan/ko',
   },
   임랑4: {
