@@ -9,6 +9,7 @@ import AsyncBoundaryWithQuery from '$components/Boundary/AsyncBoundaryWithQuery'
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { gtagPageview } from '$utils/googleAnalytics';
+import LoadingMessage from '$components/Molecules/LoadingMessage';
 
 declare let gtag: Function;
 
@@ -41,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Global styles={GlobalStyle} />
       <Seo />
-      <AsyncBoundaryWithQuery>
+      <AsyncBoundaryWithQuery pendingFallback={<LoadingMessage />}>
         <Component {...pageProps} />
       </AsyncBoundaryWithQuery>
       {NEXT_PUBLIC_ENV === 'local' ? <ReactQueryDevtools initialIsOpen={false} /> : null}
