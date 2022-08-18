@@ -180,7 +180,8 @@ const Home: NextPage = () => {
             <Div>
               {!isInstalled && (
                 <AddToHome onClick={addToHomeScreen}>
-                  <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={150} height={150} />
+                  <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={200} height={200} />
+                  <p>홈화면추가</p>
                 </AddToHome>
               )}
             </Div>
