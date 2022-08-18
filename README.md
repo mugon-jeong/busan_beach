@@ -69,9 +69,9 @@ $ docker compose up
 
 ## 프로젝트에 활용한 OPEN API 목록
 
-* [기상청_전국 해수욕장 날씨 조회서비스](https://www.data.go.kr/iim/api/selectAPIAcountView.do)
-* [기상청_생활기상지수 조회서비스(3.0)](https://www.data.go.kr/iim/api/selectAPIAcountView.do)
-* [부산광역시_대기질 정보 조회](https://www.data.go.kr/iim/api/selectAPIAcountView.do)
-* [기상청_단기예보 ((구)_동네예보) 조회서비스](https://www.data.go.kr/iim/api/selectAPIAcountView.do)
-* [기상청_중기예보 조회서비스](https://www.data.go.kr/iim/api/selectAPIAcountView.do)
-* [해양수산부 국립해양조사원_해수욕장정보](https://www.data.go.kr/data/15099707/openapi.do)
+* [기상청_전국 해수욕장 날씨 조회서비스](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15102239)
+* [기상청_생활기상지수 조회서비스(3.0)](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15085288)
+* [부산광역시_대기질 정보 조회](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15057173)
+* [기상청_단기예보 ((구)_동네예보) 조회서비스](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15084084)
+* [기상청_중기예보 조회서비스](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15059468)
+* [해양수산부 국립해양조사원_해수욕장정보](http://www.khoa.go.kr/oceangrid/khoa/takepart/openapi/openApiBeachInfo.do)
