@@ -90,17 +90,6 @@ const Div = styled.div`
   }
 `;
 
-const AddToHome = styled.div`
-  width: auto;
-  height: auto;
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-
 const Home: NextPage = () => {
   const router = useRouter();
   const { isInstalled, addToHomeScreen } = useBeforeInstallPrompt({
@@ -179,10 +168,10 @@ const Home: NextPage = () => {
             </Div>
             <Div>
               {!isInstalled && (
-                <AddToHome onClick={addToHomeScreen}>
+                <Div onClick={addToHomeScreen}>
                   <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={200} height={200} />
-                  <p>홈화면추가</p>
-                </AddToHome>
+                  <p>홈추가</p>
+                </Div>
               )}
             </Div>
           </WrapButtons>
