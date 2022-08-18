@@ -30,16 +30,6 @@ const WrapButtons = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
-  div {
-    width: 24%;
-    margin-bottom: 1rem;
-    cursor: pointer;
-
-    :hover {
-      transform: translateY(-5%);
-    }
-  }
-
   @media (max-width: ${props => props.theme.deviceSizes.pc}) {
     width: 70%;
   }
@@ -56,11 +46,60 @@ const WrapButtons = styled.div`
 `;
 
 const Div = styled.div`
-  width: auto;
+  width: 24%;
   height: auto;
   display: flex;
   justify-content: center;
   position: relative;
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  :hover {
+    transform: translateY(-5%);
+  }
+
+  @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
+    width: 44%;
+  }
+
+  p {
+    font-size: 1.1em;
+    font-family: 'Cafe24Ssurround', 'Noto Sans KR', sans-serif;
+    padding: 0.6em;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    @media (max-width: ${props => props.theme.deviceSizes.tablet}) {
+      width: 64%;
+      text-align: center;
+      padding: 0.3em;
+    }
+    @media (max-width: ${props => props.theme.deviceSizes.mobile13P}) {
+      width: 72%;
+      text-align: center;
+      padding: 0.3em;
+      font-size: 1em;
+    }
+  }
+`;
+
+const AddToHome = styled.div`
+  width: 24%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  div {
+    width: 100%;
+  }
 
   p {
     font-size: 1.1em;
@@ -166,14 +205,14 @@ const Home: NextPage = () => {
               <Image src="/asset/img/button_songdo.png" alt="go to Songdo" width={200} height={200} />
               <p>송도</p>
             </Div>
-            <Div>
+            <AddToHome>
               {!isInstalled && (
-                <Div onClick={addToHomeScreen}>
+                <div onClick={addToHomeScreen} className="gotohome">
                   <Image src="/asset/img/add-to-home.png" alt="go to heawoondae" width={200} height={200} />
                   <p>홈추가</p>
-                </Div>
+                </div>
               )}
-            </Div>
+            </AddToHome>
           </WrapButtons>
         </WrapImg>
       </Main>
