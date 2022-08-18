@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { isInstanceOfCommonApiError } from '$utils/error/ApiError';
 
 // 공통에러처리 후 건드리면 안됨
 
@@ -40,11 +39,11 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   componentDidCatch(error: any, errorInfo: any) {
     // window.location.replace('/');
     // 예기치 못한 에러는 메인페이지로 이동
-    console.log('error', error);
-    if (isInstanceOfCommonApiError(error)) {
-      console.log('error', error);
-      // window.location.replace('/');
-    }
+    // console.log('error', error);
+    // if (isInstanceOfCommonApiError(error)) {
+    //   console.log('error', error);
+    //   window.location.replace('/');
+    // }
   }
 
   render() {
