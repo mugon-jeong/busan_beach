@@ -96,6 +96,7 @@ const AddToHome = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  cursor: pointer;
 
   div {
     width: 100%;
@@ -107,7 +108,7 @@ const AddToHome = styled.div`
     padding: 0.6em;
     border-radius: 10px;
     position: absolute;
-    bottom: 0;
+    bottom: 4%;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.25);
