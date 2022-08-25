@@ -8,7 +8,7 @@
     "build": "next build",
     "build:local": "cross-env NEXT_PUBLIC_ENV=local next build",
     "build:production": "cross-env NEXT_PUBLIC_ENV=production next build",
-    "start": "cross-env NEXT_PUBLIC_ENV=local next start",
+    "start": "cross-env NEXT_PUBLIC_ENV=production next start",
     "lint": "next lint"
   },
   "dependencies": {
