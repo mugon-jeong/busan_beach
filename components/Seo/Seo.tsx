@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { GA_TRACKING_ID } from '$config';
+import { GA_TRACKING_ID, GOOGLE_AD_SENSE_ID } from '$config';
 import Script from 'next/script';
 
 const schemaData = {
@@ -114,6 +114,13 @@ const Seo = () => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
+        <Script
+          id="Adsense"
+          data-ad-client={`${GOOGLE_AD_SENSE_ID}`}
+          async={true}
+          strategy={'beforeInteractive'}
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></Script>
       </>
       <Head>
         <title>부산해수욕장날씨</title>

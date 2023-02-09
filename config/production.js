@@ -8,6 +8,7 @@ const {
   AIR_QUALITY_KEY,
   NAVER_ANALYTICS_KEY,
   GA_TRACKING_ID,
+  GOOGLE_AD_SENSE_ID,
 } = process.env;
 
 module.exports = {
@@ -20,4 +21,5 @@ module.exports = {
   AIR_QUALITY_KEY,
   NAVER_ANALYTICS_KEY,
   GA_TRACKING_ID,
+  GOOGLE_AD_SENSE_ID,
 };

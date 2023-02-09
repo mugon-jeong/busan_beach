@@ -13,6 +13,7 @@ interface Config {
   AIR_QUALITY_KEY: string;
   NAVER_ANALYTICS_KEY: string;
   GA_TRACKING_ID: string;
+  GOOGLE_AD_SENSE_ID: string;
 }
 
 const config = getConfig();
@@ -29,4 +30,5 @@ export const {
   AIR_QUALITY_KEY,
   NAVER_ANALYTICS_KEY,
   GA_TRACKING_ID,
+  GOOGLE_AD_SENSE_ID,
 } = publicRuntimeConfig;
